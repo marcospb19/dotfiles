@@ -1,0 +1,30 @@
+#
+#    __                _ __
+#   / /____ ______ _  (_) /____
+#  / __/ -_) __/  ' \/ / __/ -_)
+#  \__/\__/_/ /_/_/_/_/\__/\__/
+#
+#
+# Config from github.com/marcopb19/dotfiles
+
+include colors
+
+[options]
+font = terminus bold 20
+# cell_height_scale = 1.1
+scrollbar = off
+allow_bold = true
+bold_is_bright = true
+clickable_url = true
+browser = chromium
+fullscreen = true
+mouse_autohide = true
+scroll_on_output = false
+scroll_on_keystroke = true
+scrollback_lines = 25000
+hyperlinks = true
+cursor_blink = on
+cursor_shape = ibeam
+size_hints = true
+
+# vim: ft=dosini cms=#%s

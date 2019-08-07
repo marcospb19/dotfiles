@@ -1,0 +1,91 @@
+#!/usr/bin/env zsh
+# Shebang just for syntax highlighting xD
+
+
+# Colors
+red="\e[31m"
+reset="\e[0m"
+
+function extract
+{
+	# function Extract for various compressed file formats
+	local should_exit
+
+	[[ "$#" < 1 ]] && echo "Expected at least 1 file." && return 1
+
+	for n in "$@"; do
+		if [[ ! -f "$n" ]] ; then
+				echo "'$n' - file does not exist, aborting"
+				should_exit=yes
+		fi
+	done
+
+	[[ $should_exit ]] && return 2
+
+	for n in "$@"
+	do
+		case "${n%,}" in
+			*.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+				          tar xvf "$n"       ;;
+			*.cbz|*.epub|*.zip)
+				          mkdir "${n%.*}" # Create the directory first
+				          unzip "$n" -d "${n%.*}" ;;
+			*.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+				          7z x        ./"$n" ;;
+			*.lzma)       unlzma      ./"$n" ;;
+			*.bz2)        bunzip2     ./"$n" ;;
+			*.cbr|*.rar)  unrar x -ad ./"$n" ;;
+			*.gz)         gunzip      ./"$n" ;;
+			*.z)          uncompress  ./"$n" ;;
+			*.xz)         unxz        ./"$n" ;;
+			*.exe)        cabextract  ./"$n" ;;
+			*.cpio)       cpio -id <  ./"$n" ;;
+			*.cba|*.ace)  unace x     ./"$n" ;;
+
+			*)
+				echo "${red}extract: '$n' - unknown archive extraction method${reset}"
+				return 3 ;;
+		esac
+	done
+}
+
+function md5aur()
+{
+	[[ "$#" != 0 ]] && echo "Expected 0 arguments." && return 1
+
+	echo "running \"updpkgsums && makepkg --printsrcinfo > .SRCINFO && makepkg -si\""
+                    updpkgsums && makepkg --printsrcinfo > .SRCINFO && makepkg -si
+}
+
+function up()
+{
+	[[ "$#" == 1 ]] || echo "Expected 1 argument." && return 1
+
+	for i in {1.."$1"}; do
+		if [[ $(pwd) != "/" ]]; then
+			cd ..
+		else
+			echo "Reached the top, $(( $1 - $i + 1 )) remaining."
+			return
+		fi
+	done
+}
+
+function compila()
+{
+	[[ "$#" != 1 ]] && echo "Expected 1 argument." && return 1
+
+	g++ $1.cpp -o $1 -Wall -Wextra -Wshadow -Wno-unused-result -Wno-unused-function -std=c++11
+}
+
+function find-package-owner-of()
+{
+	[[ "$#" == 1 ]] || (echo "Expected 1 argument." && return 1)
+
+	local pkg=$(realpath "$1") # Absolute path
+	local search=$(pacman -Ql | grep -E " ${pkg}$")
+
+	for i in $search; do
+		printf "$i" | toybox sed -r "s/^([^ ]+).+$/\1/g" | xargs printf " ${pkg} --> %s\n"
+	done
+}

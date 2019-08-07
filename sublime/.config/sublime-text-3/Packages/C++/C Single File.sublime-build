@@ -1,0 +1,34 @@
+{
+	"shell_cmd": "clang -lm -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+	"working_dir": "${file_path}",
+	"selector": "source.c",
+
+	"variants":
+	[
+		{
+			"name": "Run",
+			"shell_cmd": "clang -lm -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+		},
+		{
+			"name": "Run test \"in\"",
+			"shell_cmd": "clang -lm -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
+		},
+		{
+			"name": "Timed Run",
+			"shell_cmd": "time \"${file_path}/${file_base_name}\""
+		},
+		{
+			"name": "Run Make and run the program",
+			"shell_cmd": "make && \"${file_path}/${file_base_name}\""
+		},
+		{
+			"name": "Run with -O3",
+			"shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+		},
+		{
+			"name": "Compile with -O3",
+			"shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\""
+		}
+	]
+}

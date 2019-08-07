@@ -1,0 +1,61 @@
+[
+	// Fix the binding Ctrl + Pause/Break
+	{ "keys": ["ctrl+pause"], "command": "cancel_build" },
+
+	// Clipboard history (last 10)
+	{ "keys": ["ctrl+shift+v"], "command": "paste_from_history" },
+
+	// Format tabs indentation
+	{ "keys": ["ctrl+q"], "command": "unexpand_tabs" , "args": {"set_translate_tabs": false} },
+
+	// Indent the file
+	{ "keys": ["ctrl+e"], "command": "reindent" ,  "args": {"single_line": false} },
+
+	// Toggle soft wrap
+	{ "keys": ["ctrl+shift+e"], "command": "toggle_setting" , "args": {"setting": "word_wrap"} },
+
+	// Skip selection, next
+	{ "keys": ["alt+d"], "command": "find_under_expand_skip" },
+
+	// Experimental
+	{ "keys": ["ctrl+shift+d"], "command": "find_under_expand" },
+	{ "keys": ["ctrl+shift+c"], "command": "find_under_expand_skip" },
+
+	// Compiling and running in sublime
+	{ "keys": ["ctrl+enter"], "command": "build" },
+	{ "keys": ["ctrl+shift+enter"], "command": "build", "args": {"select": true} },
+
+	// Swapping with the 2 default keybindings used above
+	{ "keys": ["ctrl+b"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"} },
+	{ "keys": ["ctrl+shift+b"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"} },
+
+	// Add cursor above/below
+	{ "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
+	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
+
+	// Scroll 4x faster
+	{ "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 4 } },
+	{ "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -4 } },
+
+	// Fixing Ctrl+Tab tab cycle order
+	{ "keys": ["ctrl+tab"], "command": "next_view" },
+	{ "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+
+	// Leave this here, i don't use macros
+	// { "keys": ["ctrl+alt+q"], "command": "toggle_record_macro" },
+	// { "keys": ["ctrl+alt+shift+q"], "command": "run_macro" },
+
+	// Format To Title Case
+	{ "keys": ["ctrl+k", "ctrl+t"], "command": "title_case" },
+
+	// Correcting missclick of Ctrl + Home/End instead of Ctrl + PgUP/PgDown
+	{ "keys": ["ctrl+pagedown"], "command": "move_to", "args": {"to": "eof", "extend": false} },
+	{ "keys": ["ctrl+pageup"], "command": "move_to", "args": {"to": "bof", "extend": false} },
+
+	// Toggle git inline diffs
+	{ "keys": ["ctrl+\\"], "command": "toggle_inline_diff", "args": { "prefer_hide": true } },
+
+	// Revert modification from git inline diff
+	{ "keys": ["ctrl+shift+\\"], "command": "revert_modification" },
+	{ "keys": ["ctrl+k" , "ctrl+\\"], "command": "revert_modification" },
+]

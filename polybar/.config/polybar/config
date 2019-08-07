@@ -1,0 +1,131 @@
+;                __     __
+;     ___  ___  / /_ __/ /  ___ _____
+;    / _ \/ _ \/ / // / _ \/ _ `/ __/
+;   / .__/\___/_/\_, /_.__/\_,_/_/
+;  /_/          /___/
+;
+;
+; https://github.com/marcospb19/dotfiles
+
+
+; Laptop Screen
+[bar/eDP]
+inherit = bar/main
+monitor = eDP-1
+monitor-fallback = eDP
+
+
+; HDMI Monitor
+[bar/HDMI]
+inherit = bar/main
+monitor = HDMI-1
+monitor-fallback = HDMI-A-0
+
+
+; The bar itself
+[bar/main]
+enable-ipc = true
+modules-left = i3mode
+modules-center = i3
+modules-right = batteryscript cpu memory date
+
+fixed-center = true
+tray-position = right
+tray-padding = 1
+height = 26
+line-size = 4
+
+background = #353535
+foreground = #c7c7c7
+
+font-0 = Noto Sans Mono:style=bold:pixelsize=11.4
+; font-1 = Iosevka Nerd Font:style=regular:antialias=true
+padding-left = 2
+padding-right = 2
+module-margin-left = 2
+module-margin-right = 1
+
+
+; Show i3mode menu on different place
+[module/i3mode]
+type = internal/i3
+fomart = %mode%
+
+label-focused   =
+label-unfocused =
+label-visible   =
+label-urgent    =
+
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-background = #455040
+label-mode-foreground = #b0ffb0
+
+
+; i3wm
+[module/i3]
+type = internal/i3
+format = <label-state>
+pin-workspaces = true
+
+; Workspaces
+label-focused-foreground = #ebeaea
+label-focused-background = #555
+label-focused-underline = #ff8899
+
+label-unfocused-foreground = #a9a9a9
+label-unfocused-underline = #898989
+
+label-urgent-foreground = #e8e8e8
+label-urgent-underline = #f00
+label-urgent-background = #a00000
+
+label-visible-foreground = #000
+label-visible-background = #b8b8b8
+label-visible-underline = #999
+
+; Sad that there's no one-liner for this
+label-focused   = %index%
+label-unfocused = %index%
+label-urgent    = %index%
+label-visible   = %index%
+label-focused-padding   = 2
+label-unfocused-padding = 2
+label-urgent-padding    = 2
+label-visible-padding   = 2
+
+
+; CPU percentage
+[module/cpu]
+type = internal/cpu
+interval = 1.7
+label-underline = #87f0ae
+
+
+; RAM percentage
+[module/memory]
+type = internal/memory
+interval = 2.3
+label-underline = #ffb780
+
+
+; Current date
+[module/date]
+type = internal/date
+interval = 1
+label = " %date% %time% "
+label-underline = #ff8899
+date = %x
+time = %I:%M %p
+date-alt = %A, %d %B, %Y,
+time-alt = %I:%M:%S %p
+
+
+; Custom script that shows battery percentage if low
+[module/batteryscript]
+type = custom/script
+interval = 50
+exec = sh ~/.config/polybar/batteryscript.sh
+label-underline = #6bf
+
+; vim: ft=dosini cms=#%s

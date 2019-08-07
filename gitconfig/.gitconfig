@@ -1,0 +1,9 @@
+[user]
+	name = João Marcos
+	email = marcospb19@hotmail.com
+[core]
+	editor = nvim
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[commit]
+	cleanup = scissors

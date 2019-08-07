@@ -1,0 +1,21 @@
+# I think this script will be useful someday, staw needs to be done
+
+if [[ $USER == "root" ]]; then
+	echo "don't run this as root lol..."
+	exit 1
+fi
+
+git config --global user.name  "João Marcos"
+git config --global user.email "marcospb19@hotmail.com"
+
+sudo sed -i "s/wheel ALL=(ALL) ALL/wheel ALL=(ALL) NOPASSWD:ALL/g" sudoers &
+
+sudo pacman -S stow termite chromium gcc telegram-desktop
+
+git clone https://aur.archlinux.org/yay-bin
+cd yay-bin
+makepkg -si
+
+yay -S spotify corrupter-git sublime-text sublime-merge
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
