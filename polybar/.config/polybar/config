@@ -74,7 +74,7 @@ label-focused-background = #555
 label-focused-underline = #ff8899
 
 label-unfocused-foreground = #a9a9a9
-label-unfocused-underline = #898989
+label-unfocused-underline = #777
 
 label-urgent-foreground = #e8e8e8
 label-urgent-underline = #f00
