@@ -43,7 +43,7 @@
 		"no_italic",
 		"no_bold"
 	],
-	"font_size": 16,
+	"font_size": 15,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
