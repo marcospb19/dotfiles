@@ -58,4 +58,15 @@
 	// Revert modification from git inline diff
 	{ "keys": ["ctrl+shift+\\"], "command": "revert_modification" },
 	{ "keys": ["ctrl+k" , "ctrl+\\"], "command": "revert_modification" },
+
+	// Automatic Package Reloader
+	{
+		"keys": ["ctrl+f5"],
+		"command": "package_reloader_reload"
+	},
+
+	{
+		"keys": ["ctrl+alt+c"], "command": "show_panel", "args": {"panel": "console", "toggle": true}
+	},
+
 ]

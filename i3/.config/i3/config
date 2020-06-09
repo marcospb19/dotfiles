@@ -5,11 +5,11 @@
 # exec_always --no-startup-id picom
 
 # Super key
-set $mod Mod4     
+set $mod Mod4
 # Alt key
-set $alt Mod1     
+set $alt Mod1
 # Enter key
-set $enter Return 
+set $enter Return
 
 # # Very specific, problem with my keyboard
 bindsym $mod+o exec --no-startup-id setxkbmap br abnt2
@@ -17,11 +17,11 @@ exec --no-startup-id setxkbmap br abnt2
 
 # # Gaps
 gaps inner 12
-gaps outer 1
+gaps outer 0
 
 # Mmmmmmm
-# smart_gaps off
-# smart_borders on
+smart_gaps on
+smart_borders on
 hide_edge_borders on
 
 # # Polybar and multiple monitor management
@@ -45,7 +45,7 @@ bindsym $alt+Shift+Tab focus left
 
 ###################################################################################
 
-set $mode_system (E)xit, (S)uspend, (R)eboot, (Shift+S)hutdown 
+set $mode_system (E)xit, (S)uspend, (R)eboot, (Shift+S)hutdown
 bindsym $mod+Shift+l mode "$mode_system"
 mode "$mode_system" {
     bindsym e exec --no-startup-id i3-msg exit                    , mode "default"
@@ -60,7 +60,7 @@ mode "$mode_system" {
 
 # Betterlockscreen
 exec --no-startup-id betterlockscreen -l
-bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
+bindsym $mod+l exec --no-startup-id ~/coisas/betterlockscreen/betterlockscreen  -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
@@ -84,7 +84,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # # Start a terminal
-bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom
+bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
+	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force
 
 # # Kill focused window
 bindsym $mod+q kill
@@ -181,7 +182,8 @@ new_window pixel 4
 
 # Theme colors
 # Class                   border  backgr. text    indic.   child_border
-client.focused          #ff8395 #ff8395 #ff8395 #FDF6E3
+client.focused          #777777 #777777 #777777 #FDF6E3
+#client.focused          #ff8395 #ff8395 #ff8395 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #2F3D44 #454948
 client.unfocused        #2F3D44 #2F3D44 #2F3D44 #454948
 client.urgent           #ee3300 #ee3300 #ee3300 #268BD2
@@ -196,3 +198,13 @@ bindsym $mod+F2 exec --no-startup-id ~/.screenlayout/dual.sh
 bindsym $mod+F3 exec --no-startup-id ~/.screenlayout/external.sh
 # Move workspace to other monitor
 bindsym $mod+Shift+$enter move workspace to output right
+
+
+
+bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
+    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
+        i3-msg gaps inner current set 0; \
+    else \
+        i3-msg gaps inner current set 12; \
+    fi"
+

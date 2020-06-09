@@ -87,3 +87,6 @@ export PATH=/home/marcospb19/.local/bin:$PATH
 
 # Enable and disable my git prompt information
 # git=
+
+
+head -1 ~/.config/termite/colors
