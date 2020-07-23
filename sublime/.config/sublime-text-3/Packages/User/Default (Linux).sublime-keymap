@@ -5,8 +5,11 @@
 	// Clipboard history (last 10)
 	{ "keys": ["ctrl+shift+v"], "command": "paste_from_history" },
 
-	// Format tabs indentation
-	{ "keys": ["ctrl+q"], "command": "unexpand_tabs" , "args": {"set_translate_tabs": false} },
+	// Format spaces indentation
+	{ "keys": ["ctrl+q"], "command": "unexpand_tabs" , "args": {"set_translate_tabs": true} },
+
+	// Reverse
+	{ "keys": ["ctrl+shift+q"], "command": "unexpand_tabs" , "args": {"set_translate_tabs": false} },
 
 	// Indent the file
 	{ "keys": ["ctrl+e"], "command": "reindent" ,  "args": {"single_line": false} },

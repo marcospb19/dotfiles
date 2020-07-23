@@ -4,7 +4,7 @@ Def	fieldscur=(¥³4;=@ºÄ·¹Å&')*+,-./012568<>?ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdef
 	winflags=195892, sortindx=21, maxtasks=0, graph_cpus=0, graph_mems=2
 	summclr=2, msgsclr=3, headclr=7, taskclr=2
 Job	fieldscur=¥¨º·Å¼¦°3'D4;=@)*+,-./125689>?ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
-	winflags=147028, sortindx=18, maxtasks=0, graph_cpus=1, graph_mems=2
+	winflags=146516, sortindx=18, maxtasks=0, graph_cpus=1, graph_mems=2
 	summclr=6, msgsclr=6, headclr=7, taskclr=6
 Mem	fieldscur=¥º»<½¾¿ÀÁMBNÃD34·Å&'()*+,-./0125689FGHIJKLOPQRSTUVWXYZ[\]^_`abcdefghij
 	winflags=195892, sortindx=21, maxtasks=0, graph_cpus=0, graph_mems=0
@@ -12,5 +12,5 @@ Mem	fieldscur=¥º»<½¾¿ÀÁMBNÃD34·Å&'()*+,-./0125689FGHIJKLOPQRSTUVWXYZ[\]^_`abcdef
 Usr	fieldscur=¥¦§¨ª°¹·ºÄÅ)+,-./1234568;<=>?@ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij
 	winflags=195892, sortindx=3, maxtasks=0, graph_cpus=0, graph_mems=0
 	summclr=3, msgsclr=3, headclr=2, taskclr=3
-Fixed_widest=10, Summ_mscale=3, Task_mscale=3, Zero_suppress=1
+Fixed_widest=-1, Summ_mscale=2, Task_mscale=3, Zero_suppress=1
 

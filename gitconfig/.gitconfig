@@ -3,7 +3,9 @@
 	email = marcospb19@hotmail.com
 [core]
 	editor = nvim
-[url "git@github.com:"]
-	insteadOf = https://github.com/
+	pager = "delta --dark --plus-color=#012800 --minus-color=#340001 --theme=base16"
+[url "ssh://git@github.com/"]
+        pushInsteadOf = "https://github.com/"
+        pushInsteadOf = "git://github.com/"
 [commit]
 	cleanup = scissors

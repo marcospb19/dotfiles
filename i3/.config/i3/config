@@ -163,7 +163,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec --no-startup-id feh --bg-fill .wall --no-fehbg && i3-msg restart && ~/.config/polybar/launch.sh
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 

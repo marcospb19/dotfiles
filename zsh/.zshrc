@@ -26,7 +26,6 @@ source $ZSH/oh-my-zsh.sh
 
 [ -d./.bin ] && export PATH=$PATH:$HOME/.bin
 
-
 CASE_SENSITIVE="false"
 
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -90,3 +89,5 @@ export PATH=/home/marcospb19/.local/bin:$PATH
 
 
 head -1 ~/.config/termite/colors
+
+export PATH=$PATH:$HOME/.cargo/bin
