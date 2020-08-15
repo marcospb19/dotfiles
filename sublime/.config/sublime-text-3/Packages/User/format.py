@@ -32,6 +32,7 @@ class formatCommand(sublime_plugin.TextCommand):
         print('Formatting', file_name)
 
         if language == 'Python':
+            return
             formatted_code, error, return_code = _run_terminal_command(
                 'python -m black --fast -Sc'.split(' ') + [code]
             )
@@ -43,7 +44,7 @@ class formatCommand(sublime_plugin.TextCommand):
 
         if return_code == 0:
             self.view.replace(
-                edit, sublime.Region(0, self.view.size()), formatted_code[:-1]
+                edit, sublime.Region(0, self.view.size()), formatted_code
             )
         else:
             print(return_code, 'error: error while trying to format')

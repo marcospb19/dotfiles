@@ -89,3 +89,9 @@ function find-package-owner-of()
 		printf "$i" | toybox sed -r "s/^([^ ]+).+$/\1/g" | xargs printf " ${pkg} --> %s\n"
 	done
 }
+
+function ink() {	
+	for i in "$@"; do
+		inkscape > /dev/null 2> /dev/null $i &
+	done
+}

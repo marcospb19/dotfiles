@@ -60,7 +60,7 @@ mode "$mode_system" {
 
 # Betterlockscreen
 exec --no-startup-id betterlockscreen -l
-bindsym $mod+l exec --no-startup-id ~/coisas/betterlockscreen/betterlockscreen  -l dimblur
+bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman

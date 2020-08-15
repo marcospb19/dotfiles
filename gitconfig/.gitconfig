@@ -9,3 +9,5 @@
         pushInsteadOf = "git://github.com/"
 [commit]
 	cleanup = scissors
+[pull]
+	ff = only

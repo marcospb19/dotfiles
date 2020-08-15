@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "Packages/One-Dark-Package/One Dark.tmTheme",
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).sublime-color-scheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
