@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).sublime-color-scheme",
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Soft) NDC.sublime-color-scheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -38,7 +38,7 @@
 		"*.sublime-workspace"
 	],
 	"font_face": "fira code medium",
-	"font_size": 12,
+	"font_size": 13,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
