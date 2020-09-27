@@ -53,6 +53,9 @@ function md5aur()
 {
 	[[ "$#" != 0 ]] && echo "Expected 0 arguments." && return 1
 
+	which updpkgsums 2> /dev/null
+	[[ "$(echo $?)" != "0" ]] && (echo 'install"sudo pacman -S pacman-contrib"' ; return 1)
+
 	echo "running \"updpkgsums && makepkg --printsrcinfo > .SRCINFO && makepkg -si\""
                     updpkgsums && makepkg --printsrcinfo > .SRCINFO && makepkg -si
 }
@@ -95,3 +98,9 @@ function ink() {
 		inkscape > /dev/null 2> /dev/null $i &
 	done
 }
+
+function paste() {
+	local file=${1:-/dev/stdin}
+	curl --data-binary @${file} https://paste.rs
+}
+

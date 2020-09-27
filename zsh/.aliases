@@ -41,4 +41,4 @@ alias ix='curl -F "f:1=<-" ix.io'
 # alias gits='git status'
 # alias gs='git status'
 
-
+alias rsdoc='chromium file:///usr/share/doc/rust/html/std/index.html 2> /dev/null > /dev/null & disown'
