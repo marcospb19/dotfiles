@@ -46,8 +46,8 @@ bindsym $alt+Shift+Tab focus left
 ###################################################################################
 
 set $mode_system (E)xit, (S)uspend, (R)eboot, (Shift+S)hutdown
-bindsym $mod+Shift+l mode "$mode_system"
-mode "$mode_system" {
+bindsym $mod+Shift+l mode "  $mode_system  "
+mode "  $mode_system  " {
     bindsym e exec --no-startup-id i3-msg exit                    , mode "default"
     bindsym s exec --no-startup-id sudo systemctl suspend         , mode "default"
     bindsym r exec --no-startup-id sudo systemctl reboot          , mode "default"
@@ -75,10 +75,10 @@ exec --no-startup-id nm-applet
 
 # # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +8%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -8%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && echo 1 > .config/polybar/lock
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
