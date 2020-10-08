@@ -32,13 +32,13 @@ modules-right = batteryscript cpu memory date volumescript
 fixed-center = true
 tray-position = right
 tray-padding = 1
-height = 22
+height = 23
 line-size = 3
 
 background = #323232
 foreground = #c7c7c7
 
-font-0 = Victor Mono:style=bold:pixelsize=10;1
+font-0 = Victor Mono:style=bold:pixelsize=10.3
 ; font-0 = Noto Sans Mono:style=bold:pixelsize=9.7
 ; font-1 = Iosevka Nerd Font:style=regular:antialias=true
 padding-left = 2
@@ -130,12 +130,14 @@ interval = 50
 exec = dash ~/.config/polybar/batteryscript.sh
 label-underline = #6bf
 
+
 ; Custom script that shows volume percentage
 [module/volumescript]
 type = custom/script
 tail = true
 exec = echo .config/polybar/lock | entr dash ~/.config/polybar/volumescript.sh
 label-underline = #b28dff
+
 
 ; Custom script that shows volume percentage
 [module/volumeismutedscript]
@@ -145,6 +147,5 @@ exec = echo .config/polybar/lock | entr dash ~/.config/polybar/volumeismutedscri
 label-background = #504540
 label-underline = #866
 label-foreground = #ffb0b0
-
 
 ; vim: ft=dosini cms=;%s
