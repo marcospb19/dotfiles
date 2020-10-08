@@ -3,4 +3,8 @@ My personal dotfiles managed by `stow`
 
 This is messy
 
-![view](https://i.imgur.com/F0D8jUk.png)
+# Desktop
+![view](https://i.imgur.com/D58Svj8.png)
+
+## Bar
+![view](https://i.imgur.com/ibA1E3e.png)
