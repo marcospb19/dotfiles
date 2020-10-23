@@ -29,6 +29,11 @@
 		{
 			"name": "Compile with -O3",
 			"shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\""
+		},
+		{
+			"name": "Compile with -std=c11",
+			"shell_cmd": "clang -lm -std=c11 -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
+			// "shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
 		}
 	]
 }
