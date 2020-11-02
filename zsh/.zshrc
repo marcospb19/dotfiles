@@ -92,3 +92,5 @@ head -1 ~/.config/termite/colors
 # export PATH=$PATH:$HOME/.bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.bin:$PATH
+# Rust cache
+export RUSTC_WRAPPER=sccache
