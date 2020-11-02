@@ -2,10 +2,11 @@
 Language: Cpp
 BasedOnStyle: Google
 IndentWidth: 4
-BreakBeforeBraces: Linux
-BraceWrapping:
-  AfterStruct: true
-  BeforeElse: true
+
+# BreakBeforeBraces: Custom
+# BraceWrapping:
+  # AfterStruct: false
+  # BeforeElse: false
 
 AllowShortFunctionsOnASingleLine: false
 AllowShortIfStatementsOnASingleLine: false

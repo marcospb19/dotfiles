@@ -10,7 +10,8 @@
 include colors
 
 [options]
-font = terminus bold 20
+font = victor mono 16
+# font = terminus bold 20
 # cell_height_scale = 1.1
 scrollbar = off
 allow_bold = true
