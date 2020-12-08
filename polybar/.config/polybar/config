@@ -7,26 +7,13 @@
 ;
 ; https://github.com/marcospb19/dotfiles
 
-
-; Laptop Screen
-[bar/eDP]
-inherit = bar/main
-monitor = eDP-1
-monitor-fallback = eDP
-
-
-; HDMI Monitor
-[bar/HDMI]
-inherit = bar/main
-monitor = HDMI-1
-monitor-fallback = HDMI-A-0
-
-
-; The bar itself
+;; The bar itself
 [bar/main]
+scroll-up = bspwm.prev
+scroll-down = bspwm.next
 enable-ipc = true
-modules-left = i3mode volumeismutedscript
-modules-center = i3
+; modules-left = i3mode volumeismutedscript
+modules-center = bspwm
 modules-right = batteryscript cpu memory date volumescript
 
 fixed-center = true
@@ -49,57 +36,194 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
+; HDMI Monitor
+[bar/HDMI]
+inherit = bar/main
+monitor = HDMI
+monitor-fallback = HDMI-A-0
 
-; Show i3mode menu on different place
-[module/i3mode]
-type = internal/i3
-fomart = %mode%
-
-label-focused   =
-label-unfocused =
-label-visible   =
-label-urgent    =
-
-label-mode = %mode%
-label-mode-background = #455040
-label-mode-underline = #686
-label-mode-foreground = #b0ffb0
-
-
-; i3wm
-[module/i3]
-type = internal/i3
-format = <label-state>
+[module/bspwm]
+type = internal/bspwm
 pin-workspaces = true
+inline-mode = false
+enable-click = false
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
 
-; Workspaces
-label-focused-foreground = #ebeaea
-label-focused-background = #555
-label-focused-underline = #ff8899
+; ; Available tags:
+; ;   <label-monitor>
+; ;   <label-state> - gets replaced with <label-(focused|urgent|occupied|empty)>
+; ;   <label-mode> - gets replaced with <label-(monocle|tiled|fullscreen|floating|locked|sticky|private)>
+; ; Default: <label-state>
+; format = <label-state> <label-mode>
 
-label-unfocused-foreground = #a9a9a9
-label-unfocused-underline = #777
+; ; Available tokens:
+; ;   %name%
+; ; Default: %name%
+; label-monitor = %name%
 
-label-urgent-foreground = #e8e8e8
-label-urgent-underline = #f00
-label-urgent-background = #a00000
+; ; If any values for label-dimmed-N are defined, the workspace/mode
+; ; colors will get overridden with those values if the monitor is out of focus
+; ; To only override workspaces in a specific state, use:
+; ;   label-dimmed-focused
+; ;   label-dimmed-occupied
+; ;   label-dimmed-urgent
+; ;   label-dimmed-empty
+; label-dimmed-focused = #f00
+; label-dimmed-foreground = #000
+; label-dimmed-underline = ${bar/top.background}
+; label-dimmed-focused-background = #f00
 
-label-visible-foreground = #000
-label-visible-background = #b8b8b8
-label-visible-underline = #999
+; ; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ; Default: %icon%  %name%
+label-focused = " %name% "
+label-focused-foreground = #ffffff
+label-focused-background = #393939
+label-focused-underline = #777
 
-; This should work as a one-liner, in my opinion
-; label   = "  %index%  "
-label-focused   = "  %index%  "
-label-unfocused = "  %index%  "
-label-urgent    = "  %index%  "
-label-visible   = "  %index%  "
-; label-focused-padding   = 2
-; label-unfocused-padding = 2
-; label-urgent-padding    = 2
-; label-visible-padding   = 2
+; ; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ; Default: %icon%  %name%
+label-occupied = " %name% "
+; label-occupied-underline = #555555
+
+; ; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ; Default: %icon%  %name%
+; label-urgent = %icon%
+; label-urgent-foreground = #000000
+; label-urgent-background = #bd2c40
+; label-urgent-underline = #9b0a20
+
+; ; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ; Default: %icon%  %name%
+label-empty = " %icon% "
+label-empty-foreground = #888
+
+; ; The following labels will be used to indicate the layout/mode
+; ; for the focused workspace. Requires <label-mode>
+; ;
+; ; Available tokens:
+; ;   None
+; ;label-monocle = 
+; ;label-tiled = 
+; ;label-fullscreen = 
+; ;label-floating = 
+; ;label-pseudotiled = P
+; ;label-locked = 
+; ;label-locked-foreground = #bd2c40
+; ;label-sticky = 
+; ;label-sticky-foreground = #fba922
+; ;label-private = 
+; ;label-private-foreground = #bd2c40
+; ;label-marked = M
+
+; ; Separator in between workspaces
+label-separator = |
+label-separator-padding = 1
+label-separator-foreground = #ffb52a
 
 
+;;;;;;;;;;;;;;;;;;
+
+;; Laptop Screen
+;[bar/eDP]
+;inherit = bar/main
+;monitor = eDP-1
+;monitor-fallback = eDP
+;
+;
+;
+;
+;; The bar itself
+;[bar/main]
+;enable-ipc = true
+;modules-left = i3mode volumeismutedscript
+;modules-center = i3
+;modules-right = batteryscript cpu memory date volumescript
+;
+;fixed-center = true
+;tray-position = right
+;tray-padding = 1
+;height = 23
+;line-size = 3
+;; height = 19
+;; line-size = 2
+;; font-0 = Victor Mono:style=bold:pixelsize=9.3
+;
+;background = #323232
+;foreground = #c7c7c7
+;
+;font-0 = Victor Mono:style=bold:pixelsize=10.3
+;; font-0 = Noto Sans Mono:style=bold:pixelsize=9.7
+;; font-1 = Iosevka Nerd Font:style=regular:antialias=true
+;padding-left = 2
+;padding-right = 2
+;module-margin-left = 2
+;module-margin-right = 1
+;
+;
+;; Show i3mode menu on different place
+;[module/i3mode]
+;type = internal/i3
+;fomart = %mode%
+;
+;label-focused   =
+;label-unfocused =
+;label-visible   =
+;label-urgent    =
+;
+;label-mode = %mode%
+;label-mode-background = #455040
+;label-mode-underline = #686
+;label-mode-foreground = #b0ffb0
+;
+;
+;; i3wm
+;[module/i3]
+;type = internal/i3
+;format = <label-state>
+;pin-workspaces = true
+;
+;; Workspaces
+;label-focused-foreground = #ebeaea
+;label-focused-background = #555
+;label-focused-underline = #ff8899
+;
+;label-unfocused-foreground = #a9a9a9
+;label-unfocused-underline = #777
+;
+;label-urgent-foreground = #e8e8e8
+;label-urgent-underline = #f00
+;label-urgent-background = #a00000
+;
+;label-visible-foreground = #000
+;label-visible-background = #b8b8b8
+;label-visible-underline = #999
+;
+;; This should work as a one-liner, in my opinion
+;; label   = "  %index%  "
+;label-focused   = "  %index%  "
+;label-unfocused = "  %index%  "
+;label-urgent    = "  %index%  "
+;label-visible   = "  %index%  "
+;; label-focused-padding   = 2
+;; label-unfocused-padding = 2
+;; label-urgent-padding    = 2
+;; label-visible-padding   = 2
+;
+;
 ; CPU percentage
 [module/cpu]
 type = internal/cpu
@@ -150,5 +274,5 @@ exec = echo .config/polybar/lock | entr dash ~/.config/polybar/volumeismutedscri
 label-background = #504540
 label-underline = #866
 label-foreground = #ffb0b0
-
-; vim: ft=dosini cms=;%s
+;
+;; vim: ft=dosini cms=;%s
