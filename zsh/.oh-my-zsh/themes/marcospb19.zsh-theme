@@ -17,9 +17,9 @@ local GIT_PROMPT_SUFFIX="%{$reset_color%}%{$fg[green]%}]"
 local GIT_PROMPT_AHEAD="%{$fg[red]%}A"            # A"NUM"         - ahead by "NUM" commits
 local GIT_PROMPT_BEHIND="%{$fg[cyan]%}B"          # B"NUM"         - behind by "NUM" commits
 local GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎" # lightning bolt - merge conflict
-local GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●"   # red circle     - untracked files
-local GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●" # yellow circle  - tracked files modified
-local GIT_PROMPT_STAGED="%{$fg_bold[green]%}●"    # green circle   - staged changes
+local GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}."   # red circle     - untracked files
+local GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}." # yellow circle  - tracked files modified
+local GIT_PROMPT_STAGED="%{$fg_bold[green]%}."    # green circle   - staged changes
 
 parse_git_branch() {
 	# Show Git branch/tag, or name-rev if on detached head

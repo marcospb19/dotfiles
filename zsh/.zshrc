@@ -94,3 +94,5 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.bin:$PATH
 # Rust cache
 export RUSTC_WRAPPER=sccache
+# eval "$(starship init zsh)"
+

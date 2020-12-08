@@ -34,6 +34,9 @@ tray-position = right
 tray-padding = 1
 height = 23
 line-size = 3
+; height = 19
+; line-size = 2
+; font-0 = Victor Mono:style=bold:pixelsize=9.3
 
 background = #323232
 foreground = #c7c7c7

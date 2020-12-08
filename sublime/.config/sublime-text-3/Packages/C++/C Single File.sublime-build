@@ -1,5 +1,5 @@
 {
-	"shell_cmd": "clang -lm -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\"",
 	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 	"working_dir": "${file_path}",
 	"selector": "source.c",
@@ -8,32 +8,32 @@
 	[
 		{
 			"name": "Run",
-			"shell_cmd": "clang -lm -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+			"shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
 		},
 		{
 			"name": "Run test \"in\"",
-			"shell_cmd": "clang -lm -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
+			"shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
 		},
 		{
 			"name": "Timed Run",
 			"shell_cmd": "time \"${file_path}/${file_base_name}\""
 		},
-		{
-			"name": "Run Make and run the program",
-			"shell_cmd": "make && \"${file_path}/${file_base_name}\""
-		},
-		{
-			"name": "Run with -O3",
-			"shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
-		},
-		{
-			"name": "Compile with -O3",
-			"shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\""
-		},
-		{
-			"name": "Compile with -std=c11",
-			"shell_cmd": "clang -lm -std=c11 -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
-			// "shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
-		}
+		// {
+		// 	"name": "Run Make and run the program",
+		// 	"shell_cmd": "make && \"${file_path}/${file_base_name}\""
+		// },
+		// {
+		// 	"name": "Run with -O3",
+		// 	"shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+		// },
+		// {
+		// 	"name": "Compile with -O3",
+		// 	"shell_cmd": "clang -Wall -Wextra -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\""
+		// },
+		// {
+		// 	"name": "Compile with -std=c11",
+		// 	"shell_cmd": "clang -lm -std=c11 -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
+		// 	// "shell_cmd": "clang -lm -O3 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+		// }
 	]
 }

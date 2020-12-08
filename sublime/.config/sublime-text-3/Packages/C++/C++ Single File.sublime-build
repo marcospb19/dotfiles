@@ -1,5 +1,5 @@
 {
-	"shell_cmd": "clang++ -std=c++17 -O2 -Wall -Wextra -Wshadow \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"shell_cmd": "g++ -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
 	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 	"working_dir": "${file_path}",
 	"selector": "source.c++",
@@ -8,31 +8,19 @@
 	[
 		{
 			"name": "Run",
-			"shell_cmd": "clang++ -std=c++17 -O2 -Wall -Wextra -Wshadow \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+			"shell_cmd": "g++ -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
 		},
 		{
-			"name": "G++ - Run test \"in\"",
-			"shell_cmd": "g++ -std=c++17 -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
+			"name": "Run + Test \"in\"",
+			"shell_cmd": "g++ -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
 		},
 		{
-			"name": "G++ - Run test \"in\" WITH WARNINGS",
-			"shell_cmd": "g++ -std=c++17 -O2 -Wall -Wextra -Wshadow \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
-		},
-		{
-			"name": "TIMED Run test \"in\"",
-			"shell_cmd": "time \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
-		},
-		{
-			"name": "Timed Run",
+			"name": "Time Run",
 			"shell_cmd": "time \"${file_path}/${file_base_name}\""
 		},
 		{
-			"name": "Run without warnings",
-			"shell_cmd": "clang++ -std=c++17 -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+			"name": "Time + Test \"in\"",
+			"shell_cmd": "time \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
 		},
-		{
-			"name": "Run with -O3",
-			"shell_cmd": "clang++ -std=c++17 -O2 -Wall -Wextra -Wshadow \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
-		}
 	]
 }

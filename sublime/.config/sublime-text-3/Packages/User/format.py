@@ -1,7 +1,9 @@
 import sublime
 import sublime_plugin
 import subprocess
+import re
 
+regex = re.compile(r'#define[^\n]\n')
 
 def _run_terminal_command(command, stdin=''):
     p = subprocess.Popen(
@@ -22,12 +24,12 @@ class formatCommand(sublime_plugin.TextCommand):
     """ Command that formats the python code using black """
 
     def run(self, edit):
-
         language = self.view.settings().get('syntax').split('/')[1]
         if not language in ['C++', 'C', 'Python']:
             return
 
         code = self.view.substr(sublime.Region(0, self.view.size()))
+
         file_name = self.view.file_name().split('/')[-1:]
         print('Formatting', file_name)
 
