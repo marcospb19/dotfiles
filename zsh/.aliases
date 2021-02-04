@@ -25,7 +25,7 @@ alias lol="git log --all --graph --oneline --decorate"
 alias please="sudo"
 
 # Weather information on my city
-alias weather="curl wttr.in/Natal"
+alias weather="curl -s wttr.in/Natal"
 
 # Disown all apps
 alias disall="bg ; disown ; exit"
@@ -40,6 +40,6 @@ alias ix='curl -F "f:1=<-" ix.io'
 # alias gits='git status'
 # alias gs='git status'
 
-alias rsdoc='chromium file:///usr/share/doc/rust/html/std/index.html 2> /dev/null > /dev/null & disown'
+alias rsdoc='chromium .rustup/toolchains/nightly-x86_64-unknown-linux-gnu/share/doc/rust/html/std/index.html &> /dev/null & disown'
 
 alias rs="rust-script"

@@ -1,5 +1,5 @@
 {
-	"shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"shell_cmd": "clang -Wall -Wextra -Wno-logical-op-parentheses -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\"",
 	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 	"working_dir": "${file_path}",
 	"selector": "source.c",
@@ -8,11 +8,12 @@
 	[
 		{
 			"name": "Run",
-			"shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+			"shell_cmd": "clang -O0 -Wall -Wextra -Wno-logical-op-parentheses -lm -std=c11 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
 		},
 		{
 			"name": "Run test \"in\"",
-			"shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
+			"shell_cmd": "clang -Wall -Wextra -Wno-logical-op-parentheses -lm -std=c11 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\"",
+			// "shell_cmd": "clang -Wall -Wextra -lm -std=c11 -O2 -fsanitize=address \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
 		},
 		{
 			"name": "Timed Run",

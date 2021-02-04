@@ -3,8 +3,6 @@ import sublime_plugin
 import subprocess
 import re
 
-regex = re.compile(r'#define[^\n]\n')
-
 def _run_terminal_command(command, stdin=''):
     p = subprocess.Popen(
         command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE
@@ -25,10 +23,26 @@ class formatCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         language = self.view.settings().get('syntax').split('/')[1]
+
         if not language in ['C++', 'C', 'Python']:
             return
 
         code = self.view.substr(sublime.Region(0, self.view.size()))
+
+        """
+        let vec = vec![5];
+        """
+
+        # if self.view.get_regions('asd'):
+        #     print('erasin')
+        #     self.view.erase_regions('asd')
+        # else:
+        #     print('addin')
+        #     region = sublime.Region(1, 10)
+        #     self.view.add_regions('asd', [region], 'string', 'asd', 0)
+
+        # print()
+        # print(self.view.insert(edit, 3, "hello"))
 
         file_name = self.view.file_name().split('/')[-1:]
         print('Formatting', file_name)
@@ -50,3 +64,33 @@ class formatCommand(sublime_plugin.TextCommand):
             )
         else:
             print(return_code, 'error: error while trying to format')
+
+
+
+
+"""
+
+        if self.view.get_regions('asd'):
+            print('erasin')
+            self.view.erase_regions('asd')
+        else:
+            self.view.erase_phantoms('asd')
+            print('addin')
+            text = \"""<body id="my-plugin-feature">
+    <style>
+        h6.error {
+            background-color: #11223300;
+            text-color: #555;
+            margin: 0px;
+            padding-top: 4px;
+        }
+    </style>
+    <h6 class="error">: Vec(Option(i32))</p>
+</body>\"""
+            # text = \""": Vec(Option(i32))\"""
+            region = sublime.Region(100, 100)
+            self.view.add_phantom('asd', region, text, sublime.LAYOUT_INLINE)
+
+
+
+"""

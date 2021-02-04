@@ -59,15 +59,15 @@ mode "  $mode_system  " {
 ###################################################################################
 
 # Betterlockscreen
-# exec --no-startup-id betterlockscreen -l
+exec --no-startup-id betterlockscreen -l
 bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
-bindsym Print exec --no-startup-id deepin-screen-recorder
+bindsym Print exec --no-startup-id deepin-screenshot
 bindsym Shift+Print exec --no-startup-id scrot
 
-font pango:firacode 2
+font pango:victor mono 2
 # Font pango:Noto Sans 2
 
 # # NetworkManager and nm-applet
@@ -84,8 +84,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 floating_modifier $mod
 
 # # Start a terminal
-bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
-	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force
+bindsym $mod+$enter exec termite
+# bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
+# 	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force
 
 # # Kill focused window
 bindsym $mod+q kill
@@ -182,10 +183,10 @@ new_window pixel 4
 
 # Theme colors
 # Class                   border  backgr. text    indic.   child_border
-client.focused          #777777 #777777 #777777 #FDF6E3
+client.focused          #777777 #a78777 #777777 #FDF6E3
 #client.focused          #ff8395 #ff8395 #ff8395 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #2F3D44 #454948
-client.unfocused        #2F3D44 #2F3D44 #2F3D44 #454948
+client.unfocused        #694D54 #2F3D44 #2F3D44 #454948
 client.urgent           #ee3300 #ee3300 #ee3300 #268BD2
 
 # # Key bindings for managing multiple monitors:
@@ -200,11 +201,9 @@ bindsym $mod+F3 exec --no-startup-id ~/.screenlayout/external.sh
 bindsym $mod+Shift+$enter move workspace to output right
 
 
-
 bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
         i3-msg gaps inner current set 0; \
     else \
         i3-msg gaps inner current set 12; \
     fi"
-
