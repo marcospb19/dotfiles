@@ -200,6 +200,13 @@ bindsym $mod+F3 exec --no-startup-id ~/.screenlayout/external.sh
 # Move workspace to other monitor
 bindsym $mod+Shift+$enter move workspace to output right
 
+# set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
+# set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
+# set-sink-mute @DEFAULT_SINK@ toggle && echo 1 > .config/polybar/lock
+bindsym $mod+Prior exec --no-startup-id  pactl set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
+bindsym $mod+Next exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
+bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0 && echo 1 > .config/polybar/lock
+bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/locAk
 
 bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
