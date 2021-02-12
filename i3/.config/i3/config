@@ -206,7 +206,7 @@ bindsym $mod+Shift+$enter move workspace to output right
 bindsym $mod+Prior exec --no-startup-id  pactl set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
 bindsym $mod+Next exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
 bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0 && echo 1 > .config/polybar/lock
-bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/locAk
+bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/lock
 
 bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \

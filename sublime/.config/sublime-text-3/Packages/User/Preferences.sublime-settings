@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).sublime-color-scheme",
+	"color_scheme": "Packages/Eighties-Dark-Package/Eighties Dark.tmTheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -37,7 +37,7 @@
 		"*.db",
 		"*.sublime-workspace"
 	],
-	"font_face": "cozette",
+	"font_face": "victor mono bold",
 	"font_options":
 	[
 		"ss01",
