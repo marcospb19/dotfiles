@@ -93,7 +93,7 @@ head -1 ~/.config/termite/colors
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.bin:$PATH
 # Rust cache
-export RUSTC_WRAPPER=sccache
+# export RUSTC_WRAPPER=sccache
 # eval "$(starship init zsh)"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

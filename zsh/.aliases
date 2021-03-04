@@ -17,8 +17,7 @@ alias ll='l -l'
 alias lla='ll -A'
 alias llA='l -a'
 
-#  git aliases  #
-alias g="git"
+# Git aliases
 alias lol="git log --all --graph --oneline --decorate"
 
 # Goodie
