@@ -183,8 +183,8 @@ new_window pixel 4
 
 # Theme colors
 # Class                   border  backgr. text    indic.   child_border
-client.focused          #777777 #a78777 #777777 #FDF6E3
-#client.focused          #ff8395 #ff8395 #ff8395 #FDF6E3
+client.focused          #88aadd #6085a0 #6085a0
+#client.focused         #ff8395 #ff8395 #ff8395 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #2F3D44 #454948
 client.unfocused        #694D54 #2F3D44 #2F3D44 #454948
 client.urgent           #ee3300 #ee3300 #ee3300 #268BD2
