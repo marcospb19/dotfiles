@@ -97,3 +97,5 @@ export PATH=$HOME/.bin:$PATH
 # eval "$(starship init zsh)"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PATH="$HOME/.poetry/bin:$PATH"

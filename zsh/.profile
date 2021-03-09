@@ -10,3 +10,5 @@ if [ ! $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
 	startx /usr/bin/i3 2> /dev/null > /dev/null
 fi
 source "$HOME/.cargo/env"
+
+export PATH="$HOME/.poetry/bin:$PATH"
