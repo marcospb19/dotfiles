@@ -7,7 +7,7 @@ tabs -4
 
 # if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 if [ ! $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
-	startx /usr/bin/i3 2> /dev/null > /dev/null
+    startx /usr/bin/i3 &> /dev/null
 fi
 source "$HOME/.cargo/env"
 

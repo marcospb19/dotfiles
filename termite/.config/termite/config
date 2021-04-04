@@ -13,10 +13,10 @@
 ###
 
 [options]
-# font = cherry 10
-font = terminus 12
-# font = cozette 11
-# font = victor mono bold 16
+# font = terminus 12
+# font = cherry 9
+# font = cozette 9
+font = victor mono bold 14
 # font = terminus bold 20
 # cell_height_scale = 1.1
 scrollbar = off

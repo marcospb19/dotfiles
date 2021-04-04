@@ -1,3 +1,4 @@
+#!/usr/bin/zsh
 # Personal theme from https://github.com/dotfiles/marcospb19
 # Git prompt inspired from manjaro-zsh-config repo...
 

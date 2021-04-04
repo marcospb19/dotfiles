@@ -85,6 +85,10 @@ floating_modifier $mod
 
 # # Start a terminal
 bindsym $mod+$enter exec termite
+# bindsym $mod+$alt+$enter exec cool-retro-term
+# bindsym $mod+$enter exec cool-retro-term
+
+
 # bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
 # 	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force
 

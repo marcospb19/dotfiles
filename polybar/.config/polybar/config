@@ -32,8 +32,8 @@ modules-right = batteryscript cpu memory date volumescript
 fixed-center = true
 tray-position = right
 tray-padding = 1
-height = 23
-line-size = 3
+height = 20
+line-size = 2
 ; height = 19
 ; line-size = 2
 ; font-0 = Victor Mono:style=bold:pixelsize=9.3
@@ -41,7 +41,9 @@ line-size = 3
 background = #323232
 foreground = #c7c7c7
 
-font-0 = Victor Mono:style=bold:pixelsize=10.3
+; # # Main font
+; # font-0 = Victor Mono:style=bold:pixelsize=10.3
+font-0 = Cozette:style=bold:pixelsize=16;1
 ; font-0 = Noto Sans Mono:style=bold:pixelsize=9.7
 ; font-1 = Iosevka Nerd Font:style=regular:antialias=true
 padding-left = 2
