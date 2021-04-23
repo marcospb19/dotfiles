@@ -16,13 +16,12 @@ bindsym $mod+o exec --no-startup-id setxkbmap br abnt2
 exec --no-startup-id setxkbmap br abnt2
 
 # # Gaps
-gaps inner 12
+gaps inner 10
 gaps outer 0
 
 # Mmmmmmm
 smart_gaps on
 smart_borders on
-hide_edge_borders on
 
 # # Polybar and multiple monitor management
 # Startup
@@ -97,15 +96,23 @@ bindsym $mod+q kill
 
 # # Start dmenu program launcher
 # Bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id dmenu_run
 
 # Alternatively, you can use the cursor keys:
+# bindsym $mod+h focus left
+# bindsym $mod+j focus down
+# bindsym $mod+k focus up
+# bindsym $mod+l focus right
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Alternatively, you can use the cursor keys:
+# bindsym $mod+Shift+h move left
+# bindsym $mod+Shift+j move down
+# bindsym $mod+Shift+k move up
+# bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -183,7 +190,7 @@ mode "resize" {
         bindsym $enter mode "default"
 }
 
-new_window pixel 4
+new_window pixel 2
 
 # Theme colors
 # Class                   border  backgr. text    indic.   child_border

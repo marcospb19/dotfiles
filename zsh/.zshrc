@@ -23,7 +23,6 @@ source $ZSH/oh-my-zsh.sh
 [ -f ./.profile ]   && . ./.profile
 [ -f ./.aliases ]   && . ./.aliases
 [ -f ./.functions ] && . ./.functions
-
 [ -d./.bin ] && export PATH=$PATH:$HOME/.bin
 
 CASE_SENSITIVE="false"
@@ -56,14 +55,6 @@ HIST_STAMPS="dd.mm.yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# plugin location: ~/.oh-my-zsh/plugins/git
-plugins=(
-	git
-#	plug2
-#	plug3
-)
-
-
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -77,25 +68,28 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-
 # Enabling syntax highlighting
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH=/home/marcospb19/.local/bin:$PATH
-
-
-# Enable and disable my git prompt information
-# git=
-
-head -1 ~/.config/termite/colors
 
 # export PATH=$PATH:$HOME/.bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.bin:$PATH
 # Rust cache
 # export RUSTC_WRAPPER=sccache
-# eval "$(starship init zsh)"
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PATH="$HOME/.poetry/bin:$PATH"
+
+
+
+# Show me a ferris
+cat << EOF
+
+      _~^~^~_        __ _  ___  __ _ ___ 
+  \) /  o o  \ (/   /  ' \/ _ \/ _\` / _ \\
+    '_   ¬   _'    /_/_/_/\___/\__,_\___/
+    / '-----' \\
+
+EOF
+

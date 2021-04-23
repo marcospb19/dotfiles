@@ -1,2 +1,5 @@
 #!/bin/sh
-xrandr --output eDP --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-A-0 --off --output DisplayPort-0 --off
+xrandr \
+	--output eDP-1 --primary --mode 1366x768 \
+	--output HDMI-1 --off \
+	--output DP-1 --off
