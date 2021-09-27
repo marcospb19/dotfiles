@@ -25,10 +25,11 @@ monitor-fallback = HDMI-A-0
 ; The bar itself
 [bar/main]
 enable-ipc = true
-modules-left = i3mode volumeismutedscript
+modules-left = volumeismutedscript i3mode
 modules-center = i3
 modules-right = batteryscript cpu memory date volumescript
 
+; bottom = true
 fixed-center = true
 tray-position = right
 tray-padding = 1
@@ -42,8 +43,8 @@ background = #323232
 foreground = #c7c7c7
 
 ; # # Main font
-; # font-0 = Victor Mono:style=bold:pixelsize=10.3
-font-0 = Cozette:style=bold:pixelsize=16;1
+font-0 = terminus:style=bold=20;1
+; font-0 = curie:pixelsize=16;1
 ; font-0 = Noto Sans Mono:style=bold:pixelsize=9.7
 ; font-1 = Iosevka Nerd Font:style=regular:antialias=true
 padding-left = 2
@@ -140,7 +141,7 @@ label-underline = #6bf
 [module/volumescript]
 type = custom/script
 tail = true
-exec = echo .config/polybar/lock | entr dash ~/.config/polybar/volumescript.sh
+exec = echo .config/polybar/lock | entr -n dash ~/.config/polybar/volumescript.sh
 label-underline = #b28dff
 
 
@@ -148,7 +149,7 @@ label-underline = #b28dff
 [module/volumeismutedscript]
 type = custom/script
 tail = true
-exec = echo .config/polybar/lock | entr dash ~/.config/polybar/volumeismutedscript.sh
+exec = echo .config/polybar/lock | entr -n dash ~/.config/polybar/volumeismutedscript.sh
 label-background = #504540
 label-underline = #866
 label-foreground = #ffb0b0

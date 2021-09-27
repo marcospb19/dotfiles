@@ -33,8 +33,8 @@
 	{ "keys": ["ctrl+shift+b"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"} },
 
 	// Add cursor above/below
-	// { "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
-	// { "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
+	{ "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
+	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
 
 	// Scroll 4x faster
 	{ "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 4 } },

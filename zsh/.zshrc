@@ -70,18 +70,14 @@ export LESS=-r
 
 # Enabling syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Enabling autosuggestion
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH=/home/marcospb19/.local/bin:$PATH
 
 # export PATH=$PATH:$HOME/.bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=$HOME/.bin:$PATH
-# Rust cache
-# export RUSTC_WRAPPER=sccache
-
-
-
-
 
 # Show me a ferris
 cat << EOF
@@ -92,4 +88,3 @@ cat << EOF
     / '-----' \\
 
 EOF
-

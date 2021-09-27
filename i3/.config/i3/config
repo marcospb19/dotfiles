@@ -15,6 +15,9 @@ set $enter Return
 bindsym $mod+o exec --no-startup-id setxkbmap br abnt2
 exec --no-startup-id setxkbmap br abnt2
 
+# Start pulseuadio
+exec pulseaudio
+
 # # Gaps
 gaps inner 10
 gaps outer 0
@@ -23,12 +26,15 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 
+# Open file manager
+bindsym $mod+a exec --no-startup-id pcmanfm
+
 # # Polybar and multiple monitor management
 # Startup
 exec --no-startup-id \
 	[ $(xrandr -q | grep -E '(HDMI|eDP)' | wc -l) = 2 ] && ~/.screenlayout/external.sh \
 	; ~/.config/polybar/launch.sh \
-	; feh --bg-fill .wall --no-fehbg
+	; ./.fehbg
 # Restart
 bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh
 # Hide bar
