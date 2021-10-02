@@ -16,7 +16,7 @@ bindsym $mod+o exec --no-startup-id setxkbmap br abnt2
 exec --no-startup-id setxkbmap br abnt2
 
 # Start pulseuadio
-exec pulseaudio
+exec --no-startup-id pulseaudio
 
 # # Gaps
 gaps inner 10
