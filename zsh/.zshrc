@@ -13,28 +13,37 @@ export ZSH="$HOME/.oh-my-zsh"
 # My custom theme, ~/.oh-my-zsh/themes/marcospb19
 ZSH_THEME="marcospb19"
 
-# Allow shared history between root and user
-ZSH_DISABLE_COMPFIX="true"
-
 # Source configuration from oh-my-zsh defaults (not sure)
 source $ZSH/oh-my-zsh.sh
+
+# # Packages
+#
+# zsh-syntax-highlighting
+# zsh-autosuggestions
+
+# Enabling syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Enabling autosuggestion if not in TTY
+if [ "$DISPLAY" ]; then
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# # Packages end
 
 # Modularization
 [ -f ./.profile ]   && . ./.profile
 [ -f ./.aliases ]   && . ./.aliases
 [ -f ./.functions ] && . ./.functions
-[ -d./.bin ] && export PATH=$PATH:$HOME/.bin
 
+HYPHEN_INSENSITIVE="true"
 CASE_SENSITIVE="false"
 
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+# Allow shared history between root and user
+ZSH_DISABLE_COMPFIX="true"
 
 # Disable update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Change how often to auto-update.
-export UPDATE_ZSH_DAYS=30
+DISABLE_AUTO_UPDATE="true"
 
 # Enable command correction suggestion.
 # ENABLE_CORRECTION="true"
@@ -68,23 +77,23 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-# Enabling syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Enabling autosuggestion
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-export PATH=/home/marcospb19/.local/bin:$PATH
-
-# export PATH=$PATH:$HOME/.bin
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.bin:$PATH
-
 # Show me a ferris
 cat << EOF
 
-      _~^~^~_        __ _  ___  __ _ ___ 
+      _~^~^~_        __ _  ___  __ _ ___
   \) /  o o  \ (/   /  ' \/ _ \/ _\` / _ \\
     '_   ¬   _'    /_/_/_/\___/\__,_\___/
     / '-----' \\
 
+    Vicarious (vicário/vicariante):
+        What is experienced in the imagination throught the feelings or actions of another person.
+
 EOF
+
+PATH_CANDIDATES=(".cargo/bin" ".local/bin" ".bin")
+
+for CANDIDATE in $PATH_CANDIDATES; do
+    if [ -d "$HOME/.bin" ]; then
+        export PATH=$HOME/$CANDIDATE:$PATH
+    fi
+done
