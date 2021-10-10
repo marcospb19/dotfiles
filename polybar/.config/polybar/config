@@ -39,7 +39,7 @@ line-size = 2
 ; line-size = 2
 ; font-0 = Victor Mono:style=bold:pixelsize=9.3
 
-background = #323232
+background = #322242
 foreground = #c7c7c7
 
 ; # # Main font
@@ -52,23 +52,6 @@ padding-right = 2
 module-margin-left = 2
 module-margin-right = 1
 
-
-; Show i3mode menu on different place
-[module/i3mode]
-type = internal/i3
-fomart = %mode%
-
-label-focused   =
-label-unfocused =
-label-visible   =
-label-urgent    =
-
-label-mode = %mode%
-label-mode-background = #455040
-label-mode-underline = #686
-label-mode-foreground = #b0ffb0
-
-
 ; i3wm
 [module/i3]
 type = internal/i3
@@ -77,11 +60,11 @@ pin-workspaces = true
 
 ; Workspaces
 label-focused-foreground = #ebeaea
-label-focused-background = #555
-label-focused-underline = #ff8899
+label-focused-background = #536
+label-focused-underline = #b8f
 
 label-unfocused-foreground = #a9a9a9
-label-unfocused-underline = #777
+label-unfocused-underline = #140820
 
 label-urgent-foreground = #e8e8e8
 label-urgent-underline = #f00
@@ -102,6 +85,20 @@ label-visible   = "  %index%  "
 ; label-urgent-padding    = 2
 ; label-visible-padding   = 2
 
+; Show i3mode menu on different place
+[module/i3mode]
+type = internal/i3
+fomart = %mode%
+
+label-focused   =
+label-unfocused =
+label-visible   =
+label-urgent    =
+
+label-mode = %mode%
+label-mode-background = #455040
+label-mode-underline = #686
+label-mode-foreground = #b0ffb0
 
 ; CPU percentage
 [module/cpu]

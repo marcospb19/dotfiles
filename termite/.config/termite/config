@@ -30,7 +30,7 @@ mouse_autohide = true
 scroll_on_output = false
 scroll_on_keystroke = true
 scrollback_lines = 25000
-hyperlinks = true
+# hyperlinks = true
 cursor_blink = on
 cursor_shape = ibeam
 size_hints = true
@@ -73,8 +73,9 @@ size_hints = true
 # special
 foreground      = #f8f8f2
 foreground_bold = #f8f8f2
-cursor          = #f8f8f2
-background      = rgba(40, 42, 54, 1)
+cursor          = #ffa250
+# background      = rgba(40, 42, 54, 1)
+background      = rgba(21, 13, 33, 1)
 
 # black
 color0  = #000000

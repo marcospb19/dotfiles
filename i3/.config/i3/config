@@ -15,8 +15,8 @@ set $enter Return
 bindsym $mod+o exec --no-startup-id setxkbmap br abnt2
 exec --no-startup-id setxkbmap br abnt2
 
-# Start pulseuadio
-exec --no-startup-id pulseaudio
+# # Start pulseuadio
+# exec --no-startup-id pulseaudio
 
 # # Gaps
 gaps inner 10
@@ -36,7 +36,7 @@ exec --no-startup-id \
 	; ~/.config/polybar/launch.sh \
 	; ./.fehbg
 # Restart
-bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh
+bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh && ./.fehbg
 # Hide bar
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 
@@ -181,7 +181,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace
-bindsym $mod+Shift+r exec --no-startup-id feh --bg-fill .wall --no-fehbg && i3-msg restart && ~/.config/polybar/launch.sh
+bindsym $mod+Shift+r exec --no-startup-id ~/.fehbg && i3-msg restart && ~/.config/polybar/launch.sh
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -200,10 +200,10 @@ new_window pixel 2
 
 # Theme colors
 # Class                   border  backgr. text    indic.   child_border
-client.focused          #88aadd #6085a0 #6085a0
+client.focused          #5f2b73 #5f2b73 #5f2b73
 #client.focused         #ff8395 #ff8395 #ff8395 #FDF6E3
 client.focused_inactive #2F3D44 #2F3D44 #2F3D44 #454948
-client.unfocused        #694D54 #2F3D44 #2F3D44 #454948
+client.unfocused        #401555 #401555 #401555 #454948
 client.urgent           #ee3300 #ee3300 #ee3300 #268BD2
 
 # # Key bindings for managing multiple monitors:

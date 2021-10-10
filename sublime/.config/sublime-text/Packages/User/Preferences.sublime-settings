@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).sublime-color-scheme",
+	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -66,7 +66,8 @@
 	"preview_on_click": true,
 	"rulers":
 	[
-		100
+		100,
+		120,
 	],
 	"scroll_past_end": true,
 	"scroll_speed": 0.2,
