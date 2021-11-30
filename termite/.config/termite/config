@@ -17,7 +17,7 @@
 # font = cherry 9
 # font = cozette 10
 # font = Consolas Bold 14
-font = victor mono bold 14
+font = victor mono bold 17
 # font = xos4 terminus 13
 # cell_height_scale = 1.1
 scrollbar = off

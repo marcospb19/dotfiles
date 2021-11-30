@@ -89,7 +89,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 floating_modifier $mod
 
 # # Start a terminal
-bindsym $mod+$enter exec termite
+bindsym $mod+$enter exec alacritty
 # bindsym $mod+$alt+$enter exec cool-retro-term
 # bindsym $mod+$enter exec cool-retro-term
 
