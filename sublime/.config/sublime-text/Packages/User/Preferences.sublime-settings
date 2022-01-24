@@ -44,7 +44,7 @@
 		"ss01",
 		"no_italic"
 	],
-	"font_size": 18,
+	"font_size": 22,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -73,7 +73,7 @@
 	"scroll_speed": 0.2,
 	"shift_tab_unindent": true,
 	"spelling_selector": "",
-	"theme": "gruvbox.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_automatic_white_space": true,
 	"trim_trailing_white_space_on_save": true,
