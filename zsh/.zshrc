@@ -22,11 +22,17 @@ source $ZSH/oh-my-zsh.sh
 # zsh-autosuggestions
 
 # Enabling syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Arch:
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Fedora:
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enabling autosuggestion if not in TTY
 if [ "$DISPLAY" ]; then
-    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # Arch:
+    #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # Fedora:
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # # Packages end
