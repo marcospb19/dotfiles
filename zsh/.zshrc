@@ -83,7 +83,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-# Show me a ferris
+# Show me a crab
 cat << EOF
 
       _~^~^~_        __ _  ___  __ _ ___
@@ -91,7 +91,7 @@ cat << EOF
     '_   ¬   _'    /_/_/_/\___/\__,_\___/
     / '-----' \\
 
-    Vicarious (vicário/vicariante):
+    Vicarious:
         What is experienced in the imagination throught the feelings or actions of another person.
 
 EOF
@@ -103,3 +103,7 @@ for CANDIDATE in $PATH_CANDIDATES; do
         export PATH=$HOME/$CANDIDATE:$PATH
     fi
 done
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
