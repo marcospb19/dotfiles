@@ -1,0 +1,92 @@
+{
+    // Enable the on-save syntax checking plugin, which will highlight any
+    // build errors or warnings.
+    "rust_syntax_checking": true,
+
+    // The method used to check code on-save.
+    // "check" or "clippy" (see README.md)
+    "rust_syntax_checking_method": "check",
+
+    // Enable checking of test code within #[cfg(test)] sections.
+    // `check` method requires Rust 1.23 or newer.
+    "rust_syntax_checking_include_tests": true,
+
+    // If true, will not display warning messages.
+    "rust_syntax_hide_warnings": true,
+
+    // Color of messages for "clear" theme.
+    // These use CSS colors.  See
+    // https://www.sublimetext.com/docs/3/minihtml.html for more detail.
+    "rust_syntax_error_color": "var(--redish)",
+    "rust_syntax_warning_color": "var(--yellowish)",
+    "rust_syntax_note_color": "var(--greenish)",
+    "rust_syntax_help_color": "var(--bluish)",
+
+    // Specify environment variables to add when running Cargo.
+    // "rust_env": {"PATH": "$PATH:$HOME/.cargo/bin"}
+
+    // If true, will use the environment from the user's login shell when
+    // running Cargo.
+    "rust_include_shell_env": true,
+
+    // For errors/warnings, how to show the inline message.
+    // "normal" - Shows the message inline.
+    // "popup" - Show popup on mouse hover.
+    // "none" - Do not show the message inline.
+    "rust_phantom_style": "normal",
+
+    // For errors/warnings, how to highlight the region of the error.
+    // "outline" - Outlines the region.
+    // "solid_underline" - A solid underline.
+    // "stippled_underline" - A stippled underline.
+    // "squiggly_underline" - A squiggly underline.
+    // "none" - No outlining.
+    "rust_region_style": "outline",
+
+    // For errors/warnings, what kind of icon to use in the gutter.
+    // "shape" - Shape-based icons.
+    // "circle" - Simple circle icons.
+    // "none" - Do not place icons in the gutter.
+    "rust_gutter_style": "shape",
+
+    // Style for displaying inline messages.  Can be:
+    // "clear" - Clear background with colors matching your color scheme.
+    // "solid" - Solid background color.
+    "rust_message_theme": "solid",
+
+    // If `true`, displays diagnostic messages under the cursor in the status bar.
+    "rust_message_status_bar": false,
+
+    // The message to display when the syntax check is running.
+    "rust_message_status_bar_msg": "Rust check running",
+
+    // A list of chars that cycle through in the status bar to indicate progress.
+    "rust_message_status_bar_chars": [".", "..", "...", ".."],
+
+    // How often (ms) should the status bar text be updated when syntax checking.
+    "rust_message_status_bar_update_delay": 200,
+
+    // If your cargo project has several build targets, it's possible to specify mapping of
+    // source code filenames to the target names to enable syntax checking.
+    // "projects": {
+    //     // One entry per project. Key is a project name.
+    //     "my_cool_stuff": {
+    //         "root": "/path/to/my/cool/stuff/project",  // without trailing /src
+    //         // Targets will be used to replace {target} part in the syntax check command:
+    //         // command = 'cargo rustc {target} -- <some options>'. If no one target matches
+    //         // an empty string will be used.
+    //         "targets": {
+    //             "bin/foo.rs": "--bin foo",  // format is "source_code_filename -> target_name"
+    //             "bin/bar.rs": "--bin bar",
+    //             "_default": "--lib"         // or "--bin main"
+    //         }
+    //     }
+    // }
+    "auto_complete_triggers":
+    [
+        {
+            "characters": ".:",
+            "selector": "source.rust"
+        }
+    ]
+}
