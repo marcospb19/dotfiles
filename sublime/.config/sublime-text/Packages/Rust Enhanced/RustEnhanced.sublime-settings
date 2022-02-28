@@ -9,18 +9,18 @@
 
     // Enable checking of test code within #[cfg(test)] sections.
     // `check` method requires Rust 1.23 or newer.
-    "rust_syntax_checking_include_tests": true,
+    // "rust_syntax_checking_include_tests": true,
 
     // If true, will not display warning messages.
-    "rust_syntax_hide_warnings": true,
+    // "rust_syntax_hide_warnings": false,
 
     // Color of messages for "clear" theme.
     // These use CSS colors.  See
     // https://www.sublimetext.com/docs/3/minihtml.html for more detail.
     "rust_syntax_error_color": "var(--redish)",
     "rust_syntax_warning_color": "var(--yellowish)",
-    "rust_syntax_note_color": "var(--greenish)",
-    "rust_syntax_help_color": "var(--bluish)",
+    "rust_syntax_note_color": "var(--purplish)",
+    "rust_syntax_help_color": "var(--greenish)",
 
     // Specify environment variables to add when running Cargo.
     // "rust_env": {"PATH": "$PATH:$HOME/.cargo/bin"}
@@ -61,10 +61,10 @@
     "rust_message_status_bar_msg": "Rust check running",
 
     // A list of chars that cycle through in the status bar to indicate progress.
-    "rust_message_status_bar_chars": [".", "..", "...", ".."],
+    "rust_message_status_bar_chars": [".", "..", "..."],
 
     // How often (ms) should the status bar text be updated when syntax checking.
-    "rust_message_status_bar_update_delay": 200,
+    "rust_message_status_bar_update_delay": 300,
 
     // If your cargo project has several build targets, it's possible to specify mapping of
     // source code filenames to the target names to enable syntax checking.
