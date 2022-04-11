@@ -104,3 +104,12 @@ function paste() {
 	curl --data-binary @${file} https://paste.rs
 }
 
+bin_location=$(which git)
+
+function git() {
+	if [[ "$#" == 0 ]]; then
+		$bin_location status
+	else
+		$bin_location ${@:1}
+	fi
+}

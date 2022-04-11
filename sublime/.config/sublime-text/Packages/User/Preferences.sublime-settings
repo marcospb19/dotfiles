@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "gruvbox (Dark) (Medium).sublime-color-scheme",
+	"color_scheme": "Packages/One-Dark-Package/One Dark.tmTheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -44,7 +44,7 @@
 		"ss01",
 		"no_italic"
 	],
-	"font_size": 19,
+	"font_size": 15,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
