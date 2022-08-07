@@ -109,7 +109,7 @@ scrolling:
 
 # Font configuration
 font:
-  size: 19.0
+  size: 18.0
   normal:
     family: Victor Mono
     style: Medium

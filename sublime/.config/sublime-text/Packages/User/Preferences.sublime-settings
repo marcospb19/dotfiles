@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "Packages/Base16 Color Schemes/Themes/base16-gruvbox-dark-soft.tmTheme",
+	"color_scheme": "gruvbox (Dark) (Medium) NDC.sublime-color-scheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -44,7 +44,7 @@
 		"ss01",
 		"no_italic"
 	],
-	"font_size": 13,
+	"font_size": 17,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
