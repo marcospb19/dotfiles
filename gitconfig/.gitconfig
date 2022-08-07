@@ -1,9 +1,11 @@
 [user]
 	name = João M. Bezerra
 	email = marcospb19@hotmail.com
+[delta]
+	line-numbers = true
 [core]
 	editor = nvim
-	pager = "delta --dark --plus-color=#012800 --minus-color=#340001 --theme=base16"
+	pager = "delta --dark --syntax-theme=base16"
 [url "ssh://git@github.com/"]
         pushInsteadOf = "https://github.com/"
         pushInsteadOf = "git://github.com/"
