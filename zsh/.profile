@@ -6,5 +6,5 @@ export BROWSER=google-chrome-stable
 tabs -4
 
 if [ ! "$DISPLAY" ] && [ "$(tty)" = '/dev/tty1' ]; then
-	startx &> /dev/null
+	startx /usr/bin/i3 &> /dev/null
 fi
