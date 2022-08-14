@@ -11,12 +11,13 @@ set $alt Mod1
 # Enter key
 set $enter Return
 
-# # Very specific, problem with my keyboard
-bindsym $mod+o exec --no-startup-id setxkbmap br abnt2
-exec --no-startup-id setxkbmap br abnt2
+bindsym $mod+o exec --no-startup-id setxkbmap us
+bindsym $mod+i exec --no-startup-id setxkbmap br abnt2
 
-# # Start pulseuadio
-# exec --no-startup-id pulseaudio
+exec --no-startup-id xinput set-prop 'Logitech USB Receiver' 'libinput Accel Speed' -0.5
+
+# Start pulseuadio
+exec --no-startup-id pulseaudio
 
 # # Gaps
 gaps inner 10
@@ -89,7 +90,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 floating_modifier $mod
 
 # # Start a terminal
-bindsym $mod+$enter exec alacritty
+bindsym $mod+$enter exec termite
 # bindsym $mod+$alt+$enter exec cool-retro-term
 # bindsym $mod+$enter exec cool-retro-term
 
