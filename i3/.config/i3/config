@@ -27,9 +27,6 @@ gaps outer 0
 smart_gaps on
 smart_borders on
 
-# Open file manager
-bindsym $mod+a exec --no-startup-id pcmanfm
-
 # # Polybar and multiple monitor management
 # Startup
 exec --no-startup-id \
@@ -89,10 +86,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 # # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# # Start a terminal
+# Start a terminal
 bindsym $mod+$enter exec termite
-# bindsym $mod+$alt+$enter exec cool-retro-term
-# bindsym $mod+$enter exec cool-retro-term
+bindsym $mod+$alt+$enter exec cool-retro-term
+# Open file manager
+bindsym $mod+s exec --no-startup-id google-chrome-stable
+# Open file manager
+bindsym $mod+a exec --no-startup-id pcmanfm
 
 
 # bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
