@@ -23,16 +23,16 @@ source $ZSH/oh-my-zsh.sh
 
 # Enabling syntax highlighting
 # Arch:
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Fedora:
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enabling autosuggestion if not in TTY
 if [ "$DISPLAY" ]; then
     # Arch:
-    #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
     # Fedora:
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    #source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # # Packages end
@@ -107,6 +107,5 @@ done
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 export PATH=$HOME/.local/bin:$PATH

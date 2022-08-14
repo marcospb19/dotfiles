@@ -1,6 +1,6 @@
 # Default applications
 export EDITOR=nvim
-export BROWSER=google-chrome
+export BROWSER=google-chrome-stable
 
 # Set terminal tabs width
 tabs -4
