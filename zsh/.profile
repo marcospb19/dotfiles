@@ -8,3 +8,4 @@ tabs -4
 if [ ! "$DISPLAY" ] && [ "$(tty)" = '/dev/tty1' ]; then
 	startx /usr/bin/i3 &> /dev/null
 fi
+. "$HOME/.cargo/env"

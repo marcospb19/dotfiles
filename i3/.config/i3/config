@@ -14,7 +14,7 @@ set $enter Return
 bindsym $mod+o exec --no-startup-id setxkbmap us
 bindsym $mod+i exec --no-startup-id setxkbmap br abnt2
 
-exec --no-startup-id xinput set-prop 'Logitech USB Receiver' 'libinput Accel Speed' -0.5
+exec_always --no-startup-id xinput set-prop 'Logitech USB Receiver' 'libinput Accel Speed' -0.5
 
 # Start pulseuadio
 exec --no-startup-id pulseaudio
@@ -228,9 +228,11 @@ bindsym $mod+Next exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@ -1
 bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0 && echo 1 > .config/polybar/lock
 bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/lock
 
-bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
-    '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
-        i3-msg gaps inner current set 0; \
-    else \
-        i3-msg gaps inner current set 12; \
-    fi"
+# bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
+#     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
+#         i3-msg gaps inner current set 0; \
+#     else \
+#         i3-msg gaps inner current set 12; \
+#     fi"
+
+bindsym $mod+c exec rofi -show window
