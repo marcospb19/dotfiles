@@ -1,0 +1,37 @@
+// Documentation at https://www.sublimetext.com/docs/themes.html
+{
+    "variables":
+    {
+        "sidebar_ignored": "hsl(220, 2%, 50%)", // Mariana blue6
+        "font_face": "victor Mono Bold",
+        "sidebar_background": "#2f3234", // Mariana blue6
+    },
+    "rules":
+    [
+        {
+            "class": "sidebar_label",
+            "font.face": "victor Mono Bold",
+            "font.size": 13,
+        },
+        {
+            "class": "sidebar_label",
+            "parents": [{"class": "tree_row", "attributes": ["expandable"]}, {"class": "file_system_entry", "attributes": ["ignored"]}],
+            "color": "var(sidebar_ignored)",
+            "font.bold": true
+        },
+        {
+            "class": "sidebar_label",
+            "parents": [{"class": "tree_row", "attributes": ["expandable"]}, {"class": "file_system_entry", "attributes": ["!ignored"]}],
+            "color": "hsl(200, 29%, 75%)",
+            "font.bold": true
+        },
+        {
+            "class": "sidebar_tree",
+            "row_padding": [12, 4],
+            "indent": 10,
+            "indent_offset": 6,
+            "indent_top_level": false,
+            "spacer_rows": false
+        },
+    ]
+}
