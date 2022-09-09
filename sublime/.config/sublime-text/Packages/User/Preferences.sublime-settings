@@ -38,13 +38,14 @@
 		"*.db",
 		"*.sublime-workspace"
 	],
-	"font_face": "Victor Mono Bold",
-	"font_options":
-	[
-		"ss01",
-		"no_italic"
-	],
-	"font_size": 18,
+	"font_face": "Monocraft",
+	// "font_face": "Victor Mono Bold",
+	// "font_options":
+	// [
+	// 	"ss01",
+	// 	"no_italic"
+	// ],
+	"font_size": 15,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -78,4 +79,7 @@
 	"trim_automatic_white_space": true,
 	"trim_trailing_white_space_on_save": true,
 	"word_wrap": 0,
+	// Additional spacing at the bottom of each line, in pixels
+	"line_padding_bottom": 6,
+
 }
