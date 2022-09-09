@@ -44,5 +44,3 @@ alias rsdoc='chromium .rustup/toolchains/nightly-x86_64-unknown-linux-gnu/share/
 
 alias rs="rust-script"
 alias rsi="evcxr"
-
-alias yay='paru'

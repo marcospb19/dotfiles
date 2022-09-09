@@ -44,7 +44,7 @@
 		"ss01",
 		"no_italic"
 	],
-	"font_size": 15,
+	"font_size": 18,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,

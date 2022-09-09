@@ -103,7 +103,7 @@ bindsym $mod+q kill
 
 # # Start dmenu program launcher
 # Bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Victor Mono Medium'
 
 # Alternatively, you can use the cursor keys:
 # bindsym $mod+h focus left

@@ -1,4 +1,7 @@
 #!/bin/sh
+
+source ~/.screenlayout/settings.sh
+
 xrandr \
-	--output eDP-1 --off \
-	--output HDMI-1 --mode 2560x1080
+	--output $notebook_display --off \
+	--output $external_display --mode $external_display_resolution

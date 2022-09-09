@@ -1,4 +1,7 @@
 #!/bin/sh
+
+source ~/.screenlayout/settings.sh
+
 xrandr \
-	--output eDP-1 --primary --mode 1366x768 \
-	--output HDMI-1 --mode 2560x1080 --pos 1366x0
+	--output $notebook_display --primary --mode $notebook_display_resolution \
+	--output $external_display --mode $external_display_resolution --pos $second_display_offset
