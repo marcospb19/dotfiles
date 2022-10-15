@@ -62,7 +62,7 @@ function md5aur()
 
 function up()
 {
-	[[ "$#" == 1 ]] || echo "Expected 1 argument." && return 1
+	[[ "$#" == 1 ]] || (echo "Expected 1 argument." && return 1)
 
 	for i in {1.."$1"}; do
 		if [[ $(pwd) != "/" ]]; then
