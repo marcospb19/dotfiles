@@ -3,11 +3,11 @@
 # Git prompt inspired from manjaro-zsh-config repo...
 
 if [[ $USER != "root" ]]; then
-	local PROMPT=' %{$fg[red]%}%~%{$reset_color%} '
-	local ret_status="%(?:  :%{$fg_bold[cyan]%}:()"
-else
 	local PROMPT=' %{$fg[cyan]%}%~%{$reset_color%} '
 	local ret_status="%(?:  :%{$fg_bold[red]%}:()"
+else
+	local PROMPT=' %{$fg[red]%}%~%{$reset_color%} '
+	local ret_status="%(?:  :%{$fg_bold[cyan]%}:()"
 fi
 
 
