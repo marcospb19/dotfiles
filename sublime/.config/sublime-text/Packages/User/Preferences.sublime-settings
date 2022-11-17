@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "gruvbox (Dark) (Hard) NDC.sublime-color-scheme",
+	"color_scheme": "Frappe.sublime-color-scheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -44,7 +44,7 @@
 		"ss01",
 		"no_italic"
 	],
-	"font_size": 18,
+	"font_size": 21,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
@@ -81,4 +81,5 @@
 	// Additional spacing at the bottom of each line, in pixels
 	"line_padding_top": 1,
 	"line_padding_bottom": 1,
+	"update_check": false,
 }
