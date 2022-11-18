@@ -11,7 +11,7 @@ set $alt Mod1
 # Enter key
 set $enter Return
 
-bindsym $mod+o exec --no-startup-id setxkbmap us
+bindsym $mod+o exec --no-startup-id setxkbmap moao
 bindsym $mod+i exec --no-startup-id setxkbmap br abnt2
 
 exec_always --no-startup-id xinput set-prop 'Logitech USB Receiver' 'libinput Accel Speed' -0.5
