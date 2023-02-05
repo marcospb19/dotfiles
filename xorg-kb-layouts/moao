@@ -56,7 +56,7 @@ xkb_symbols "moao" {
     key <AB07>  {[   m,  M      ]};
     key <AB08>  {[   comma,  less       ]};
     key <AB09>  {[   period,  greater    ]};
-    key <AB10>  {[   comma,  comma   ]};
+    key <AB10>  {[   slash,  question   ]};
 
     include "kpdl(comma)"
     include "level3(ralt_switch)"

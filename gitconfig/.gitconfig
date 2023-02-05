@@ -28,3 +28,5 @@
 # `git dif` is less to type than `git difftool`.
 [alias]
         dif = difftool
+[protocol "file"]
+	allow = always
