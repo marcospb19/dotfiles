@@ -10,6 +10,8 @@
 # Path to oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
 
+plugins=()
+
 # My custom theme, ~/.oh-my-zsh/themes/marcospb19
 ZSH_THEME="marcospb19"
 
@@ -48,8 +50,13 @@ CASE_SENSITIVE="false"
 # Allow shared history between root and user
 ZSH_DISABLE_COMPFIX="true"
 
-# Disable update checks.
-DISABLE_AUTO_UPDATE="true"
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+zstyle ':omz:update' frequency 200
 
 # Enable command correction suggestion.
 # ENABLE_CORRECTION="true"
