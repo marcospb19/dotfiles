@@ -54,7 +54,7 @@ class formatCommand(sublime_plugin.TextCommand):
             )
         else:
             formatted_code, error, return_code = _run_terminal_command(
-                'clang-format --style file --assume-filename'.split(' ') + file_name,
+                f'clang-format --assume-filename'.split(' ') + file_name,
                 code,
             )
 
@@ -63,7 +63,7 @@ class formatCommand(sublime_plugin.TextCommand):
                 edit, sublime.Region(0, self.view.size()), formatted_code
             )
         else:
-            print(return_code, 'error: error while trying to format')
+            print(f'error: failed while trying to format (exit code {return_code}): {error}')
 
 
 
