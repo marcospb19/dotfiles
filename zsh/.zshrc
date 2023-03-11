@@ -91,17 +91,17 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
 # Show me a crab
-cat << EOF
+# cat << EOF
 
-      _~^~^~_        __ _  ___  __ _ ___
-  \) /  o o  \ (/   /  ' \/ _ \/ _\` / _ \\
-    '_   ¬   _'    /_/_/_/\___/\__,_\___/
-    / '-----' \\
+#       _~^~^~_        __ _  ___  __ _ ___
+#   \) /  o o  \ (/   /  ' \/ _ \/ _\` / _ \\
+#     '_   ¬   _'    /_/_/_/\___/\__,_\___/
+#     / '-----' \\
 
-    Vicarious:
-        What is experienced in the imagination throught the feelings or actions of another person.
+#     Vicarious:
+#         What is experienced in the imagination throught the feelings or actions of another person.
 
-EOF
+# EOF
 
 PATH_CANDIDATES=(".cargo/bin" ".local/bin" ".bin")
 
