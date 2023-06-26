@@ -46,3 +46,4 @@ alias rs="rust-script"
 alias rsi="evcxr"
 
 alias whiteboard="lorien"
+alias nixfmt="alejandra"

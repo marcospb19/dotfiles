@@ -93,13 +93,7 @@ function find-package-owner-of()
 	done
 }
 
-function ink() {	
-	for i in "$@"; do
-		inkscape > /dev/null 2> /dev/null $i &
-	done
-}
-
-function paste() {
+function upload() {
 	local file=${1:-/dev/stdin}
 	curl --data-binary @${file} https://paste.rs
 }
@@ -112,4 +106,8 @@ function git() {
 	else
 		$bin_location ${@:1}
 	fi
+}
+
+function tag() {
+	export TAG="$@"
 }
