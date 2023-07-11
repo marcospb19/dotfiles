@@ -15,8 +15,8 @@ bindsym $mod+o exec --no-startup-id setxkbmap us
 bindsym $mod+i exec --no-startup-id setxkbmap br abnt2
 
 exec --no-startup-id sudo solaar
+exec --no-startup-id dunst
 exec --no-startup-id obsidian
-exec --no-startup-id flameshot
 
 # Start pulseuadio
 exec --no-startup-id pulseaudio
@@ -237,7 +237,3 @@ bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && e
 #     fi"
 
 bindsym $mod+c exec rofi -show window
-
-bar {
-        status_command i3status
-}
