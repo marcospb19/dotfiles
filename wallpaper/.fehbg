@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill "$HOME/.wall2.png"
+feh --no-fehbg --bg-fill '/home/marcospb19/dotfiles/wallpaper/blobs-l.svg' 
