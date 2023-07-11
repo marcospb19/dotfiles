@@ -40,7 +40,6 @@ source $ZSH/oh-my-zsh.sh
 # # Packages end
 
 # Modularization
-[ -f ./.profile ]   && . ./.profile
 [ -f ./.aliases ]   && . ./.aliases
 [ -f ./.functions ] && . ./.functions
 
