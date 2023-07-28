@@ -11,12 +11,15 @@ set $alt Mod1
 # Enter key
 set $enter Return
 
-bindsym $mod+o exec --no-startup-id setxkbmap us
+bindsym $mod+o exec --no-startup-id setxkbmap moao
 bindsym $mod+i exec --no-startup-id setxkbmap br abnt2
+
+bindsym $mod+c exec --no-startup-id dunstctl close-all
 
 exec --no-startup-id sudo solaar
 exec --no-startup-id dunst
 exec --no-startup-id obsidian
+exec --no-startup-id climsgd
 
 # Start pulseuadio
 exec --no-startup-id pulseaudio
@@ -72,7 +75,7 @@ exec --no-startup-id xfce4-clipman
 bindsym Print exec --no-startup-id deepin-screenshot
 bindsym Shift+Print exec --no-startup-id scrot
 
-font pango:victor mono 12
+font pango:victor mono bold 12
 # font pango:victor mono 2
 
 # # NetworkManager and nm-applet
@@ -203,12 +206,11 @@ mode "resize" {
 new_window pixel 2
 
 # Theme colors
-# Class                   border  backgr. text    indic.   child_border
-client.focused          #caaaca #caaaca #5f2b73
-#client.focused         #ff8395 #ff8395 #ff8395 #FDF6E3
-client.focused_inactive #9a6a9a #9a6a9a #2F3D44 #454948
-client.unfocused        #555555 #555555 #401555 #454948
-client.urgent           #ee3300 #ee3300 #ee3300 #268BD2
+# Class                 border  backgr. text    indic.  child_border
+client.focused          #ba8aaa #ba8aaa #000000 #ba8aaa
+client.focused_inactive #8a6a8a #8a6a8a #2F3D44 #8a6a8a
+client.unfocused        #474346 #474346 #ffaafa #474346
+client.urgent           #ee3300 #ee3300 #ee3300 #ee3300
 
 # # Key bindings for managing multiple monitors:
 #
@@ -235,5 +237,3 @@ bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && e
 #     else \
 #         i3-msg gaps inner current set 12; \
 #     fi"
-
-bindsym $mod+c exec rofi -show window
