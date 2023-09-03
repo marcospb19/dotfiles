@@ -37,8 +37,8 @@
 	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
 
 	// Scroll 4x faster
-	{ "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 4 } },
-	{ "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -4 } },
+	{ "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 6 } },
+	{ "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -6 } },
 
 	// Fixing Ctrl+Tab tab cycle order
 	{ "keys": ["ctrl+tab"], "command": "next_view" },

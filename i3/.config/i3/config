@@ -11,14 +11,17 @@ set $alt Mod1
 # Enter key
 set $enter Return
 
-bindsym $mod+o exec --no-startup-id setxkbmap moao
-bindsym $mod+i exec --no-startup-id setxkbmap br abnt2
+exec --no-startup-id ./.kb-layout-setter moao
+bindsym $mod+o exec --no-startup-id ./.kb-layout-setter moao
+bindsym $mod+i exec --no-startup-id ./.kb-layout-setter br abnt2
 
 bindsym $mod+c exec --no-startup-id dunstctl close-all
 
 exec --no-startup-id sudo solaar
-exec --no-startup-id dunst
 exec --no-startup-id obsidian
+exec --no-startup-id qbittorrent
+
+exec --no-startup-id dunst
 exec --no-startup-id climsgd
 
 # Start pulseuadio
@@ -75,7 +78,7 @@ exec --no-startup-id xfce4-clipman
 bindsym Print exec --no-startup-id deepin-screenshot
 bindsym Shift+Print exec --no-startup-id scrot
 
-font pango:victor mono bold 12
+font pango:victor mono bold 10.5
 # font pango:victor mono 2
 
 # # NetworkManager and nm-applet
@@ -192,8 +195,8 @@ bindsym $mod+Shift+r exec --no-startup-id ~/.fehbg && i3-msg restart && ~/.confi
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+r mode "resize"
-mode "resize" {
+bindsym $mod+r mode " resize "
+mode " resize " {
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
@@ -208,7 +211,7 @@ new_window pixel 2
 # Theme colors
 # Class                 border  backgr. text    indic.  child_border
 client.focused          #ba8aaa #ba8aaa #000000 #ba8aaa
-client.focused_inactive #8a6a8a #8a6a8a #2F3D44 #8a6a8a
+client.focused_inactive #7f5a7a #7f5a7a #2F3D44 #7f5a7a
 client.unfocused        #474346 #474346 #ffaafa #474346
 client.urgent           #ee3300 #ee3300 #ee3300 #ee3300
 

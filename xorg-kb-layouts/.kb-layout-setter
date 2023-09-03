@@ -1,0 +1,2 @@
+climsg send kb-layout " $* "
+setxkbmap $*

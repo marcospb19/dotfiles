@@ -1,5 +1,5 @@
 {
-	"shell_cmd": "clang -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
+	"shell_cmd": "clang++ -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\"",
 	"file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
 	"working_dir": "${file_path}",
 	"selector": "source.c++",
@@ -8,11 +8,11 @@
 	[
 		{
 			"name": "Run",
-			"shell_cmd": "clang -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
+			"shell_cmd": "clang++ -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\""
 		},
 		{
 			"name": "Run + Test \"in\"",
-			"shell_cmd": "clang -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
+			"shell_cmd": "clang++ -std=c++17 -Wall -Wextra -Wshadow -Wno-reorder -fsanitize=address -O2 \"${file}\" -o \"${file_path}/${file_base_name}\" && \"${file_path}/${file_base_name}\" < \"${file_path}/in\""
 		},
 		{
 			"name": "Time Run",

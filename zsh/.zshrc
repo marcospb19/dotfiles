@@ -65,15 +65,30 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-# # Show me a crab
-# cat << EOF
+# Show me a cat
+cat << EOF
+
+                                        ,
+              ,-.       _,---._ __     / \\
+             /  )    .-'       \`./    /   \\
+            (  (   ,'            \`---/    /|
+             \\  \`-"             \\'   \\   / |
+              \`.              ,  \\    \\ /  |
+               /\`.          ,'-\`-------Y   |
+              (            ;           |   '
+              |  ,-.    ,-'    Wait,   |  /
+              |  | (   |     but why?  | /
+              )  |  \\  \`.______________|/
+              \`--'   \`--'
+
+
+EOF
 # 
 #        _~^~^~_
 #    \) /  o o  \ (/
 #      '_   ¬   _'
 #      / '-----' \\
 # 
-# EOF
 
 PATH_CANDIDATES=(".cargo/bin" ".local/bin" ".bin")
 

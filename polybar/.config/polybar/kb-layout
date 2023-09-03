@@ -1,0 +1,1 @@
+climsg listen kb-layout | sed -E 's/.*/ \0 /'
