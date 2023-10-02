@@ -25,7 +25,7 @@ exec --no-startup-id dunst
 exec --no-startup-id climsgd
 
 # Start pulseuadio
-exec --no-startup-id pulseaudio
+exec --no-startup-id start-pulseaudio-x11
 
 # # Gaps
 gaps inner 10
@@ -86,9 +86,9 @@ exec --no-startup-id nm-applet
 
 # # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && echo 1 > .config/polybar/lock
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && climsg send volumescript $(sh ~/.get_volume.sh)
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && climsg send volumescript $(sh ./.get_volume.sh)
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send volumescript $(./.get_volume.sh)
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # # Use Mouse+$mod to drag floating windows to their wanted position
@@ -229,10 +229,10 @@ bindsym $mod+Shift+$enter move workspace to output next
 # set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
 # set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
 # set-sink-mute @DEFAULT_SINK@ toggle && echo 1 > .config/polybar/lock
-bindsym $mod+Prior exec --no-startup-id  pactl set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
-bindsym $mod+Next exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
-bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0 && echo 1 > .config/polybar/lock
-bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/lock
+#bindsym $mod+Prior exec --no-startup-id  pactl set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
+#bindsym $mod+Next exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
+#bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0 && echo 1 > .config/polybar/lock
+#bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/lock
 
 # bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
 #     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
