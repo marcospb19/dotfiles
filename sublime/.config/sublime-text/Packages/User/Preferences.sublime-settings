@@ -6,7 +6,7 @@
 	"bold_folder_labels": true,
 	"caret_extra_width": 2,
 	"caret_style": "blink",
-	"color_scheme": "gruvbox (Dark) (Hard) NDC.sublime-color-scheme",
+	"color_scheme": "gruvbox (Dark) (Soft) NDC.sublime-color-scheme",
 	"drag_text": false,
 	"draw_minimap_border": true,
 	"draw_shadows": false,
@@ -50,7 +50,7 @@
 	[
 		"ss01",
 	],
-	"font_size": 21,
+	"font_size": 19,
 	"git_diff_target": "head",
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
