@@ -82,7 +82,7 @@ font pango:victor mono bold 10.5
 # font pango:victor mono 2
 
 # # NetworkManager and nm-applet
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 
 # # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
