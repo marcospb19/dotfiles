@@ -9,7 +9,7 @@ alias fix-whitespace='sed "s/\ /\\\ /g"'
 # e.g.: $(locate ...) || $(ls ...)
 
 # ls aliases
-alias ls='ls --color --group-directories-first -F'
+alias ls='ls --color=auto --group-directories-first -F'
 alias l='ls'
 alias la='l -A'
 alias lA='l -a'
