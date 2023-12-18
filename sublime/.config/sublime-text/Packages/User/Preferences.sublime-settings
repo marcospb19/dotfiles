@@ -20,7 +20,7 @@
 	"match_brackets_tags": true,
 	"file_exclude_patterns":
 	[
-		"target",
+		"target/",
 		"*.tscn",
 		"*.ttf",
 		"*.import",
@@ -87,4 +87,5 @@
 	"line_padding_top": 1,
 	"line_padding_bottom": 1,
 	"update_check": false,
+	"index_files": true,
 }

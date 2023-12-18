@@ -2,6 +2,9 @@
 	// Fix the binding Ctrl + Pause/Break
 	{ "keys": ["ctrl+pause"], "command": "cancel_build" },
 
+	// Close all tabs
+	{ "keys": ["ctrl+shift+w"], "command": "close_all" },
+
 	// Clipboard history (last 10)
 	{ "keys": ["ctrl+shift+v"], "command": "paste_from_history" },
 
