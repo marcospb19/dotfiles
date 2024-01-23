@@ -21,8 +21,8 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.pl
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 # Imports
-[ -f ./.aliases ]   && . ./.aliases
-[ -f ./.functions ] && . ./.functions
+[ -f ~/.aliases ]   && . ~/.aliases
+[ -f ~/.functions ] && . ~/.functions
 
 HYPHEN_INSENSITIVE="true"
 CASE_SENSITIVE="false"

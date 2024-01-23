@@ -100,14 +100,20 @@ function upload() {
 
 bin_location=$(which git)
 
+function dup() {
+    if [[ "$1" ]]; then
+        for _ in {1.."$1"}; do
+            $TERM &!
+        done
+    else
+        $TERM &!
+    fi
+}
+
 function git() {
 	if [[ "$#" == 0 ]]; then
 		$bin_location status
 	else
 		$bin_location ${@:1}
 	fi
-}
-
-function tag() {
-	export TAG="$@"
 }

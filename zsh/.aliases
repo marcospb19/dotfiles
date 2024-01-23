@@ -35,6 +35,8 @@ alias ix='curl -F "f:1=<-" ix.io'
 
 alias rs="rust-script"
 alias rsi="evcxr"
+alias pyi="ipython"
+alias ipy="ipython"
 
 alias whiteboard="lorien"
 alias nixfmt="alejandra"
