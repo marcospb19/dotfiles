@@ -33,10 +33,12 @@ alias disall="bg ; disown ; exit"
 # Update output
 alias ix='curl -F "f:1=<-" ix.io'
 
-alias rs="rust-script"
+alias rs="cargo +nightly -Zscript"
 alias rsi="evcxr"
 alias pyi="ipython"
 alias ipy="ipython"
 
 alias whiteboard="lorien"
 alias nixfmt="alejandra"
+alias resolve='/opt/resolve/bin/resolve'
+alias dragon='dragon-drop'
