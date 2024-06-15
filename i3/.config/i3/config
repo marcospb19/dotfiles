@@ -17,9 +17,13 @@ bindsym $mod+i exec --no-startup-id ./.kb-layout-setter br abnt2
 
 bindsym $mod+c exec --no-startup-id dunstctl close-all
 
+
+
+exec_always --no-startup-id xsetwacom --set 9 rotate half
 exec --no-startup-id sudo solaar
 exec --no-startup-id obsidian
 exec --no-startup-id qbittorrent
+exec --no-startup-id blueberry
 
 exec --no-startup-id dunst
 exec --no-startup-id climsgd
@@ -38,7 +42,7 @@ smart_borders on
 # # Polybar and multiple monitor management
 # Startup
 exec --no-startup-id \
-	[ $(xrandr -q | grep -E '(HDMI|eDP)' | wc -l) = 2 ] && ~/.screenlayout/external.sh \
+	~/.screenlayout/external.sh \
 	; ~/.config/polybar/launch.sh \
 	; ./.fehbg
 # Restart
@@ -163,6 +167,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+bindsym $mod+Escape workspace number $ws0
 bindsym $mod+apostrophe workspace number $ws0
 bindsym $mod+grave workspace number $ws0
 bindsym $mod+1 workspace number $ws1
@@ -175,6 +180,7 @@ bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
+bindsym $mod+Shift+Escape move container to workspace number $ws0
 bindsym $mod+Shift+apostrophe move container to workspace number $ws0
 bindsym $mod+Shift+grave move container to workspace number $ws0
 bindsym $mod+Shift+1 move container to workspace number $ws1
