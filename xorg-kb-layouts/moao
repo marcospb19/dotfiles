@@ -44,7 +44,7 @@ xkb_symbols "moao" {
     key <AC08>  {[   k,  K      ]};
     key <AC09>  {[   l,  L      ]};
     key <AC10>  {[ semicolon,    colon      ]};
-    key <AC11>  {[   apostrophe,   quotedbl ]};
+    key <AC11>  {[ apostrophe,   quotedbl   ]};
     key <BKSL>  {[ backslash,    bar        ]};
 
     key <AB01>  {[   z,  Z      ]};
