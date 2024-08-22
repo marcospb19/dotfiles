@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '/home/marcospb19/jao1.jpg' 
+feh --no-fehbg --bg-scale '/home/marcospb19/Pictures/renan5.jpg' 
