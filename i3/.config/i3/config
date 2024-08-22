@@ -107,6 +107,10 @@ bindsym $mod+s exec --no-startup-id google-chrome-stable
 bindsym $mod+a exec --no-startup-id pcmanfm
 bindsym $mod+n exec --no-startup-id spotify
 
+
+# Sticky window toggle
+bindsym $mod+Shift+s sticky toggle
+
 # bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
 # 	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force
 
