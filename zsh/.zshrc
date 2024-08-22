@@ -20,6 +20,9 @@ plugins=()
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
+# Enable fzf backwards history search
+source ${ZSH_CUSTOM}/plugins/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+
 # Imports
 [ -f ~/.aliases ]   && . ~/.aliases
 [ -f ~/.functions ] && . ~/.functions
