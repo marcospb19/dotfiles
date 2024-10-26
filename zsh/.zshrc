@@ -102,3 +102,5 @@ for CANDIDATE in $PATH_CANDIDATES; do
         export PATH=$HOME/$CANDIDATE:$PATH
     fi
 done
+
+eval "$(zoxide init zsh)"
