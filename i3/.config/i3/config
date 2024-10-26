@@ -32,6 +32,9 @@ exec --no-startup-id climsgd
 # Start pulseuadio
 exec --no-startup-id start-pulseaudio-x11
 
+# uhhhh, fix file picker in chrome, somehow, somewhy
+exec --no-startup-id sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
 # # Gaps
 gaps inner 10
 gaps outer 0
@@ -44,10 +47,10 @@ smart_borders on
 # Startup
 exec --no-startup-id \
 	~/.screenlayout/external.sh \
-	; ~/.config/polybar/launch.sh \
-	; ./.fehbg
+	; ~/.config/polybar/launch.sh
+	# ; ./.fehbg
 # Restart
-bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh && ./.fehbg
+bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh # && ./.fehbg
 # Hide bar
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 
@@ -209,7 +212,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace
-bindsym $mod+Shift+r exec --no-startup-id ~/.fehbg && i3-msg restart && ~/.config/polybar/launch.sh
+# bindsym $mod+Shift+r exec --no-startup-id ~/.fehbg && i3-msg restart && ~/.config/polybar/launch.sh
+bindsym $mod+Shift+r exec --no-startup-id i3-msg restart && ~/.config/polybar/launch.sh
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -228,10 +232,10 @@ new_window pixel 2
 
 # Theme colors
 # Class                 border  backgr. text    indic.  child_border
-client.focused          #ba8aaa #ba8aaa #000000 #ba8aaa
-client.focused_inactive #7f5a7a #7f5a7a #2F3D44 #7f5a7a
-client.unfocused        #474346 #474346 #ffaafa #474346
-client.urgent           #ee3300 #ee3300 #ee3300 #ee3300
+client.focused          #bababa #bababa #bababa #bababa
+client.focused_inactive #7f7f7f #7f7f7f #7f7f7f #7f7f7f
+client.unfocused        #474747 #474747 #474747 #474747
+client.urgent           #eeeeee #eeeeee #eeeeee #eeeeee
 
 # # Key bindings for managing multiple monitors:
 #
