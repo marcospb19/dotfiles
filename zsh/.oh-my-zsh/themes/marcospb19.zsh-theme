@@ -25,50 +25,57 @@ local GIT_PROMPT_UNTRACKED="%{$reset_color%}%{$fg[red]%}?"    # red `u`    - unt
 local GIT_PROMPT_MODIFIED="%{$reset_color%}%{$fg[yellow]%}±"  # yellow `m` - tracked files modified
 local GIT_PROMPT_STAGED="%{$reset_color%}%{$fg[green]%}↑"     # green `s`  - staged changes
 
-parse_git_where() {
+parse_git_branch_and_offsets() {
     # ahead/behind, current branch compared to origin copy
-    local AHEAD_OF_ITSELF=""
+    local ahead_of_itself=""
 
-    local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-    if [ "$NUM_AHEAD" -gt 0 ]; then
-        AHEAD_OF_ITSELF=$AHEAD_OF_ITSELF${GIT_PROMPT_AHEAD}${NUM_AHEAD}
+    local num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+    if [ "$num_ahead" -gt 0 ]; then
+        ahead_of_itself=$ahead_of_itself${GIT_PROMPT_AHEAD}${num_ahead}
     fi
-    local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-    if [ "$NUM_BEHIND" -gt 0 ]; then
-        AHEAD_OF_ITSELF=$AHEAD_OF_ITSELF${GIT_PROMPT_BEHIND}${NUM_BEHIND}
+    local num_behind="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+    if [ "$num_behind" -gt 0 ]; then
+        ahead_of_itself=$ahead_of_itself${GIT_PROMPT_BEHIND}${num_behind}
     fi
 
-    # Show Git branch/tag, or name-rev if on detached head
-    local branch_name=$(
-          ( git symbolic-ref -q HEAD \
-            || git name-rev --name-only --no-undefined --always HEAD ) 2> /dev/null
-    )
+    local main_branch_name="$(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master")"
+    local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')"
+
+    # Start with Git branch/tag, or name-rev if on detached head
+    local final_result="$(
+        git symbolic-ref -q HEAD \
+            || git name-rev --name-only --no-undefined --always HEAD
+    )"
+
+    # return early if we are in the main branch
+    if [ "$final_result" = "refs/heads/$main_branch_name" ]; then
+        if [ $ahead_of_itself ]; then
+            final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}$ahead_of_itself"
+        fi
+        echo "$final_result"
+        return
+    fi
 
     # ahead/behind, current branch compared to origin's main
-    local AHEAD_OF_MAIN=""
+    local ahead_of_main=""
 
-    main_branch_name=$(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master")
-    origin_main_distance=$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')
-
-    local NUM_AHEAD=$(sed -n 1p <<< "$origin_main_distance")
-    if [ "$NUM_AHEAD" -gt 0 ]; then
-        AHEAD_OF_MAIN=$AHEAD_OF_MAIN${GIT_PROMPT_AHEAD}${NUM_AHEAD}
+    local num_ahead=$(sed -n 1p <<< "$origin_main_distance")
+    if [ "$num_ahead" -gt 0 ]; then
+        ahead_of_main=$ahead_of_main${GIT_PROMPT_AHEAD}${num_ahead}
     fi
-    local NUM_BEHIND=$(sed -n 2p <<< "$origin_main_distance")
-    if [ "$NUM_BEHIND" -gt 0 ]; then
-        AHEAD_OF_MAIN=$AHEAD_OF_MAIN${GIT_PROMPT_BEHIND}${NUM_BEHIND}
+    local num_behind=$(sed -n 2p <<< "$origin_main_distance")
+    if [ "$num_behind" -gt 0 ]; then
+        ahead_of_main=$ahead_of_main${GIT_PROMPT_BEHIND}${num_behind}
     fi
 
-    local NUM_AB_COMPLETE=""
-
-    if [ $AHEAD_OF_ITSELF ]; then
-        NUM_AB_COMPLETE="%{$fg_bold[grey]%}|%{$reset%}I$AHEAD_OF_ITSELF"
+    if [ $ahead_of_itself ]; then
+        final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}I$ahead_of_itself"
     fi
-    if [ $AHEAD_OF_MAIN ]; then
-        NUM_AB_COMPLETE="$NUM_AB_COMPLETE%{$fg_bold[grey]%}|%{$reset%}M$AHEAD_OF_MAIN"
+    if [ $ahead_of_main ]; then
+        final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}M$ahead_of_main"
     fi
 
-    echo "$branch_name$NUM_AB_COMPLETE"
+    echo "$final_result"
 }
 
 parse_git_state() {
@@ -97,7 +104,7 @@ parse_git_state() {
 git_prompt_string() {
     # If inside a Git repository, and user didn't disabled git rprompt
     if [ "$git" ] && git rev-parse --is-inside-work-tree &> /dev/null; then
-        local git_where="$(parse_git_where)"
+        local git_where="$(parse_git_branch_and_offsets)"
         # print branch and state
         echo "$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg_bold[magenta]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
     else
