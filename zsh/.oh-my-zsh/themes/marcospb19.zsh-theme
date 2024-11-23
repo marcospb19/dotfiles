@@ -26,6 +26,18 @@ local GIT_PROMPT_MODIFIED="%{$reset_color%}%{$fg[yellow]%}±"  # yellow `m` - tr
 local GIT_PROMPT_STAGED="%{$reset_color%}%{$fg[green]%}↑"     # green `s`  - staged changes
 
 parse_git_branch_and_offsets() {
+    # Start with Git branch/tag, or name-rev if on detached head
+    local final_result="$(
+        git symbolic-ref -q HEAD \
+            || git name-rev --name-only --no-undefined --always HEAD
+    )"
+
+    # return early if there is no origin
+    if ! git remote get-url origin &> /dev/null; then
+        echo "$final_result - no origin"
+        return
+    fi
+
     # ahead/behind, current branch compared to origin copy
     local ahead_of_itself=""
 
@@ -39,13 +51,6 @@ parse_git_branch_and_offsets() {
     fi
 
     local main_branch_name="$(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master")"
-    local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')"
-
-    # Start with Git branch/tag, or name-rev if on detached head
-    local final_result="$(
-        git symbolic-ref -q HEAD \
-            || git name-rev --name-only --no-undefined --always HEAD
-    )"
 
     # return early if we are in the main branch
     if [ "$final_result" = "refs/heads/$main_branch_name" ]; then
@@ -59,6 +64,7 @@ parse_git_branch_and_offsets() {
     # ahead/behind, current branch compared to origin's main
     local ahead_of_main=""
 
+    local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')"
     local num_ahead=$(sed -n 1p <<< "$origin_main_distance")
     if [ "$num_ahead" -gt 0 ]; then
         ahead_of_main=$ahead_of_main${GIT_PROMPT_AHEAD}${num_ahead}
