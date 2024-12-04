@@ -2,9 +2,9 @@
 /* Center line thickness (pixels) */
 #define C_LINE 1
 /* Width (in pixels) of each bar */
-#define BAR_WIDTH 4
+#define BAR_WIDTH 5
 /* Width (in pixels) of each bar gap */
-#define BAR_GAP 2
+#define BAR_GAP 1
 /* Outline color */
 #define BAR_OUTLINE #262626
 /* Outline width (in pixels, set to 0 to disable outline drawing) */
@@ -16,11 +16,11 @@
    correctly on X11 with `"native"` transparency. */
 #define USE_ALPHA 0
 /* How strong the gradient changes */
-#define GRADIENT_POWER 60
+#define GRADIENT_POWER 10
 /* Bar color changes with height */
 #define GRADIENT (d / GRADIENT_POWER + 1)
 /* Bar color */
-#define COLOR (#3366b2 * GRADIENT)
+#define COLOR (#102020 * GRADIENT)
 /* Direction that the bars are facing, 0 for inward, 1 for outward */
 #define DIRECTION 0
 /* Whether to switch left/right audio buffers */
