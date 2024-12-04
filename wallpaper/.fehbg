@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/marcospb19/Pictures/renan5.jpg' 
+feh --no-fehbg --bg-fill '/home/marcospb19/dotfiles/wallpaper/.wall-cat-punch.jpg' 
