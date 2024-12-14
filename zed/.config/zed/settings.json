@@ -1,0 +1,66 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "terminal": {
+    "dock": "bottom"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "vim_mode": false,
+  "outline_panel": {
+    "dock": "left"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-5-sonnet"
+    },
+    "version": "2"
+  },
+  "cursor_blink": false,
+  "show_inline_completions": false,
+  "base_keymap": "SublimeText",
+  "theme": "Gruvbox Dark Hard",
+  "current_line_highlight": "all",
+  "ui_font_size": 21,
+  "buffer_font_size": 22,
+  "buffer_font_family": "Victor Mono",
+  "buffer_font_weight": 800,
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "tabs": {
+    // Show git status colors in the editor tabs.
+    "git_status": true
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "rustfmt": {
+          "extraArgs": ["+nightly"]
+        }
+      }
+    }
+  },
+  "preview_tabs": {
+    "enabled": true
+  }
+
+  // "languages": {
+  //   "TOML": {
+  //     "format_on_save": "off"
+  //   }
+  // }
+}
