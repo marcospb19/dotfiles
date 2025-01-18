@@ -42,3 +42,5 @@ alias whiteboard="lorien"
 alias nixfmt="alejandra"
 alias resolve='/opt/resolve/bin/resolve'
 alias dragon='dragon-drop'
+
+alias latency='curl cheat.sh/latency'

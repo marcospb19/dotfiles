@@ -18,9 +18,9 @@ bindsym $mod+o exec --no-startup-id ./.kb-layout-setter moao
 
 bindsym $mod+c exec --no-startup-id dunstctl close-all
 
-
-
 exec_always --no-startup-id xsetwacom --set 9 rotate half
+# Disable cause I've been experiencing crashes
+# exec_always --no-startup-id pkill glava && glava -d
 exec --no-startup-id sudo solaar
 exec --no-startup-id obsidian
 exec --no-startup-id qbittorrent
@@ -30,7 +30,7 @@ exec --no-startup-id dunst
 exec --no-startup-id climsgd
 
 # Start pulseuadio
-exec --no-startup-id start-pulseaudio-x11
+# exec --no-startup-id start-pulseaudio-x11
 
 # uhhhh, fix file picker in chrome, somehow, somewhy
 exec --no-startup-id sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
@@ -114,7 +114,7 @@ bindsym $mod+$enter exec alacritty
 bindsym $mod+$alt+$enter exec cool-retro-term
 # Open applications
 bindsym $mod+s exec --no-startup-id google-chrome-stable
-bindsym $mod+a exec --no-startup-id pcmanfm
+bindsym $mod+a exec --no-startup-id dolphin
 bindsym $mod+n exec --no-startup-id spotify
 
 
@@ -128,7 +128,6 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+q kill
 
 # # Start dmenu program launcher
-# Bindsym $mod+d exec dmenu_run
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Victor Mono Medium'
 
 # Alternatively, you can use the cursor keys:

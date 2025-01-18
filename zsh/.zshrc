@@ -70,7 +70,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-# Show me a cat
 cat << EOF
 
                                         ,
@@ -88,12 +87,13 @@ cat << EOF
 
 
 EOF
-#
+# cat << EOF
 #        _~^~^~_
 #    \) /  o o  \ (/
 #      '_   ¬   _'
 #      / '-----' \\
 #
+# EOF
 
 PATH_CANDIDATES=(".cargo/bin" ".local/bin" ".bin")
 
