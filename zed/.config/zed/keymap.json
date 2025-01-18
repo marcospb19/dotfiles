@@ -4,16 +4,19 @@
 [
   {
     "bindings": {
+      "alt-f": "editor::SelectAllMatches",
+      "alt-l": "editor::SelectAllMatches",
+
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
       "alt-d": ["editor::SelectNext", { "replace_newest": true }],
       "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
       "alt-shift-d": ["editor::SelectPrevious", { "replace_newest": true }],
-      "ctrl-shift-up": "editor::MoveLineUp",
-      "ctrl-shift-down": "editor::MoveLineDown",
+      "ctrl-alt-d": "editor::SelectAllMatches",
+
       "alt-up": "editor::AddSelectionAbove",
       "alt-down": "editor::AddSelectionBelow",
-      "ctrl-alt-up": "editor::AddSelectionAbove",
-      "ctrl-alt-down": "editor::AddSelectionBelow",
+      "ctrl-alt-up": "editor::MoveLineUp",
+      "ctrl-alt-down": "editor::MoveLineDown",
 
       "ctrl-tab": "pane::ActivateNextItem",
       "ctrl-shift-tab": "pane::ActivatePrevItem",
@@ -38,7 +41,39 @@
       "ctrl-8": ["workspace::ActivatePane", 7],
       "ctrl-9": ["workspace::ActivatePane", 8],
 
-      "alt-l": "editor::SelectAllMatches",
+      // // TODO: fix folding hotkeys
+      // "ctrl-shift-{": "editor::Fold",
+      // "ctrl-shift-}": "editor::UnfoldLines",
+      // "ctrl-shift-[": "editor::Fold",
+      // "ctrl-shift-]": "editor::UnfoldLines",
+
+      // "ctrl-alt-[": "editor::Fold",
+      // "ctrl-alt-]": "editor::UnfoldAt",
+      // "ctrl-alt-[": "editor::Fold",
+      // "ctrl-alt-]": "editor::UnfoldLines",
+
+      "ctrl-alt-1": ["editor::FoldAtLevel", { "level": 1 }],
+      "ctrl-alt-2": ["editor::FoldAtLevel", { "level": 2 }],
+      "ctrl-alt-3": ["editor::FoldAtLevel", { "level": 3 }],
+      "ctrl-alt-4": ["editor::FoldAtLevel", { "level": 4 }],
+      "ctrl-alt-5": ["editor::FoldAtLevel", { "level": 5 }],
+      "ctrl-alt-6": ["editor::FoldAtLevel", { "level": 6 }],
+      "ctrl-alt-7": ["editor::FoldAtLevel", { "level": 7 }],
+      "ctrl-alt-8": ["editor::FoldAtLevel", { "level": 8 }],
+      "ctrl-alt-9": "editor::FoldAll",
+      "ctrl-alt-0": "editor::UnfoldAll",
+
+      // PQ NAO FUNCIONA ASSIM
+      "alt-shift-1": ["editor::FoldAtLevel", { "level": 1 }],
+      "alt-shift-2": ["editor::FoldAtLevel", { "level": 2 }],
+      "alt-shift-3": ["editor::FoldAtLevel", { "level": 3 }],
+      "alt-shift-4": ["editor::FoldAtLevel", { "level": 4 }],
+      "alt-shift-5": ["editor::FoldAtLevel", { "level": 5 }],
+      "alt-shift-6": ["editor::FoldAtLevel", { "level": 6 }],
+      "alt-shift-7": ["editor::FoldAtLevel", { "level": 7 }],
+      "alt-shift-8": ["editor::FoldAtLevel", { "level": 8 }],
+      "alt-shift-9": "editor::FoldAll",
+      "alt-shift-0": "editor::UnfoldAll",
 
       // ask for copilot's completion
       "ctrl-i": "editor::ShowInlineCompletion",
@@ -76,10 +111,18 @@
 
       "ctrl-shift-b": "workspace::ToggleRightDock",
 
-      "ctrl-shift-{": "editor::Fold",
-      "ctrl-shift-}": "editor::UnfoldLines",
-      "ctrl-shift-[": "editor::Fold",
-      "ctrl-shift-]": "editor::UnfoldLines"
+      "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
+
+      // why it doesnt work
+      "ctrl-shift-space": "vim::SelectLargerSyntaxNode"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // // disable cause alt-enter is OpenExcerpt
+      // "alt-enter": "editor::NewlineBelow",
+      "alt-shift-enter": "editor::NewlineAbove"
     }
   }
 ]
