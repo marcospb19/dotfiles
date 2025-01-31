@@ -11,6 +11,9 @@ set $alt Mod1
 # Enter key
 set $enter Return
 
+# Why is this highlighting broken, is this option no-op now?
+new_window pixel 2
+
 exec --no-startup-id ./.kb-layout-setter moao
 bindsym $mod+u exec --no-startup-id ./.kb-layout-setter moao-colemak
 bindsym $mod+i exec --no-startup-id ./.kb-layout-setter br abnt2
@@ -22,8 +25,8 @@ exec_always --no-startup-id xsetwacom --set 9 rotate half
 # Disable cause I've been experiencing crashes
 # exec_always --no-startup-id pkill glava && glava -d
 exec --no-startup-id sudo solaar
-exec --no-startup-id obsidian
-exec --no-startup-id qbittorrent
+# exec --no-startup-id obsidian
+# exec --no-startup-id qbittorrent
 exec --no-startup-id blueberry
 
 exec --no-startup-id dunst
@@ -38,21 +41,21 @@ exec --no-startup-id sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 # # Gaps
 gaps inner 10
 gaps outer 0
+bindsym $mod+Shift+g exec --no-startup-id i3-msg gaps inner current set 10
+bindsym $mod+g exec --no-startup-id i3-msg gaps inner current set 0
 
 # Mmmmmmm
 smart_gaps on
 smart_borders on
 
-# # Polybar and multiple monitor management
-# Startup
+# Polybar
 exec --no-startup-id \
 	~/.screenlayout/external.sh \
-	; ~/.config/polybar/launch.sh
-	# ; ./.fehbg
-# Restart
-bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh # && ./.fehbg
-# Hide bar
-bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
+	; ~/.config/polybar/launch.sh \
+    && sleep 1 \
+    && polybar-msg cmd hide
+bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh
+bindsym $mod+m       exec --no-startup-id polybar-msg cmd toggle
 
 # Cycle workspaces
 bindsym $mod+Tab       workspace next
@@ -94,8 +97,8 @@ font pango:victor mono bold 10.5
 
 # # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && climsg send volumescript $(sh ~/.get_volume.sh)
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && climsg send volumescript $(sh ./.get_volume.sh)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +7 && climsg send volumescript $(sh ~/.get_volume.sh)
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -7 && climsg send volumescript $(sh ./.get_volume.sh)
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send volumescript $(./.get_volume.sh)
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
@@ -227,7 +230,6 @@ mode " resize " {
         bindsym $enter mode "default"
 }
 
-new_window pixel 2
 
 # Theme colors
 # Class                 border  backgr. text    indic.  child_border
@@ -254,10 +256,3 @@ bindsym $mod+Shift+$enter move workspace to output next
 #bindsym $mod+Next exec --no-startup-id   pactl set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock
 #bindsym $mod+Home exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ 0 && echo 1 > .config/polybar/lock
 #bindsym $mod+End exec --no-startup-id  pactl set-sink-mute @DEFAULT_SINK@ 1 && echo 1 > .config/polybar/lock
-
-# bindsym $mod+g exec --no-startup-id "if [ `i3-msg -t get_tree | grep -Po \
-#     '.*\\"gaps\\":{\\"inner\\":\K(-|)[0-9]+(?=.*\\"focused\\":true)'` -eq 0 ]; then \
-#         i3-msg gaps inner current set 0; \
-#     else \
-#         i3-msg gaps inner current set 12; \
-#     fi"
