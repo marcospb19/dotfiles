@@ -5,14 +5,15 @@
   {
     "bindings": {
       "alt-f": "editor::SelectAllMatches",
-      "alt-l": "editor::SelectAllMatches",
+      // "ctrl-alt-d": "editor::SelectAllMatches",
 
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
       "alt-d": ["editor::SelectNext", { "replace_newest": true }],
       "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
       "alt-shift-d": ["editor::SelectPrevious", { "replace_newest": true }],
-      "ctrl-alt-d": "editor::SelectAllMatches",
 
+      "ctrl-e": "editor::ScrollCursorCenter",
+      "ctrl-e": "diagnostics::ToggleWarnings",
       "alt-up": "editor::AddSelectionAbove",
       "alt-down": "editor::AddSelectionBelow",
       "ctrl-alt-up": "editor::MoveLineUp",
@@ -64,6 +65,7 @@
       "ctrl-alt-0": "editor::UnfoldAll",
 
       // PQ NAO FUNCIONA ASSIM
+      // teoria: shift-1 é "!"
       "alt-shift-1": ["editor::FoldAtLevel", { "level": 1 }],
       "alt-shift-2": ["editor::FoldAtLevel", { "level": 2 }],
       "alt-shift-3": ["editor::FoldAtLevel", { "level": 3 }],
@@ -82,7 +84,7 @@
       // "alt-,": "editor::MoveToStartOfParagraph",
       // "alt-.": "editor::MoveToEndOfParagraph",
 
-      "ctrl-\\": "editor::ToggleHunkDiff",
+      "ctrl-\\": "editor::ToggleSelectedDiffHunks",
       // "ctrl-shift-\\" equivalent
       "ctrl-|": "editor::ExpandAllHunkDiffs",
 
@@ -113,16 +115,18 @@
 
       "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
 
-      // why it doesnt work
-      "ctrl-shift-space": "vim::SelectLargerSyntaxNode"
+      // why doesnt it work
+      "ctrl-shift-space": "vim::SelectLargerSyntaxNode",
+
+      "ctrl-f12": "editor::GoToTypeDefinition"
     }
   },
   {
-    "context": "Editor",
+    "context": "BufferSearchBar || ProjectSearchBar",
     "bindings": {
-      // // disable cause alt-enter is OpenExcerpt
-      // "alt-enter": "editor::NewlineBelow",
-      "alt-shift-enter": "editor::NewlineAbove"
+      "alt-e": "search::ToggleSelection",
+      "alt-enter": "search::SelectAllMatches",
+      "alt-f": "search::SelectAllMatches"
     }
   }
 ]

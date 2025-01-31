@@ -4,9 +4,11 @@ export BROWSER=google-chrome-stable
 
 # Dark mode, gtk and qt
 # run `yay -S gnome-themes-extra adwaita-qt5-git adwaita-qt6-git` first
-GTK_THEME=Adwaita:dark
-GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
-QT_STYLE_OVERRIDE=Adwaita-Dark
+export GTK_THEME=Adwaita:dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+# export XDG_CURRENT_DESKTOP=KDE
+export ZED_DEVELOPMENT_AUTH=1
 
 # Set terminal tabs width
 tabs -4
