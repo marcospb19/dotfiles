@@ -1,4 +1,3 @@
-// https://zed.dev/docs/configuring-zed
 {
   "project_panel": {
     "dock": "right"
@@ -31,10 +30,10 @@
   // "soft_wrap": "editor_width",
   "show_inline_completions": true,
   "base_keymap": "SublimeText",
-  "theme": "Catppuccin Frappé",
+  "theme": "Catppuccin Frappé - No Italics",
   "current_line_highlight": "all",
-  "ui_font_size": 21,
-  "buffer_font_size": 18.5,
+  "ui_font_size": 17,
+  "buffer_font_size": 22.0,
   "buffer_font_family": "Victor Mono",
   "buffer_font_weight": 600,
   "git": {
@@ -56,9 +55,6 @@
         "rustfmt": {
           "extraArgs": ["+nightly"]
         }
-        // "checkOnSave": {
-        //     "allTargets": false
-        // },
         // "completion": {
         //     "fullFunctionSignatures": { "enable": true }
         // }

@@ -97,8 +97,8 @@ font pango:victor mono bold 10.5
 
 # # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +7 && climsg send volumescript $(sh ~/.get_volume.sh)
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -7 && climsg send volumescript $(sh ./.get_volume.sh)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 7 && climsg send volumescript $(sh ~/.get_volume.sh)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 7 && climsg send volumescript $(sh ./.get_volume.sh)
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send volumescript $(./.get_volume.sh)
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
@@ -122,7 +122,7 @@ bindsym $mod+n exec --no-startup-id spotify
 
 
 # Sticky window toggle
-bindsym $mod+Shift+s sticky toggle
+bindsym $mod+x sticky toggle
 
 # bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
 # 	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force
