@@ -2,7 +2,7 @@
 # https://github.com/marcospb19/dotfiles
 #
 
-# exec_always --no-startup-id picom
+exec_always --no-startup-id flameshot
 
 # Super key
 set $mod Mod4
@@ -15,9 +15,10 @@ set $enter Return
 new_window pixel 2
 
 exec --no-startup-id ./.kb-layout-setter moao
-bindsym $mod+u exec --no-startup-id ./.kb-layout-setter moao-colemak
+# bindsym $mod+u exec --no-startup-id ./.kb-layout-setter moao-colemak
 bindsym $mod+i exec --no-startup-id ./.kb-layout-setter br abnt2
-bindsym $mod+o exec --no-startup-id ./.kb-layout-setter moao
+# bindsym $mod+o exec --no-startup-id ./.kb-layout-setter moao
+bindsym $mod+o exec --no-startup-id ./.kb-layout-setter us
 
 bindsym $mod+c exec --no-startup-id dunstctl close-all
 
@@ -86,14 +87,13 @@ bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
-bindsym Print exec --no-startup-id deepin-screenshot
+bindsym Print exec --no-startup-id flameshot gui
 bindsym Shift+Print exec --no-startup-id scrot
 
 font pango:victor mono bold 10.5
 # font pango:victor mono 2
 
-# # NetworkManager and nm-applet
-# exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
 
 # # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -108,8 +108,7 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-
-# # Use Mouse+$mod to drag floating windows to their wanted position
+# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Start a terminal
