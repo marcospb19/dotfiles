@@ -1,46 +1,28 @@
-# nvim
-alias vim="nvim"
-
-# Substitute " " for "\ "
-# Very nice alias to ignore whitespace problems when working with file paths
+# TIP: use double quotes instead to prevent string splits
 alias fix-whitespace='sed "s/\ /\\\ /g"'
-# I made this when i didn't knew about SH double quotes preventing string splits
-
-# e.g.: $(locate ...) || $(ls ...)
 
 # ls aliases
 alias ls='ls --color=auto --group-directories-first -F'
 alias l='ls'
-alias la='l -A'
-alias lA='l -a'
-alias ll='l -l'
+alias la='ls -A'
+alias ll='ls -l'
 alias lla='ll -A'
-alias llA='l -a'
 
 # Git aliases
 alias lol="git log --all --graph --oneline --decorate"
-alias dif='git dif'
 
-# Goodie
 alias please="sudo"
 
-# Weather information on my city
-alias weather="curl -s wttr.in/Natal"
-
 # Disown all apps
-alias disall="bg ; disown ; exit"
+alias dis="bg ; disown ; exit"
 
-# Update output
+# Update STDIN
 alias ix='curl -F "f:1=<-" ix.io'
 
 alias rs="cargo +nightly -Zscript"
 alias rsi="evcxr"
-alias pyi="ipython"
 alias ipy="ipython"
+alias pyi="ipython"
 
 alias whiteboard="lorien"
-alias nixfmt="alejandra"
-alias resolve='/opt/resolve/bin/resolve'
 alias dragon='dragon-drop'
-
-alias latency='curl cheat.sh/latency'

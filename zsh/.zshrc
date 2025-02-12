@@ -19,16 +19,16 @@ plugins=()
 # Enable `syntax-highlighting` and `autosuggestions`
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+source /usr/share/zsh/plugins/zsh-fzf-plugin/fzf.plugin.zsh
 
 # hide duplicates from history, useful for `fzf`
 setopt HIST_FIND_NO_DUPS
-# Enable fzf in backwards history search
-source ${ZSH_CUSTOM}/plugins/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
 
 # Imports
 [ -f ~/.aliases ]   && . ~/.aliases
 [ -f ~/.functions ] && . ~/.functions
 
+# TODO is this even working
 HYPHEN_INSENSITIVE="true"
 CASE_SENSITIVE="false"
 # Allow shared history between root and user
@@ -39,7 +39,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # how often to auto-update (in days).
-zstyle ':omz:update' frequency 200
+# zstyle ':omz:update' frequency 200
 
 # Enable command correction suggestion.
 ENABLE_CORRECTION="false"
@@ -95,12 +95,14 @@ EOF
 #
 # EOF
 
-PATH_CANDIDATES=(".cargo/bin" ".local/bin" ".bin")
+PATH_CANDIDATES=(
+    ".cargo/bin"
+    ".local/bin"
+    ".bin"
+)
 
 for CANDIDATE in $PATH_CANDIDATES; do
     if [ -d "$HOME/$CANDIDATE" ]; then
         export PATH=$HOME/$CANDIDATE:$PATH
     fi
 done
-
-eval "$(zoxide init zsh)"
