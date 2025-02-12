@@ -5,6 +5,7 @@
   {
     "bindings": {
       "alt-f": "editor::SelectAllMatches",
+      "alt-shift-f": "editor::OpenSelectionsInMultibuffer",
       // "ctrl-alt-d": "editor::SelectAllMatches",
 
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
@@ -53,32 +54,32 @@
       // "ctrl-alt-[": "editor::Fold",
       // "ctrl-alt-]": "editor::UnfoldLines",
 
-      "ctrl-alt-1": ["editor::FoldAtLevel", { "level": 1 }],
-      "ctrl-alt-2": ["editor::FoldAtLevel", { "level": 2 }],
-      "ctrl-alt-3": ["editor::FoldAtLevel", { "level": 3 }],
-      "ctrl-alt-4": ["editor::FoldAtLevel", { "level": 4 }],
-      "ctrl-alt-5": ["editor::FoldAtLevel", { "level": 5 }],
-      "ctrl-alt-6": ["editor::FoldAtLevel", { "level": 6 }],
-      "ctrl-alt-7": ["editor::FoldAtLevel", { "level": 7 }],
-      "ctrl-alt-8": ["editor::FoldAtLevel", { "level": 8 }],
+      "ctrl-alt-1": ["editor::FoldAtLevel", 1],
+      "ctrl-alt-2": ["editor::FoldAtLevel", 2],
+      "ctrl-alt-3": ["editor::FoldAtLevel", 3],
+      "ctrl-alt-4": ["editor::FoldAtLevel", 4],
+      "ctrl-alt-5": ["editor::FoldAtLevel", 5],
+      "ctrl-alt-6": ["editor::FoldAtLevel", 6],
+      "ctrl-alt-7": ["editor::FoldAtLevel", 7],
+      "ctrl-alt-8": ["editor::FoldAtLevel", 8],
       "ctrl-alt-9": "editor::FoldAll",
       "ctrl-alt-0": "editor::UnfoldAll",
 
       // PQ NAO FUNCIONA ASSIM
       // teoria: shift-1 é "!"
-      "alt-shift-1": ["editor::FoldAtLevel", { "level": 1 }],
-      "alt-shift-2": ["editor::FoldAtLevel", { "level": 2 }],
-      "alt-shift-3": ["editor::FoldAtLevel", { "level": 3 }],
-      "alt-shift-4": ["editor::FoldAtLevel", { "level": 4 }],
-      "alt-shift-5": ["editor::FoldAtLevel", { "level": 5 }],
-      "alt-shift-6": ["editor::FoldAtLevel", { "level": 6 }],
-      "alt-shift-7": ["editor::FoldAtLevel", { "level": 7 }],
-      "alt-shift-8": ["editor::FoldAtLevel", { "level": 8 }],
+      "alt-shift-1": ["editor::FoldAtLevel", 1],
+      "alt-shift-2": ["editor::FoldAtLevel", 2],
+      "alt-shift-3": ["editor::FoldAtLevel", 3],
+      "alt-shift-4": ["editor::FoldAtLevel", 4],
+      "alt-shift-5": ["editor::FoldAtLevel", 5],
+      "alt-shift-6": ["editor::FoldAtLevel", 6],
+      "alt-shift-7": ["editor::FoldAtLevel", 7],
+      "alt-shift-8": ["editor::FoldAtLevel", 8],
       "alt-shift-9": "editor::FoldAll",
       "alt-shift-0": "editor::UnfoldAll",
 
       // ask for copilot's completion
-      "ctrl-i": "editor::ShowInlineCompletion",
+      "ctrl-i": "editor::ShowEditPrediction",
 
       // disabled
       // "alt-,": "editor::MoveToStartOfParagraph",

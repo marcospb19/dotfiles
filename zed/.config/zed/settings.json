@@ -1,22 +1,26 @@
 {
+  "icon_theme": "Catppuccin Latte",
   "project_panel": {
     "dock": "right"
   },
   "languages": {
     "Plain Text": {
-      "show_inline_completions": false
+      "show_edit_predictions": false
     },
     "Markdown": {
-      "show_inline_completions": false
+      "show_edit_predictions": true
     }
   },
   "toolbar": {
     "breadcrumbs": true,
-    "quick_actions": false, // todo see what auto signature help does for me when calling a function
-    "selections_menu": false
+    "quick_actions": true, // todo see what auto signature help does for me when calling a function
+    "selections_menu": true
+  },
+  "edit_predictions": {
+    "inline_preview": "auto"
   },
   "features": {
-    "inline_completion_provider": "zed"
+    "edit_prediction_provider": "zed"
   },
   "assistant": {
     "default_model": {
@@ -25,19 +29,17 @@
     },
     "version": "2"
   },
-  // broken for now
-  "soft_wrap": "none",
-  // "soft_wrap": "editor_width",
-  "show_inline_completions": true,
+  "buffer_font_family": "Iosevka",
+  "soft_wrap": "editor_width",
+  "show_edit_predictions": true,
   "base_keymap": "SublimeText",
-  "theme": "Catppuccin Frappé - No Italics",
+  "theme": "Rosé Pine Dawn",
   "current_line_highlight": "all",
-  "ui_font_size": 17,
-  "buffer_font_size": 22.0,
-  "buffer_font_family": "Victor Mono",
-  "buffer_font_weight": 600,
+  "ui_font_size": 18.0,
+  "buffer_font_size": 18.0,
+  "buffer_font_weight": 500,
   "git": {
-    "gutter_debounce": 50,
+    "gutter_debounce": 25,
     "inline_blame": {
       "enabled": false
     }
@@ -54,10 +56,10 @@
         },
         "rustfmt": {
           "extraArgs": ["+nightly"]
+        },
+        "completion": {
+          "fullFunctionSignatures": { "enable": true }
         }
-        // "completion": {
-        //     "fullFunctionSignatures": { "enable": true }
-        // }
       }
     }
   },
@@ -67,7 +69,7 @@
   },
   "indent_guides": {
     "coloring": "indent_aware"
-    // "background_coloring": "indent_aware",
+    // "background_coloring": "indent_aware", // todo fix
   },
   "preview": {
     "experimental.theme_overrides": {
