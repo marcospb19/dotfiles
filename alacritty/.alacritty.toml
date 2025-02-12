@@ -21,32 +21,19 @@ blink_interval = 500
 thickness = 0.2
 style = { blinking = "On", shape = "Beam" }
 
-[font]
-size = 16.7
-
-[font.bold]
-family = "Victor Mono"
-style = "Bold"
-
-[font.bold_italic]
-family = "Victor Mono"
-style = "Bold Oblique"
-
-[font.italic]
-family = "Victor Mono"
-style = "Italic"
-
 [font.normal]
-family = "Victor Mono"
-style = "Bold"
+family = "Iosevka"
+
+[font]
+size = 14
 
 [scrolling]
-history = 40000
+history = 50000
 multiplier = 4
 
 [window]
 dynamic_padding = true
 
 [window.padding]
-x = 3
-y = 3
+x = 4
+y = 4
