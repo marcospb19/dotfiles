@@ -1,7 +1,13 @@
 {
-  "icon_theme": "Catppuccin Latte",
+  "icon_theme": "Catppuccin Macchiato",
   "project_panel": {
     "dock": "right"
+  },
+  "edit_predictions": {
+    "mode": "auto"
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
   },
   "languages": {
     "Plain Text": {
@@ -16,12 +22,6 @@
     "quick_actions": true, // todo see what auto signature help does for me when calling a function
     "selections_menu": true
   },
-  "edit_predictions": {
-    "inline_preview": "auto"
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
   "assistant": {
     "default_model": {
       "model": "claude-3-5-sonnet-latest",
@@ -31,12 +31,11 @@
   },
   "buffer_font_family": "Iosevka",
   "soft_wrap": "editor_width",
-  "show_edit_predictions": true,
   "base_keymap": "SublimeText",
-  "theme": "Rosé Pine Dawn",
+  "theme": "Gruvbox Dark Hard",
   "current_line_highlight": "all",
   "ui_font_size": 18.0,
-  "buffer_font_size": 18.0,
+  "buffer_font_size": 22.0,
   "buffer_font_weight": 500,
   "git": {
     "gutter_debounce": 25,
@@ -51,8 +50,15 @@
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "allTargets": false,
           "overrideCommand": ["cargo", "build", "--message-format=json"]
+          // "overrideCommand": [
+          //   "cargo",
+          //   "check",
+          //   "--message-format=json",
+          //   "--tests",
+          //   "-p",
+          //   "editor"
+          // ]
         },
         "rustfmt": {
           "extraArgs": ["+nightly"]

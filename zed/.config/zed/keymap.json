@@ -6,15 +6,12 @@
     "bindings": {
       "alt-f": "editor::SelectAllMatches",
       "alt-shift-f": "editor::OpenSelectionsInMultibuffer",
-      // "ctrl-alt-d": "editor::SelectAllMatches",
 
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
       "alt-d": ["editor::SelectNext", { "replace_newest": true }],
       "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
       "alt-shift-d": ["editor::SelectPrevious", { "replace_newest": true }],
 
-      "ctrl-e": "editor::ScrollCursorCenter",
-      "ctrl-e": "diagnostics::ToggleWarnings",
       "alt-up": "editor::AddSelectionAbove",
       "alt-down": "editor::AddSelectionBelow",
       "ctrl-alt-up": "editor::MoveLineUp",
@@ -128,6 +125,30 @@
       "alt-e": "search::ToggleSelection",
       "alt-enter": "search::SelectAllMatches",
       "alt-f": "search::SelectAllMatches"
+    }
+  },
+  {
+    "context": "BufferSearchBar || ProjectSearchBar",
+    "bindings": {
+      "ctrl-shift-alt-r": "search::ToggleReplace"
+    }
+  },
+  {
+    "context": "Diagnostics",
+    "bindings": {
+      "ctrl-e": "diagnostics::ToggleWarnings"
+    }
+  },
+  {
+    "context": "!Diagnostics > Editor",
+    "bindings": {
+      "ctrl-e": "editor::ScrollCursorCenter"
+    }
+  },
+  {
+    "context": "Editor && edit_prediction_conflict",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction"
     }
   }
 ]
