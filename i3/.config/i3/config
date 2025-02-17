@@ -90,7 +90,7 @@ exec --no-startup-id xfce4-clipman
 bindsym Print exec --no-startup-id flameshot gui
 bindsym Shift+Print exec --no-startup-id scrot
 
-font pango:victor mono bold 10.5
+font pango:victor mono bold 8
 # font pango:victor mono 2
 
 exec --no-startup-id nm-applet
