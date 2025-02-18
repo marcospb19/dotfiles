@@ -1,13 +1,21 @@
 {
+  "ui_font_size": 18.0,
+  "buffer_font_size": 20.0,
+  "buffer_font_weight": 500,
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": true, // todo see what auto signature help does for me when calling a function
+    "selections_menu": true
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "icon_theme": "Catppuccin Macchiato",
   "project_panel": {
     "dock": "right"
   },
   "edit_predictions": {
     "mode": "auto"
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
   },
   "languages": {
     "Plain Text": {
@@ -16,11 +24,6 @@
     "Markdown": {
       "show_edit_predictions": true
     }
-  },
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": true, // todo see what auto signature help does for me when calling a function
-    "selections_menu": true
   },
   "assistant": {
     "default_model": {
@@ -32,11 +35,8 @@
   "buffer_font_family": "Iosevka",
   "soft_wrap": "editor_width",
   "base_keymap": "SublimeText",
-  "theme": "Gruvbox Dark Hard",
+  "theme": "Catppuccin Macchiato - No Italics",
   "current_line_highlight": "all",
-  "ui_font_size": 18.0,
-  "buffer_font_size": 22.0,
-  "buffer_font_weight": 500,
   "git": {
     "gutter_debounce": 25,
     "inline_blame": {

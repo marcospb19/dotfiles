@@ -6,6 +6,7 @@
     "bindings": {
       "alt-f": "editor::SelectAllMatches",
       "alt-shift-f": "editor::OpenSelectionsInMultibuffer",
+      "ctrl-;": "editor::ToggleInlayHints",
 
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
       "alt-d": ["editor::SelectNext", { "replace_newest": true }],
@@ -95,7 +96,6 @@
       "ctrl-alt-,": "editor::SelectLargerSyntaxNode",
 
       "alt-.": "editor::ToggleCodeActions",
-
       "alt-shift-m": "diagnostics::Deploy",
 
       "alt-backspace": "editor::DeleteToPreviousSubwordStart",
@@ -108,39 +108,30 @@
 
       "alt--": "pane::GoBack",
       "alt-=": "pane::GoForward",
-
       "ctrl-shift-b": "workspace::ToggleRightDock",
-
       "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
-
       // why doesnt it work
       "ctrl-shift-space": "vim::SelectLargerSyntaxNode",
-
       "ctrl-f12": "editor::GoToTypeDefinition"
     }
   },
   {
     "context": "BufferSearchBar || ProjectSearchBar",
     "bindings": {
-      "alt-e": "search::ToggleSelection",
+      "ctrl-shift-alt-r": "search::ToggleReplace",
+      "ctrl-e": "search::ToggleSelection",
       "alt-enter": "search::SelectAllMatches",
       "alt-f": "search::SelectAllMatches"
     }
   },
   {
-    "context": "BufferSearchBar || ProjectSearchBar",
-    "bindings": {
-      "ctrl-shift-alt-r": "search::ToggleReplace"
-    }
-  },
-  {
-    "context": "Diagnostics",
+    "context": "!ProjectSearchBar && !BufferSearchBar && Diagnostics",
     "bindings": {
       "ctrl-e": "diagnostics::ToggleWarnings"
     }
   },
   {
-    "context": "!Diagnostics > Editor",
+    "context": "!ProjectSearchBar && !BufferSearchBar && !Diagnostics > Editor",
     "bindings": {
       "ctrl-e": "editor::ScrollCursorCenter"
     }
