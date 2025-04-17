@@ -1,25 +1,62 @@
 // Zed keymap - https://zed.dev/docs/key-bindings
-// TODO:
-//  Ctrl+scroll => scroll mais rapido?
 [
   {
     "bindings": {
+      "ctrl-q": null,
+      "ctrl-alt-b": "editor::ToggleBreakpoint",
+
+      // while they haven't landed in nightly
+      "alt-.": "editor::GoToHunk",
+      "alt-,": "editor::GoToPreviousHunk",
+
+      "ctrl-,": null,
+      "ctrl-.": "editor::ToggleCodeActions",
+      "ctrl-alt-p": "menu::SecondaryConfirm",
+      "ctrl-\\": "editor::ToggleSelectedDiffHunks",
+      "ctrl-|": "editor::ExpandAllHunkDiffs",
+      "ctrl-k ctrl-z": "editor::RevertSelectedHunks",
+
+      // "ctrl-shift-e": "editor::SortLinesCaseSensitive",
+      "alt-e": "workspace::ToggleZoom",
+
+      // "ctrl->": "editor::GoToHunk",
+      // "ctrl-<": "editor::GoToPrevHunk",
+      "alt->": "editor::GoToDiagnostic",
+      "alt-<": "editor::GoToPreviousDiagnostic",
+      "ctrl-alt-.": "editor::SelectSmallerSyntaxNode",
+      "ctrl-alt-,": "editor::SelectLargerSyntaxNode",
+      "ctrl-shift-alt-s": "editor::SwapSelectionEnds",
+
+      // TODO: aren't these binded?
+      "alt-backspace": "editor::DeleteToPreviousSubwordStart",
+      "alt-delete": "editor::DeleteToNextSubwordEnd",
+      "alt-left": "editor::MoveToPreviousSubwordStart",
+      "alt-right": "editor::MoveToNextSubwordEnd",
+      "alt-shift-left": "editor::SelectToPreviousSubwordStart",
+      "alt-shift-right": "editor::SelectToNextSubwordEnd",
+      "ctrl-t": "editor::Transpose",
+
+      // "alt-.": "editor::ToggleCodeActions",
+      "alt--": "pane::GoBack",
+      "alt-=": "pane::GoForward",
+      "ctrl-shift-b": "workspace::ToggleRightDock",
+      "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
+      "ctrl-shift-dead_grave": "terminal_panel::ToggleFocus",
+      "ctrl-shift-space": "vim::SelectLargerSyntaxNode", // doesn't work https://github.com/zed-industries/zed/issues/26261
+      "ctrl-f12": "editor::GoToTypeDefinition",
+
+      "ctrl-i": "editor::ShowEditPrediction",
+      // "ctrl-;": "editor::ToggleInlayHints", // try using the modifier for a bit
+      // "ctrl-'": "editor::ToggleInlayHints", // try using the modifier for a bit
       "alt-f": "editor::SelectAllMatches",
       "alt-shift-f": "editor::OpenSelectionsInMultibuffer",
-      "ctrl-;": "editor::ToggleInlayHints",
+      "alt-shift-m": "diagnostics::Deploy",
+      "alt-shift-k": "git::Diff",
+      "ctrl-alt-g": "git::Commit",
 
-      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
-      "alt-d": ["editor::SelectNext", { "replace_newest": true }],
-      "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
-      "alt-shift-d": ["editor::SelectPrevious", { "replace_newest": true }],
-
-      "alt-up": "editor::AddSelectionAbove",
-      "alt-down": "editor::AddSelectionBelow",
-      "ctrl-alt-up": "editor::MoveLineUp",
-      "ctrl-alt-down": "editor::MoveLineDown",
-
-      "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePrevItem",
+      // disabled TODO try these out?
+      // "alt-,": "editor::MoveToStartOfParagraph",
+      // "alt-.": "editor::MoveToEndOfParagraph",
 
       "alt-1": ["pane::ActivateItem", 0],
       "alt-2": ["pane::ActivateItem", 1],
@@ -64,7 +101,7 @@
       "ctrl-alt-0": "editor::UnfoldAll",
 
       // PQ NAO FUNCIONA ASSIM
-      // teoria: shift-1 é "!"
+      // teoria: "alt-shift-1" na vdd é "alt-!"
       "alt-shift-1": ["editor::FoldAtLevel", 1],
       "alt-shift-2": ["editor::FoldAtLevel", 2],
       "alt-shift-3": ["editor::FoldAtLevel", 3],
@@ -76,52 +113,46 @@
       "alt-shift-9": "editor::FoldAll",
       "alt-shift-0": "editor::UnfoldAll",
 
-      // ask for copilot's completion
-      "ctrl-i": "editor::ShowEditPrediction",
+      "ctrl-=": ["zed::IncreaseBufferFontSize", { "persist": true }],
+      "ctrl-+": ["zed::IncreaseBufferFontSize", { "persist": true }],
+      "ctrl--": ["zed::DecreaseBufferFontSize", { "persist": true }],
+      "ctrl-alt-=": ["zed::IncreaseUiFontSize", { "persist": true }],
+      "ctrl-alt-+": ["zed::IncreaseUiFontSize", { "persist": true }],
+      "ctrl-alt--": ["zed::DecreaseUiFontSize", { "persist": true }]
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
+      "alt-d": ["editor::SelectNext", { "replace_newest": true }],
+      "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
+      "alt-shift-d": ["editor::SelectPrevious", { "replace_newest": true }],
 
-      // disabled
-      // "alt-,": "editor::MoveToStartOfParagraph",
-      // "alt-.": "editor::MoveToEndOfParagraph",
+      "alt-shift-up": "editor::ExpandExcerptsUp",
+      "alt-shift-down": "editor::ExpandExcerptsDown",
 
-      "ctrl-\\": "editor::ToggleSelectedDiffHunks",
-      // "ctrl-shift-\\" equivalent
-      "ctrl-|": "editor::ExpandAllHunkDiffs",
-
-      // comma and period
-      "ctrl->": "editor::GoToHunk", // actually "ctrl-shift-."
-      "ctrl-<": "editor::GoToPrevHunk", // actually "ctrl-shift-,"
-      "ctrl-.": "editor::GoToDiagnostic",
-      "ctrl-,": "editor::GoToPrevDiagnostic",
-      "ctrl-alt-.": "editor::SelectSmallerSyntaxNode",
-      "ctrl-alt-,": "editor::SelectLargerSyntaxNode",
-
-      "alt-.": "editor::ToggleCodeActions",
-      "alt-shift-m": "diagnostics::Deploy",
-
-      "alt-backspace": "editor::DeleteToPreviousSubwordStart",
-      "alt-delete": "editor::DeleteToNextSubwordEnd",
-      "alt-left": "editor::MoveToPreviousSubwordStart",
-      "alt-right": "editor::MoveToNextSubwordEnd",
-      "alt-shift-left": "editor::SelectToPreviousSubwordStart",
-      "alt-shift-right": "editor::SelectToNextSubwordEnd",
-      "ctrl-k ctrl-z": "editor::RevertSelectedHunks",
-
-      "alt--": "pane::GoBack",
-      "alt-=": "pane::GoForward",
-      "ctrl-shift-b": "workspace::ToggleRightDock",
-      "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
-      // why doesnt it work
-      "ctrl-shift-space": "vim::SelectLargerSyntaxNode",
-      "ctrl-f12": "editor::GoToTypeDefinition"
+      "alt-up": "editor::AddSelectionAbove",
+      "alt-down": "editor::AddSelectionBelow",
+      "ctrl-alt-up": "editor::MoveLineUp",
+      "ctrl-alt-down": "editor::MoveLineDown"
     }
   },
   {
     "context": "BufferSearchBar || ProjectSearchBar",
     "bindings": {
-      "ctrl-shift-alt-r": "search::ToggleReplace",
+      "alt-ctrl-r": "search::ToggleReplace",
+      "alt-e": "search::ToggleSelection",
       "ctrl-e": "search::ToggleSelection",
       "alt-enter": "search::SelectAllMatches",
       "alt-f": "search::SelectAllMatches"
+    }
+  },
+  {
+    "context": "BufferSearchBar && in_replace > Editor",
+    "bindings": {
+      "enter": "search::ReplaceNext",
+      "alt-enter": "search::ReplaceAll"
     }
   },
   {
@@ -137,9 +168,23 @@
     }
   },
   {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-tab": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
+  },
+  {
     "context": "Editor && edit_prediction_conflict",
     "bindings": {
       "tab": "editor::AcceptEditPrediction"
+    }
+  },
+  {
+    "context": "!BufferSearchBar",
+    "bindings": {
+      "alt-n": "git::UnstageAndNext",
+      "alt-r": "git::Restore"
     }
   }
 ]

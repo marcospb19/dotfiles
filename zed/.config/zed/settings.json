@@ -1,47 +1,81 @@
 {
-  "ui_font_size": 18.0,
-  "buffer_font_size": 20.0,
-  "buffer_font_weight": 500,
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": true, // todo see what auto signature help does for me when calling a function
-    "selections_menu": true
+  "bottom_dock_layout": "contained",
+  "tab_bar": {
+    "show": true
   },
+  "completions": {
+    "words": "fallback"
+  },
+  "terminal": {
+    "dock": "right"
+  },
+  "selection_highlight": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "padding": 3
+    }
+  },
+  "vertical_scroll_margin": 5,
+  "scrollbar": { "diagnostics": "error" },
+  "vim_mode": false,
+  "theme": "Zed Legacy: Rosé Pine Moon",
+  "buffer_font_family": "Iosevka",
+  "ui_font_family": "Iosevka",
+  "ui_font_weight": 500,
+  "soft_wrap": "editor_width",
+  "base_keymap": "SublimeText",
+  "ui_font_size": 14.0,
+  "buffer_font_size": 15.0,
+  "buffer_font_weight": 500,
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "icon_theme": "Catppuccin Macchiato",
-  "project_panel": {
-    "dock": "right"
-  },
+  "icon_theme": "Zed (Default)",
   "edit_predictions": {
-    "mode": "auto"
+    "mode": "subtle"
   },
   "languages": {
+    "GDScript": {
+      "show_edit_predictions": false,
+      "hard_tabs": true
+    },
     "Plain Text": {
       "show_edit_predictions": false
     },
     "Markdown": {
-      "show_edit_predictions": true
+      "show_edit_predictions": false
     }
   },
+  "toolbar": {
+    "quick_actions": true,
+    "selections_menu": false
+  },
   "assistant": {
+    "dock": "right",
+    "always_allow_tool_actions": true,
+    "default_profile": "ask",
     "default_model": {
-      "model": "claude-3-5-sonnet-latest",
+      "model": "claude-3-7-sonnet-latest",
       "provider": "zed.dev"
     },
     "version": "2"
   },
-  "buffer_font_family": "Iosevka",
-  "soft_wrap": "editor_width",
-  "base_keymap": "SublimeText",
-  "theme": "Catppuccin Macchiato - No Italics",
   "current_line_highlight": "all",
+  "expand_excerpt_lines": 5,
+  "inlay_hints": {
+    "show_background": true,
+    "toggle_on_modifiers_press": {
+      "control": true,
+      "alt": true
+    }
+  },
   "git": {
-    "gutter_debounce": 25,
     "inline_blame": {
       "enabled": false
-    }
+    },
+    "git_gutter": "tracked_files",
+    "hunk_style": "unstaged_hollow"
   },
   "tabs": {
     "git_status": true
@@ -49,22 +83,10 @@
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
-        "check": {
-          "overrideCommand": ["cargo", "build", "--message-format=json"]
-          // "overrideCommand": [
-          //   "cargo",
-          //   "check",
-          //   "--message-format=json",
-          //   "--tests",
-          //   "-p",
-          //   "editor"
-          // ]
-        },
+        // prettier-ignore
+        // "check": { "overrideCommand": ["cargo", "build", "--message-format=json"] },
         "rustfmt": {
           "extraArgs": ["+nightly"]
-        },
-        "completion": {
-          "fullFunctionSignatures": { "enable": true }
         }
       }
     }
@@ -74,9 +96,10 @@
     "enable_preview_from_code_navigation": true
   },
   "indent_guides": {
-    "coloring": "indent_aware"
-    // "background_coloring": "indent_aware", // todo fix
+    // "coloring": "indent_aware"
+    // "background_coloring": "indent_aware" // todo fix
   },
+  // "double_click_in_multibuffer": "open", // todo
   "preview": {
     "experimental.theme_overrides": {
       "title_bar.background": "#222235aa",
@@ -88,5 +111,20 @@
       "title_bar.background": "#383522aa",
       "title_bar.inactive_background": "#383522"
     }
+  },
+  "dev": {
+    "experimental.theme_overrides": {
+      "title_bar.background": "#0b0020aa",
+      "title_bar.inactive_background": "#0b0020aa"
+    }
+  },
+  "gutter": {
+    "code_actions": false
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "left"
   }
 }
