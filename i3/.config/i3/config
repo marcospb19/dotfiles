@@ -95,12 +95,15 @@ font pango:victor mono bold 8
 
 exec --no-startup-id nm-applet
 
-# # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 7 && climsg send volumescript $(sh ~/.get_volume.sh)
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 7 && climsg send volumescript $(sh ./.get_volume.sh)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && climsg send volumescript $(sh ~/.get_volume.sh)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && climsg send volumescript $(sh ./.get_volume.sh)
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send volumescript $(./.get_volume.sh)
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym $mod+F11 exec --no-startup-id ddcutil setvcp 10 - 10
+bindsym $mod+F12 exec --no-startup-id ddcutil setvcp 10 + 10
+
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
