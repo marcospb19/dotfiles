@@ -117,3 +117,7 @@ function git() {
 		$bin_location ${@:1}
 	fi
 }
+
+function mkv2mp4() {
+	ffmpeg -y -i $1 -codec copy /tmp/a.mp4 && dragon /tmp/a.mp4
+}

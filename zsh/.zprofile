@@ -9,6 +9,7 @@ export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=Adwaita-Dark
 # export XDG_CURRENT_DESKTOP=KDE
 export ZED_DEVELOPMENT_AUTH=1
+export GOPATH=$HOME/.go
 
 # Set terminal tabs width
 tabs -4
