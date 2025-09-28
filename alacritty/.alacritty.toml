@@ -25,7 +25,7 @@ style = { blinking = "On", shape = "Beam" }
 family = "Iosevka"
 
 [font]
-size = 14
+size = 17
 
 [scrolling]
 history = 50000

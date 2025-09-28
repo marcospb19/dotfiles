@@ -11,8 +11,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom theme at `~/.oh-my-zsh/themes/marcospb19``
 ZSH_THEME="marcospb19"
 
-# Load oh-my-zsh sane defaults
+zstyle ':omz:update' mode disabled
 source $ZSH/oh-my-zsh.sh
+zstyle ':omz:update' mode disabled
 
 plugins=()
 
@@ -33,13 +34,6 @@ HYPHEN_INSENSITIVE="true"
 CASE_SENSITIVE="false"
 # Allow shared history between root and user
 ZSH_DISABLE_COMPFIX="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-# how often to auto-update (in days).
-# zstyle ':omz:update' frequency 200
 
 # Enable command correction suggestion.
 ENABLE_CORRECTION="false"
@@ -87,14 +81,14 @@ export LESS=-r
 #
 #
 # EOF
-# cat << EOF
-#
-#         _~^~^~_
-#     \) /  o o  \ (/
-#       (_   ¬   _)
-#       / '-----' \\
-#
-# EOF
+cat << EOF
+
+        _~^~^~_
+    \) /  o o  \ (/
+      (_   ¬   _)
+      / '-----' \\
+
+EOF
 
 PATH_CANDIDATES=(
     ".cargo/bin"

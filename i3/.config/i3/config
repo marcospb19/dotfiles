@@ -53,8 +53,7 @@ smart_borders on
 exec --no-startup-id \
 	~/.screenlayout/external.sh \
 	; ~/.config/polybar/launch.sh \
-    && sleep 1 \
-    && polybar-msg cmd hide
+    && sleep 1
 bindsym $mod+Shift+p exec --no-startup-id ./.config/polybar/launch.sh
 bindsym $mod+m       exec --no-startup-id polybar-msg cmd toggle
 
@@ -115,13 +114,14 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+$enter exec alacritty
-bindsym $mod+$alt+$enter exec cool-retro-term
+bindsym $mod+$enter exec --no-startup-id cool-retro-term
+bindsym $mod+Shift+$enter exec --no-startup-id alacritty
 # Open applications
 bindsym $mod+s exec --no-startup-id google-chrome-stable
 bindsym $mod+a exec --no-startup-id dolphin
 bindsym $mod+n exec --no-startup-id spotify
-
+bindsym $mod+j exec --no-startup-id bash ~/.rofi-scripts/pipewire-select-sink.sh
+bindsym $mod+k exec --no-startup-id zed -n
 
 # Sticky window toggle
 bindsym $mod+x sticky toggle
@@ -133,7 +133,8 @@ bindsym $mod+x sticky toggle
 bindsym $mod+q kill
 
 # # Start dmenu program launcher
-bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Victor Mono Medium'
+# bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Victor Mono Medium'
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # Alternatively, you can use the cursor keys:
 # bindsym $mod+h focus left
@@ -249,7 +250,7 @@ bindsym $mod+F2 exec --no-startup-id ~/.screenlayout/dual.sh
 # External monitor
 bindsym $mod+F3 exec --no-startup-id ~/.screenlayout/external.sh
 # Move workspace to other monitor
-bindsym $mod+Shift+$enter move workspace to output next
+# bindsym $mod+Shift+$enter move workspace to output next
 
 # set-sink-volume @DEFAULT_SINK@ +10% && echo 1 > .config/polybar/lock
 # set-sink-volume @DEFAULT_SINK@ -10% && echo 1 > .config/polybar/lock

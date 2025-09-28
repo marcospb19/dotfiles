@@ -2,6 +2,10 @@
 [
   {
     "bindings": {
+      "ctrl-alt-down": "editor::DuplicateLineDown",
+      "ctrl-alt-up": "editor::DuplicateLineUp",
+      // "alt-r": "git::Restore",
+
       "ctrl-q": null,
       "ctrl-alt-b": "editor::ToggleBreakpoint",
 
@@ -9,15 +13,16 @@
       "alt-.": "editor::GoToHunk",
       "alt-,": "editor::GoToPreviousHunk",
 
+      "ctrl-e": "editor::ScrollCursorCenter",
+
       "ctrl-,": null,
       "ctrl-.": "editor::ToggleCodeActions",
       "ctrl-alt-p": "menu::SecondaryConfirm",
       "ctrl-\\": "editor::ToggleSelectedDiffHunks",
-      "ctrl-|": "editor::ExpandAllHunkDiffs",
-      "ctrl-k ctrl-z": "editor::RevertSelectedHunks",
+      "ctrl-|": "editor::ExpandAllDiffHunks",
+      "ctrl-k ctrl-z": "git::Restore",
 
       // "ctrl-shift-e": "editor::SortLinesCaseSensitive",
-      "alt-e": "workspace::ToggleZoom",
 
       // "ctrl->": "editor::GoToHunk",
       // "ctrl-<": "editor::GoToPrevHunk",
@@ -45,13 +50,15 @@
       "ctrl-shift-space": "vim::SelectLargerSyntaxNode", // doesn't work https://github.com/zed-industries/zed/issues/26261
       "ctrl-f12": "editor::GoToTypeDefinition",
 
-      "ctrl-i": "editor::ShowEditPrediction",
       // "ctrl-;": "editor::ToggleInlayHints", // try using the modifier for a bit
       // "ctrl-'": "editor::ToggleInlayHints", // try using the modifier for a bit
       "alt-f": "editor::SelectAllMatches",
       "alt-shift-f": "editor::OpenSelectionsInMultibuffer",
       "alt-shift-m": "diagnostics::Deploy",
       "alt-shift-k": "git::Diff",
+      "alt-shift-g": "git_panel::ToggleFocus",
+      "alt-shift-j": "outline_panel::ToggleFocus",
+      "alt-shift-h": "project_panel::ToggleFocus",
       "ctrl-alt-g": "git::Commit",
 
       // disabled TODO try these out?
@@ -133,9 +140,7 @@
       "alt-shift-down": "editor::ExpandExcerptsDown",
 
       "alt-up": "editor::AddSelectionAbove",
-      "alt-down": "editor::AddSelectionBelow",
-      "ctrl-alt-up": "editor::MoveLineUp",
-      "ctrl-alt-down": "editor::MoveLineDown"
+      "alt-down": "editor::AddSelectionBelow"
     }
   },
   {
@@ -143,7 +148,7 @@
     "bindings": {
       "alt-ctrl-r": "search::ToggleReplace",
       "alt-e": "search::ToggleSelection",
-      "ctrl-e": "search::ToggleSelection",
+      "alt-r": "search::ToggleRegex",
       "alt-enter": "search::SelectAllMatches",
       "alt-f": "search::SelectAllMatches"
     }
@@ -162,12 +167,6 @@
     }
   },
   {
-    "context": "!ProjectSearchBar && !BufferSearchBar && !Diagnostics > Editor",
-    "bindings": {
-      "ctrl-e": "editor::ScrollCursorCenter"
-    }
-  },
-  {
     "context": "Workspace",
     "bindings": {
       "ctrl-tab": "pane::ActivateNextItem",
@@ -183,8 +182,14 @@
   {
     "context": "!BufferSearchBar",
     "bindings": {
-      "alt-n": "git::UnstageAndNext",
-      "alt-r": "git::Restore"
+      // "alt-e": "workspace::ToggleZoom",
+      "alt-n": "git::UnstageAndNext"
+    }
+  },
+  {
+    "context": "!(AgentPanel > MessageEditor > Editor)",
+    "bindings": {
+      "ctrl-i": "editor::ShowEditPrediction"
     }
   }
 ]
