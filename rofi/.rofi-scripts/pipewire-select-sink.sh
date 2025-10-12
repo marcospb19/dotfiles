@@ -16,3 +16,5 @@ fi
 selected_sink_id=$(echo "$selected" | grep -oE "[[:digit:]]+" | head -n 1)
 
 wpctl set-default $selected_sink_id
+
+climsg send volumescript $(sh ~/.get_volume.sh)
