@@ -1,5 +1,12 @@
 {
-  "disable_ai": true,
+  "minimap": {
+    "max_width_columns": 80,
+    "current_line_highlight": "line",
+    "thumb_border": "full",
+    "show": "auto"
+  },
+  "colorize_brackets": true,
+  "disable_ai": false,
   "auto_update": false,
   "centered_layout": {
     "left_padding": 0.125,
@@ -31,19 +38,27 @@
   "vertical_scroll_margin": 5,
   "scrollbar": { "diagnostics": "error" },
   "vim_mode": false,
-  "theme": "Zed Legacy: Rosé Pine Moon",
+  "theme": {
+    "mode": "dark",
+    "light": "Catppuccin Mocha",
+    "dark": "Gruvbox Dark"
+  },
   "buffer_font_family": "Iosevka",
   "ui_font_family": "Iosevka",
   "ui_font_weight": 500,
   "soft_wrap": "editor_width",
   "base_keymap": "SublimeText",
-  "ui_font_size": 17.0,
-  "buffer_font_size": 26.0,
-  "buffer_font_weight": 500,
+  "ui_font_size": 15.0,
+  "buffer_font_size": 23.0,
+  "buffer_font_weight": 600,
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "icon_theme": "Zed (Default)",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "edit_predictions": {
     "mode": "subtle"
   },

@@ -50,8 +50,8 @@
       "ctrl-shift-space": "vim::SelectLargerSyntaxNode", // doesn't work https://github.com/zed-industries/zed/issues/26261
       "ctrl-f12": "editor::GoToTypeDefinition",
 
-      // "ctrl-;": "editor::ToggleInlayHints", // try using the modifier for a bit
-      // "ctrl-'": "editor::ToggleInlayHints", // try using the modifier for a bit
+      "ctrl-;": "editor::ToggleInlayHints", // try using the modifier for a bit
+      "ctrl-'": "editor::ToggleInlayHints", // try using the modifier for a bit
       "alt-f": "editor::SelectAllMatches",
       "alt-shift-f": "editor::OpenSelectionsInMultibuffer",
       "alt-shift-m": "diagnostics::Deploy",

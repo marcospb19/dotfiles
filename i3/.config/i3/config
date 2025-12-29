@@ -27,7 +27,7 @@ exec_always --no-startup-id xsetwacom --set 9 rotate half
 # exec_always --no-startup-id pkill glava && glava -d
 exec --no-startup-id sudo solaar
 # exec --no-startup-id obsidian
-# exec --no-startup-id qbittorrent
+exec --no-startup-id qbittorrent
 exec --no-startup-id blueberry
 
 exec --no-startup-id dunst
@@ -87,7 +87,8 @@ bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
 bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
-bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh
+bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh && notify-send "Screenshot copied to clipboard" "After waiting 3 seconds"
+
 # bindsym Print exec --no-startup-id flameshot gui
 # bindsym Shift+Print exec --no-startup-id sleep 3 && flameshot gui
 
@@ -116,8 +117,11 @@ bindsym XF86AudioPrev exec playerctl previous
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+$enter exec --no-startup-id cool-retro-term
-bindsym $mod+Shift+$enter exec --no-startup-id alacritty
+# bindsym $mod+$enter exec --no-startup-id cool-retro-term
+# bindsym $mod+Shift+$enter exec --no-startup-id alacritty
+bindsym $mod+Shift+$enter exec --no-startup-id cool-retro-term
+bindsym $mod+$enter exec --no-startup-id alacritty
+
 # Open applications
 bindsym $mod+s exec --no-startup-id google-chrome-stable
 bindsym $mod+a exec --no-startup-id dolphin
@@ -127,6 +131,7 @@ bindsym $mod+k exec --no-startup-id zed -n
 
 # Sticky window toggle
 bindsym $mod+x sticky toggle
+bindsym $mod+Shift+x exec --no-startup-id xkill
 
 # bindsym $mod+$enter exec termite --custom-config ~/.config/termite/custom & sleep 0.1 && \
 # 	python ~/termite-themes/termite-themes.py --random --copy ~/.config/termite/colors --force

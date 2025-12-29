@@ -5,8 +5,9 @@ alias fix-whitespace='sed "s/\ /\\\ /g"'
 alias ls='ls --color=auto --group-directories-first -F'
 alias l='ls'
 alias la='ls -A'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias lla='ll -A'
+alias llt='ll -t'
 
 # Git aliases
 alias lol="git log --all --graph --oneline --decorate"

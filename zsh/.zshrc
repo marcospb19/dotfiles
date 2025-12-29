@@ -101,3 +101,5 @@ for CANDIDATE in $PATH_CANDIDATES; do
         export PATH=$HOME/$CANDIDATE:$PATH
     fi
 done
+
+alias claude="/home/marcospb19/.claude/local/claude"
