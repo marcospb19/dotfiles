@@ -37,3 +37,9 @@ dynamic_padding = true
 [window.padding]
 x = 4
 y = 4
+
+# Break line with Shift+Enter
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
