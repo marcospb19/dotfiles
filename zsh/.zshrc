@@ -102,4 +102,3 @@ for CANDIDATE in $PATH_CANDIDATES; do
     fi
 done
 
-alias claude="/home/marcospb19/.claude/local/claude"

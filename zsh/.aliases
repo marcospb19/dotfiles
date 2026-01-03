@@ -27,3 +27,5 @@ alias pyi="ipython"
 
 alias whiteboard="lorien"
 alias dragon='dragon-drop'
+
+alias paru='yay'
