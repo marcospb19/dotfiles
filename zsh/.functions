@@ -125,3 +125,17 @@ function mkv2mp4() {
 function fetch-pr-remote() {
     rs -q ~/.scripts/fetch-pr-remote.rs $1
 }
+
+function c() {
+    pick=$(fd --type directory | fzf)
+	if [[ "$#" == 0 && ! -z $pick ]]; then
+		cd $pick
+	fi
+}
+
+function ca() {
+    pick=$(fd --hidden --type directory | fzf)
+	if [[ "$#" == 0 && ! -z $pick ]]; then
+		cd $pick
+	fi
+}

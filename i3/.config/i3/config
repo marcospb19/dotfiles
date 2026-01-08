@@ -86,8 +86,9 @@ bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
-bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
-bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh && notify-send "Screenshot copied to clipboard" "After waiting 3 seconds"
+bindsym Print exec --no-startup-id flameshot gui
+# bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
+# bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh && notify-send "Screenshot copied to clipboard" "After waiting 3 seconds"
 
 # bindsym Print exec --no-startup-id flameshot gui
 # bindsym Shift+Print exec --no-startup-id sleep 3 && flameshot gui
@@ -98,9 +99,9 @@ font pango:victor mono bold 8
 exec --no-startup-id nm-applet
 
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && climsg send volumescript $(sh ~/.get_volume.sh)
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && climsg send volumescript $(sh ./.get_volume.sh)
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send volumescript $(./.get_volume.sh)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && climsg send polybar/update_volume $(sh ~/.get-volume.sh)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && climsg send polybar/update_volume $(sh ./.get-volume.sh)
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send polybar/update_volume $(./.get-volume.sh)
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym $mod+F11 exec --no-startup-id ddcutil setvcp 10 - 10
@@ -126,8 +127,11 @@ bindsym $mod+$enter exec --no-startup-id alacritty
 bindsym $mod+s exec --no-startup-id google-chrome-stable
 bindsym $mod+a exec --no-startup-id dolphin
 bindsym $mod+n exec --no-startup-id spotify
-bindsym $mod+j exec --no-startup-id bash ~/.rofi-scripts/pipewire-select-sink.sh
-bindsym $mod+k exec --no-startup-id zed -n
+bindsym $mod+j exec --no-startup-id pavucontrol
+# # Disabled temporarily, fall back to pavucontrol
+# # cause `wpctl set-default ID` is failing with `ID is not a device node (media.class = Audio/Sink/Internal)` (even tho it is??? wat)
+# bindsym $mod+j exec --no-startup-id bash ~/.rofi-scripts/pipewire-select-sink.sh
+bindsym $mod+k exec --no-startup-id zeditor
 
 # Sticky window toggle
 bindsym $mod+x sticky toggle
@@ -141,7 +145,7 @@ bindsym $mod+q kill
 
 # # Start dmenu program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Victor Mono Medium'
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # Alternatively, you can use the cursor keys:
 # bindsym $mod+h focus left

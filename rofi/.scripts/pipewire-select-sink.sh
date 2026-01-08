@@ -1,11 +1,13 @@
 sinks=$(wpctl status | grep "Sinks" -A 100 | tail -n +2 | sed '/Sources/ q' | head -n -2)
-
 # Remove leading symbols
 sinks=$(echo "$sinks" | sed -E "s/^....(.)/ \1/g")
 
 # Remove some distracting repetitive words
 sinks=$(echo "$sinks" | sed -E "s/(Analog|Stereo|Digital|Audio|Controller) //g")
 
+for sink in $sinks; do
+	echo $sink
+done
 selected=$(echo "$sinks" | rofi -dmenu -i -p "Select sink")
 
 # If rofi was cancelled
@@ -17,4 +19,4 @@ selected_sink_id=$(echo "$selected" | grep -oE "[[:digit:]]+" | head -n 1)
 
 wpctl set-default $selected_sink_id
 
-climsg send volumescript $(sh ~/.get_volume.sh)
+climsg send polybar/update_volume $(sh ~/.get-volume.sh)

@@ -46,7 +46,7 @@
       "alt-=": "pane::GoForward",
       "ctrl-shift-b": "workspace::ToggleRightDock",
       "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
-      "ctrl-shift-dead_grave": "terminal_panel::ToggleFocus",
+      "ctrl-~": "terminal_panel::ToggleFocus",
       "ctrl-shift-space": "vim::SelectLargerSyntaxNode", // doesn't work https://github.com/zed-industries/zed/issues/26261
       "ctrl-f12": "editor::GoToTypeDefinition",
 
