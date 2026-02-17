@@ -3,83 +3,81 @@
     "max_width_columns": 80,
     "current_line_highlight": "line",
     "thumb_border": "full",
-    "show": "auto"
+    "show": "auto",
   },
   "colorize_brackets": true,
   "disable_ai": false,
   "auto_update": false,
   "centered_layout": {
     "left_padding": 0.125,
-    "right_padding": 0.125
+    "right_padding": 0.125,
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "inline_code_actions": false,
   "show_edit_predictions": true,
   "bottom_dock_layout": "contained",
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "completions": {
     "words": "fallback",
-    "lsp_insert_mode": "replace_subsequence"
+    "lsp_insert_mode": "replace_subsequence",
   },
   "terminal": {
-    "dock": "right"
+    "dock": "right",
   },
   "selection_highlight": true,
   "diagnostics": {
     "inline": {
       "enabled": true,
-      "padding": 3
-    }
+      "padding": 3,
+    },
   },
   "vertical_scroll_margin": 5,
   "scrollbar": { "diagnostics": "error" },
   "vim_mode": false,
   "theme": {
     "mode": "dark",
-    "light": "Catppuccin Mocha",
-    "dark": "Gruvbox Dark"
+    "light": "Dawnfox - opaque",
+    "dark": "Terafox - blurred",
   },
   "buffer_font_family": "Iosevka",
   "ui_font_family": "Iosevka",
   "ui_font_weight": 500,
   "soft_wrap": "editor_width",
   "base_keymap": "SublimeText",
-  "ui_font_size": 15.0,
-  "buffer_font_size": 22.0,
+  "ui_font_size": 14.0,
+  "buffer_font_size": 17.0,
   "buffer_font_weight": 600,
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Zed (Default)",
   },
   "edit_predictions": {
-    "mode": "subtle"
+    "provider": "zed",
+    "mode": "subtle",
   },
   "languages": {
     "TypeScript": {
-      "tab_size": 4
+      "tab_size": 4,
     },
     "GDScript": {
       "show_edit_predictions": false,
-      "hard_tabs": true
+      "hard_tabs": true,
     },
     "Plain Text": {
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
     },
     "Markdown": {
-      "show_edit_predictions": false
-    }
+      "show_edit_predictions": false,
+    },
   },
   "toolbar": {
     "quick_actions": true,
-    "selections_menu": false
+    "selections_menu": false,
   },
   "agent": {
     "dock": "right",
@@ -87,8 +85,8 @@
     "default_profile": "write",
     "default_model": {
       "model": "claude-3-7-sonnet",
-      "provider": "zed.dev"
-    }
+      "provider": "zed.dev",
+    },
   },
   "current_line_highlight": "all",
   "expand_excerpt_lines": 5,
@@ -96,18 +94,18 @@
     "show_background": true,
     "toggle_on_modifiers_press": {
       "control": true,
-      "alt": true
-    }
+      "alt": true,
+    },
   },
   "git": {
     "inline_blame": {
-      "enabled": false
+      "enabled": false,
     },
     "git_gutter": "tracked_files",
-    "hunk_style": "unstaged_hollow"
+    "hunk_style": "unstaged_hollow",
   },
   "tabs": {
-    "git_status": true
+    "git_status": true,
   },
   "lsp": {
     "rust-analyzer": {
@@ -117,43 +115,26 @@
         // "check": { "overrideCommand": ["cargo", "build", "--message-format=json"] },
         "rustfmt": {
           "extraArgs": ["+nightly"]
-        }
-      }
+        },
+      },
     },
     "gdscript": {
       "binary": {
-        "arguments": ["127.0.0.1", "6005"]
-      }
-    }
+        "arguments": ["127.0.0.1", "6005"],
+      },
+    },
   },
   "preview_tabs": {
     "enable_preview_from_file_finder": true,
-    "enable_preview_from_code_navigation": true
+    "enable_keep_preview_on_code_navigation": true,
   },
   "indent_guides": {
-    // "coloring": "indent_aware"
-    // "background_coloring": "indent_aware" // todo fix
-  },
-  // "double_click_in_multibuffer": "open", // todo
-  "preview": {
-    "experimental.theme_overrides": {
-      "title_bar.background": "#222235aa",
-      "title_bar.inactive_background": "#222235"
-    }
-  },
-  "nightly": {
-    "experimental.theme_overrides": {
-      "title_bar.background": "#383522aa",
-      "title_bar.inactive_background": "#383522"
-    }
-  },
-  "gutter": {
-    "code_actions": false
+    "coloring": "indent_aware",
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "left"
-  }
+    "dock": "left",
+  },
 }

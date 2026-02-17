@@ -191,5 +191,49 @@
     "bindings": {
       "ctrl-i": "editor::ShowEditPrediction"
     }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-k shift-up": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-k shift-down": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-k shift-left": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-k shift-right": null
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-k shift-up": "pane::SplitAndMoveUp"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-k shift-down": "pane::SplitAndMoveDown"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-k shift-left": "pane::SplitAndMoveLeft"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-k shift-right": "pane::SplitAndMoveRight"
+    }
   }
 ]
