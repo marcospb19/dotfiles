@@ -1,10 +1,8 @@
 # dotfiles
-My personal dotfiles managed by `stow`
 
-This is messy
+My personal dotfiles.
+
+Managed with https://github.com/marcospb19/dotin.
 
 # Desktop
-![view](https://i.imgur.com/D58Svj8.png)
-
-## Bar
-![view](https://i.imgur.com/ibA1E3e.png)
+![desktop_image](https://i.imgur.com/1B3FKGH.jpeg)
