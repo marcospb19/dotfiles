@@ -39,13 +39,13 @@ size_hints = true
 # [colors]
 # cursor = #d8dee9
 # cursor_foreground = #2e3440
-# 
+#
 # foreground = #d8dee9
 # foreground_bold = #d8dee9
 # background = #2e3440
-# 
+#
 # highlight = #4c566a
-# 
+#
 # color0  = #3b4252
 # color1  = #bf616a
 # color2  = #a3be8c
@@ -108,4 +108,3 @@ color14 = #9aedfe
 # white
 color7  = #bfbfbf
 color15 = #e6e6e6
-

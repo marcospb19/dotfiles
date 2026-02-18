@@ -7,19 +7,26 @@ export BROWSER=google-chrome-stable
 export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=Adwaita-Dark
-# export XDG_CURRENT_DESKTOP=KDE
 export ZED_DEVELOPMENT_AUTH=1
 export GOPATH=$HOME/.go
 
-# Set terminal tabs width
-tabs -4
+tabs -4 # Terminal tabs width
+
+PATH_CANDIDATES=(
+    ".cargo/bin"
+    ".local/bin"
+    ".bin"
+)
+
+for CANDIDATE in $PATH_CANDIDATES; do
+    if [ -d "$HOME/$CANDIDATE" ]; then
+        export PATH=$HOME/$CANDIDATE:$PATH
+    fi
+done
 
 if [ ! "$DISPLAY" ] && [ "$(tty)" = '/dev/tty1' ]; then
     startx /usr/bin/i3 2>&1 > /dev/null
 fi
-
-CARGO_ENV="$HOME/.cargo/env"
-[ -f $CARGO_ENV ] && source $CARGO_ENV
 
 [ -f ~/.aliases ]   && . ~/.aliases
 [ -f ~/.functions ] && . ~/.functions

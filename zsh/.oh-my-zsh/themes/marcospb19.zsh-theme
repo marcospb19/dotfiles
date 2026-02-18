@@ -7,19 +7,19 @@ git="true"
 # Colors switch if you're root
 if [[ $USER != "root" ]]; then
     local PROMPT=' %{$fg[magenta]%}%~%{$reset_color%} '
-    local ret_status_color="%{$fg[red]%}"
 else
     local PROMPT=' %{$fg[red]%}%~%{$reset_color%} '
-    local ret_status_color="%{$fg[magenta]%}"
 fi
+
+local ret_status_color="%{$fg[magenta]%}"
 
 # Modify the colors and symbols in these variables as desired.
 local GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[white]%}["
 local GIT_PROMPT_SUFFIX="%{$reset_color%}%{$fg[white]%}]"
 local GIT_PROMPT_PREFIX2="%{$reset_color%}%{$fg[white]%}("
 local GIT_PROMPT_SUFFIX2="%{$reset_color%}%{$fg[white]%})"
-local GIT_PROMPT_AHEAD="%{$reset_color%}%{$fg[red]%}A"          # A"NUM"     - ahead by "NUM" commits
-local GIT_PROMPT_BEHIND="%{$reset_color%}%{$fg[cyan]%}B"        # B"NUM"     - behind by "NUM" commits
+local GIT_PROMPT_AHEAD="%{$reset_color%}%{$fg[red]%}A"        # A"NUM"     - ahead by "NUM" commits
+local GIT_PROMPT_BEHIND="%{$reset_color%}%{$fg[cyan]%}B"      # B"NUM"     - behind by "NUM" commits
 local GIT_PROMPT_MERGING="%{$reset_color%}%{$fg[magenta]%}⚡︎" # lightning  - merge conflict
 local GIT_PROMPT_UNTRACKED="%{$reset_color%}%{$fg[red]%}?"    # red `u`    - untracked files
 local GIT_PROMPT_MODIFIED="%{$reset_color%}%{$fg[yellow]%}±"  # yellow `m` - tracked files modified
@@ -30,59 +30,59 @@ parse_git_branch_and_offsets() {
     local final_result="$(
         git symbolic-ref -q HEAD \
             || git name-rev --name-only --no-undefined --always HEAD
-    )"
+        )"
 
-    # return early if there is no origin
-    if ! git remote get-url origin &> /dev/null; then
-        echo "$final_result - no origin"
-        return
-    fi
-
-    # ahead/behind, current branch compared to origin copy
-    local ahead_of_itself=""
-
-    local num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-    if [ "$num_ahead" -gt 0 ]; then
-        ahead_of_itself=$ahead_of_itself${GIT_PROMPT_AHEAD}${num_ahead}
-    fi
-    local num_behind="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-    if [ "$num_behind" -gt 0 ]; then
-        ahead_of_itself=$ahead_of_itself${GIT_PROMPT_BEHIND}${num_behind}
-    fi
-
-    local main_branch_name="$(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master")"
-
-    # return early if we are in the main branch
-    if [ "$final_result" = "refs/heads/$main_branch_name" ]; then
-        if [ $ahead_of_itself ]; then
-            final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}$ahead_of_itself"
+        # return early if there is no origin
+        if ! git remote get-url origin &> /dev/null; then
+            echo "$final_result - no origin"
+            return
         fi
+
+        # ahead/behind, current branch compared to origin copy
+        local ahead_of_itself=""
+
+        local num_ahead="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
+        if [ "$num_ahead" -gt 0 ]; then
+            ahead_of_itself=$ahead_of_itself${GIT_PROMPT_AHEAD}${num_ahead}
+        fi
+        local num_behind="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
+        if [ "$num_behind" -gt 0 ]; then
+            ahead_of_itself=$ahead_of_itself${GIT_PROMPT_BEHIND}${num_behind}
+        fi
+
+        local main_branch_name="$(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master")"
+
+        # return early if we are in the main branch
+        if [ "$final_result" = "refs/heads/$main_branch_name" ]; then
+            if [ $ahead_of_itself ]; then
+                final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}$ahead_of_itself"
+            fi
+            echo "$final_result"
+            return
+        fi
+
+        # ahead/behind, current branch compared to origin's main
+        local ahead_of_main=""
+
+        local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')"
+        local num_ahead=$(sed -n 1p <<< "$origin_main_distance")
+        if [ "$num_ahead" -gt 0 ]; then
+            ahead_of_main=$ahead_of_main${GIT_PROMPT_AHEAD}${num_ahead}
+        fi
+        local num_behind=$(sed -n 2p <<< "$origin_main_distance")
+        if [ "$num_behind" -gt 0 ]; then
+            ahead_of_main=$ahead_of_main${GIT_PROMPT_BEHIND}${num_behind}
+        fi
+
+        if [ $ahead_of_itself ]; then
+            final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}I$ahead_of_itself"
+        fi
+        if [ $ahead_of_main ]; then
+            final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}M$ahead_of_main"
+        fi
+
         echo "$final_result"
-        return
-    fi
-
-    # ahead/behind, current branch compared to origin's main
-    local ahead_of_main=""
-
-    local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')"
-    local num_ahead=$(sed -n 1p <<< "$origin_main_distance")
-    if [ "$num_ahead" -gt 0 ]; then
-        ahead_of_main=$ahead_of_main${GIT_PROMPT_AHEAD}${num_ahead}
-    fi
-    local num_behind=$(sed -n 2p <<< "$origin_main_distance")
-    if [ "$num_behind" -gt 0 ]; then
-        ahead_of_main=$ahead_of_main${GIT_PROMPT_BEHIND}${num_behind}
-    fi
-
-    if [ $ahead_of_itself ]; then
-        final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}I$ahead_of_itself"
-    fi
-    if [ $ahead_of_main ]; then
-        final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}M$ahead_of_main"
-    fi
-
-    echo "$final_result"
-}
+    }
 
 parse_git_state() {
     # Show different symbols as appropriate for various Git repository states
@@ -121,7 +121,7 @@ git_prompt_string() {
 last_error_code() {
     code="$?"
     if [ ! "$code" = "0" ]; then
-        echo "%{$fg[yellow]%}[${ret_status_color}${code}%{$fg[yellow]%}] "
+        echo "%{$fg[white]%}[${ret_status_color}${code}%{$fg[white]%}] "
     fi
 }
 

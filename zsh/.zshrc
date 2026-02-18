@@ -89,16 +89,3 @@ cat << EOF
       / '-----' \\
 
 EOF
-
-PATH_CANDIDATES=(
-    ".cargo/bin"
-    ".local/bin"
-    ".bin"
-)
-
-for CANDIDATE in $PATH_CANDIDATES; do
-    if [ -d "$HOME/$CANDIDATE" ]; then
-        export PATH=$HOME/$CANDIDATE:$PATH
-    fi
-done
-

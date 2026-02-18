@@ -1,38 +1,30 @@
 [general]
 live_config_reload = true
+import = [
+    "~/.config/alacritty/themes/themes/terafox.toml"
+]
+
+[window]
+dynamic_padding = true
+opacity = 0.6
 
 [colors]
 draw_bold_text_with_bright_colors = true
 
-[colors.cursor]
-cursor = "#ffaa62"
-text = "CellBackground"
-
-[colors.primary]
-background = "#161911"
-foreground = "#ddd3d7"
-
-[colors.vi_mode_cursor]
-cursor = "#ff2020"
-text = "CellBackground"
-
 [cursor]
 blink_interval = 500
-thickness = 0.2
+thickness = 0.25
 style = { blinking = "On", shape = "Beam" }
 
 [font.normal]
 family = "Iosevka"
 
 [font]
-size = 17
+size = 14
 
 [scrolling]
 history = 50000
 multiplier = 4
-
-[window]
-dynamic_padding = true
 
 [window.padding]
 x = 4

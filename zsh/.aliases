@@ -28,4 +28,6 @@ alias pyi="ipython"
 alias whiteboard="lorien"
 alias dragon='dragon-drop'
 
-alias paru='yay'
+alias mv='mv -i'
+alias cp='cp -i'
+alias d.='dolphin .'

@@ -2,8 +2,6 @@
 # https://github.com/marcospb19/dotfiles
 #
 
-exec_always --no-startup-id flameshot
-
 # Super key
 set $mod Mod4
 # Alt key
@@ -14,11 +12,11 @@ set $enter Return
 # Why is this highlighting broken, is this option no-op now?
 new_window pixel 2
 
-exec --no-startup-id ./.kb-layout-setter moao
-# bindsym $mod+u exec --no-startup-id ./.kb-layout-setter moao-colemak
-bindsym $mod+i exec --no-startup-id ./.kb-layout-setter br abnt2
-# bindsym $mod+o exec --no-startup-id ./.kb-layout-setter moao
-bindsym $mod+o exec --no-startup-id ./.kb-layout-setter us
+exec --no-startup-id ~/.scripts/kb-layout-setter moao
+# bindsym $mod+u exec --no-startup-id ~/.scripts/kb-layout-setter moao-colemak
+bindsym $mod+i exec --no-startup-id ~/.scripts/kb-layout-setter br abnt2
+# bindsym $mod+o exec --no-startup-id ~/.scripts/kb-layout-setter moao
+bindsym $mod+o exec --no-startup-id ~/.scripts/kb-layout-setter us
 
 bindsym $mod+c exec --no-startup-id dunstctl close-all
 
@@ -26,9 +24,11 @@ exec_always --no-startup-id xsetwacom --set 9 rotate half
 # Disable cause I've been experiencing crashes
 # exec_always --no-startup-id pkill glava && glava -d
 exec --no-startup-id sudo solaar
+exec_always --no-startup-id picom
 # exec --no-startup-id obsidian
 exec --no-startup-id qbittorrent
 exec --no-startup-id blueberry
+exec --no-startup-id ~/.fehbg
 
 exec --no-startup-id dunst
 exec --no-startup-id climsgd
@@ -86,6 +86,7 @@ bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
+exec --no-startup-id flameshot
 bindsym Print exec --no-startup-id flameshot gui
 # bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
 # bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh && notify-send "Screenshot copied to clipboard" "After waiting 3 seconds"
@@ -99,9 +100,15 @@ font pango:victor mono bold 8
 exec --no-startup-id nm-applet
 
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && climsg send polybar/update_volume $(sh ~/.get-volume.sh)
-bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && climsg send polybar/update_volume $(sh ./.get-volume.sh)
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send polybar/update_volume $(./.get-volume.sh)
+
+## TODO
+# Change it so that the below is a notify that triggers the script
+# executing on the other side, this way, the volume bar can trigger
+# the start value instead of waiting for me to change it for the first time
+## TODO
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -i 5 && climsg send polybar/update_volume $(sh ~/.scripts/get-volume.sh)
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -d 5 && climsg send polybar/update_volume $(sh ~/.scripts/get-volume.sh)
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && climsg send polybar/update_volume $(sh ~/.scripts/get-volume.sh)
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym $mod+F11 exec --no-startup-id ddcutil setvcp 10 - 10
@@ -127,10 +134,8 @@ bindsym $mod+$enter exec --no-startup-id alacritty
 bindsym $mod+s exec --no-startup-id google-chrome-stable
 bindsym $mod+a exec --no-startup-id dolphin
 bindsym $mod+n exec --no-startup-id spotify
-bindsym $mod+j exec --no-startup-id pavucontrol
-# # Disabled temporarily, fall back to pavucontrol
-# # cause `wpctl set-default ID` is failing with `ID is not a device node (media.class = Audio/Sink/Internal)` (even tho it is??? wat)
-# bindsym $mod+j exec --no-startup-id bash ~/.rofi-scripts/pipewire-select-sink.sh
+bindsym $mod+j exec --no-startup-id bash ~/.scripts/pipewire-select-sink.sh
+bindsym $mod+Shift+j exec --no-startup-id pavucontrol
 bindsym $mod+k exec --no-startup-id zeditor
 
 # Sticky window toggle
@@ -247,10 +252,10 @@ mode " resize " {
 
 # Theme colors
 # Class                 border  backgr. text    indic.  child_border
-client.focused          #bababa #bababa #bababa #bababa
-client.focused_inactive #7f7f7f #7f7f7f #7f7f7f #7f7f7f
-client.unfocused        #474747 #474747 #474747 #474747
-client.urgent           #eeeeee #eeeeee #eeeeee #eeeeee
+client.focused          #bbc9c8 #bbc9c8 #bbc9c8 #bbc9c8
+client.focused_inactive #587b7b #587b7b #587b7b #587b7b
+client.unfocused        #254147 #254147 #254147 #254147
+client.urgent           #e85c51 #e85c51 #e85c51 #e85c51
 
 # # Key bindings for managing multiple monitors:
 #

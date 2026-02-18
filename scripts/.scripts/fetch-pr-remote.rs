@@ -63,7 +63,7 @@ fn get_repo_name() -> String {
         bail("origin remote not set, is this repository valid?");
     };
 
-    let repo_name = origin.split('/').nth(1).unwrap();
+    let repo_name = origin.rsplit('/').next().unwrap();
     let repo_name = repo_name.split_whitespace().next().unwrap();
     let repo_name = repo_name.trim_end_matches(".git");
     repo_name.to_owned()
