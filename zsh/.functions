@@ -98,8 +98,6 @@ function upload() {
 	curl --data-binary @${file} https://paste.rs
 }
 
-bin_location=$(which git)
-
 function dup() {
     if [[ "$1" ]]; then
         for _ in {1.."$1"}; do
@@ -112,9 +110,9 @@ function dup() {
 
 function git() {
 	if [[ "$#" == 0 ]]; then
-		$bin_location status
+		command git status
 	else
-		$bin_location ${@:1}
+		command git "$@"
 	fi
 }
 

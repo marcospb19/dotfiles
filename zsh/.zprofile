@@ -10,12 +10,15 @@ export QT_STYLE_OVERRIDE=Adwaita-Dark
 export ZED_DEVELOPMENT_AUTH=1
 export GOPATH=$HOME/.go
 
-tabs -4 # Terminal tabs width
+if [[ -t 1 && "$TERM" != dumb ]]; then
+    tabs -4 # Terminal tabs width
+fi
 
 PATH_CANDIDATES=(
     ".cargo/bin"
     ".local/bin"
     ".bin"
+    ".go/bin"
 )
 
 for CANDIDATE in $PATH_CANDIDATES; do

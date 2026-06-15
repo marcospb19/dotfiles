@@ -89,3 +89,15 @@ cat << EOF
       / '-----' \\
 
 EOF
+
+export PATH="$HOME/.npm-global/bin:$PATH"
+# pnpm
+export PNPM_HOME="/home/marcospb19/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# opencode
+export PATH=/home/marcospb19/.opencode/bin:$PATH

@@ -4,7 +4,7 @@
     "bindings": {
       "ctrl-alt-down": "editor::DuplicateLineDown",
       "ctrl-alt-up": "editor::DuplicateLineUp",
-      // "alt-r": "git::Restore",
+      "alt-r": "git::Restore",
 
       "ctrl-q": null,
       "ctrl-alt-b": "editor::ToggleBreakpoint",
@@ -125,8 +125,8 @@
       "ctrl--": ["zed::DecreaseBufferFontSize", { "persist": true }],
       "ctrl-alt-=": ["zed::IncreaseUiFontSize", { "persist": true }],
       "ctrl-alt-+": ["zed::IncreaseUiFontSize", { "persist": true }],
-      "ctrl-alt--": ["zed::DecreaseUiFontSize", { "persist": true }]
-    }
+      "ctrl-alt--": ["zed::DecreaseUiFontSize", { "persist": true }],
+    },
   },
   {
     "context": "Editor",
@@ -136,12 +136,19 @@
       "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
       "alt-shift-d": ["editor::SelectPrevious", { "replace_newest": true }],
 
-      "alt-shift-up": "editor::ExpandExcerptsUp",
-      "alt-shift-down": "editor::ExpandExcerptsDown",
+      "alt-shift-up": null,
+      "alt-shift-down": null,
 
       "alt-up": "editor::AddSelectionAbove",
-      "alt-down": "editor::AddSelectionBelow"
-    }
+      "alt-down": "editor::AddSelectionBelow",
+    },
+  },
+  {
+    "context": "Editor && multibuffer",
+    "bindings": {
+      "alt-shift-up": "editor::ExpandExcerptsUp",
+      "alt-shift-down": "editor::ExpandExcerptsDown",
+    },
   },
   {
     "context": "BufferSearchBar || ProjectSearchBar",
@@ -150,90 +157,96 @@
       "alt-e": "search::ToggleSelection",
       "alt-r": "search::ToggleRegex",
       "alt-enter": "search::SelectAllMatches",
-      "alt-f": "search::SelectAllMatches"
-    }
+      "alt-f": "search::SelectAllMatches",
+    },
   },
   {
     "context": "BufferSearchBar && in_replace > Editor",
     "bindings": {
       "enter": "search::ReplaceNext",
-      "alt-enter": "search::ReplaceAll"
-    }
+      "alt-enter": "search::ReplaceAll",
+    },
   },
   {
     "context": "!ProjectSearchBar && !BufferSearchBar && Diagnostics",
     "bindings": {
-      "ctrl-e": "diagnostics::ToggleWarnings"
-    }
+      "ctrl-e": "diagnostics::ToggleWarnings",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
       "ctrl-tab": "pane::ActivateNextItem",
-      "ctrl-shift-tab": "pane::ActivatePreviousItem"
-    }
+      "ctrl-shift-tab": "pane::ActivatePreviousItem",
+    },
   },
   {
-    "context": "Editor && edit_prediction_conflict",
+    "context": "Editor && edit_prediction",
     "bindings": {
-      "tab": "editor::AcceptEditPrediction"
-    }
+      "tab": "editor::AcceptEditPrediction",
+    },
   },
   {
     "context": "!BufferSearchBar",
     "bindings": {
       // "alt-e": "workspace::ToggleZoom",
-      "alt-n": "git::UnstageAndNext"
-    }
+      "alt-n": "git::UnstageAndNext",
+    },
   },
   {
     "context": "!(AgentPanel > MessageEditor > Editor)",
     "bindings": {
-      "ctrl-i": "editor::ShowEditPrediction"
-    }
+      "ctrl-i": "editor::ShowEditPrediction",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-k shift-up": null
-    }
+      "ctrl-k shift-up": null,
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-k shift-down": null
-    }
+      "ctrl-k shift-down": null,
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-k shift-left": null
-    }
+      "ctrl-k shift-left": null,
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-k shift-right": null
-    }
+      "ctrl-k shift-right": null,
+    },
   },
   {
     "bindings": {
-      "ctrl-k shift-up": "pane::SplitAndMoveUp"
-    }
+      "ctrl-k shift-up": "pane::SplitAndMoveUp",
+    },
   },
   {
     "bindings": {
-      "ctrl-k shift-down": "pane::SplitAndMoveDown"
-    }
+      "ctrl-k shift-down": "pane::SplitAndMoveDown",
+    },
   },
   {
     "bindings": {
-      "ctrl-k shift-left": "pane::SplitAndMoveLeft"
-    }
+      "ctrl-k shift-left": "pane::SplitAndMoveLeft",
+    },
   },
   {
     "bindings": {
-      "ctrl-k shift-right": "pane::SplitAndMoveRight"
-    }
-  }
+      "ctrl-k shift-right": "pane::SplitAndMoveRight",
+    },
+  },
+  {
+    "context": "(Editor && !agent_diff)",
+    "bindings": {
+      "alt-z alt-z": "git::Restore",
+    },
+  },
 ]

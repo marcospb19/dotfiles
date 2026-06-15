@@ -4,6 +4,7 @@
 [core]
     editor = nvim
     pager = "delta --dark --syntax-theme=base16"
+	hooksPath = /home/marcospb19/.config/git/hooks
 [delta]
     line-numbers = true
 [url "ssh://git@github.com/"]

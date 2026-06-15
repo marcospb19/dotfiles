@@ -1,12 +1,28 @@
 {
+  "sticky_scroll": {
+    "enabled": false
+  },
+  "prettier": {
+    "parser": "",
+  },
+  "cli_default_open_behavior": "new_window",
+  "git_panel": {
+    "dock": "left",
+  },
+  "agent_servers": {
+    "pi-acp": {
+      "type": "registry",
+    },
+  },
+  "diff_view_style": "split",
   "minimap": {
     "max_width_columns": 80,
     "current_line_highlight": "line",
     "thumb_border": "full",
-    "show": "auto",
+    "show": "never",
   },
   "colorize_brackets": true,
-  "disable_ai": false,
+  "disable_ai": true,
   "auto_update": false,
   "centered_layout": {
     "left_padding": 0.125,
@@ -40,8 +56,8 @@
   "vim_mode": false,
   "theme": {
     "mode": "dark",
-    "light": "Dawnfox - opaque",
-    "dark": "Terafox - blurred",
+    "light": "Dawnfox - blurred",
+    "dark": "Terafox - opaque",
   },
   "buffer_font_family": "Iosevka",
   "ui_font_family": "Iosevka",
@@ -49,10 +65,10 @@
   "soft_wrap": "editor_width",
   "base_keymap": "SublimeText",
   "ui_font_size": 14.0,
-  "buffer_font_size": 17.0,
+  "buffer_font_size": 18.0,
   "buffer_font_weight": 600,
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Zed (Default)",
     "dark": "Zed (Default)",
   },
@@ -61,6 +77,9 @@
     "mode": "subtle",
   },
   "languages": {
+    "Rust": {
+      "show_edit_predictions": true,
+    },
     "TypeScript": {
       "tab_size": 4,
     },
@@ -74,14 +93,26 @@
     "Markdown": {
       "show_edit_predictions": false,
     },
+    "CSS": {
+      "format_on_save": "off",
+    },
+    "TSX": {
+      "format_on_save": "off",
+    },
+    "JavaScript": {
+      "format_on_save": "off",
+    },
   },
   "toolbar": {
+    "breadcrumbs": true,
     "quick_actions": true,
     "selections_menu": false,
   },
   "agent": {
+    "tool_permissions": {
+      "default": "allow",
+    },
     "dock": "right",
-    "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
       "model": "claude-3-7-sonnet",
@@ -89,7 +120,7 @@
     },
   },
   "current_line_highlight": "all",
-  "expand_excerpt_lines": 5,
+  "expand_excerpt_lines": 3,
   "inlay_hints": {
     "show_background": true,
     "toggle_on_modifiers_press": {
@@ -98,6 +129,9 @@
     },
   },
   "git": {
+    "gutter_debounce": 0,
+    "disable_git": false,
+    "enable_status": true,
     "inline_blame": {
       "enabled": false,
     },

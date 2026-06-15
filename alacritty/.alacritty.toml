@@ -6,7 +6,7 @@ import = [
 
 [window]
 dynamic_padding = true
-opacity = 0.6
+opacity = 0.95
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -20,7 +20,7 @@ style = { blinking = "On", shape = "Beam" }
 family = "Iosevka"
 
 [font]
-size = 14
+size = 12
 
 [scrolling]
 history = 50000

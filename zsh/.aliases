@@ -30,4 +30,4 @@ alias dragon='dragon-drop'
 
 alias mv='mv -i'
 alias cp='cp -i'
-alias d.='dolphin .'
+alias oc='opencode'

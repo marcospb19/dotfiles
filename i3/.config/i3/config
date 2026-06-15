@@ -17,9 +17,10 @@ exec --no-startup-id ~/.scripts/kb-layout-setter moao
 bindsym $mod+i exec --no-startup-id ~/.scripts/kb-layout-setter br abnt2
 # bindsym $mod+o exec --no-startup-id ~/.scripts/kb-layout-setter moao
 bindsym $mod+o exec --no-startup-id ~/.scripts/kb-layout-setter us
-
+bindsym $mod+p focus parent
 bindsym $mod+c exec --no-startup-id dunstctl close-all
 
+# exec_always --no-startup-id pkill menta ; menta
 exec_always --no-startup-id xsetwacom --set 9 rotate half
 # Disable cause I've been experiencing crashes
 # exec_always --no-startup-id pkill glava && glava -d
@@ -28,8 +29,9 @@ exec_always --no-startup-id picom
 # exec --no-startup-id obsidian
 exec --no-startup-id qbittorrent
 exec --no-startup-id blueberry
-exec --no-startup-id ~/.fehbg
+# exec --no-startup-id ~/.fehbg
 
+exec --no-startup-id sunshine
 exec --no-startup-id dunst
 exec --no-startup-id climsgd
 
@@ -87,7 +89,8 @@ bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
 exec --no-startup-id flameshot
-bindsym Print exec --no-startup-id flameshot gui
+# bindsym Print exec --no-startup-id flameshot gui
+bindsym Print exec --no-startup-id scrot -s /tmp/screenshot.png && dragon /tmp/screenshot.png
 # bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
 # bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh && notify-send "Screenshot copied to clipboard" "After waiting 3 seconds"
 
@@ -131,12 +134,14 @@ bindsym $mod+Shift+$enter exec --no-startup-id cool-retro-term
 bindsym $mod+$enter exec --no-startup-id alacritty
 
 # Open applications
-bindsym $mod+s exec --no-startup-id google-chrome-stable
+bindsym $mod+s exec --no-startup-id google-chrome-stable --profile-directory=Default
+bindsym $mod+Shift+s exec --no-startup-id google-chrome-stable --profile-directory="Profile 1"
 bindsym $mod+a exec --no-startup-id dolphin
 bindsym $mod+n exec --no-startup-id spotify
 bindsym $mod+j exec --no-startup-id bash ~/.scripts/pipewire-select-sink.sh
 bindsym $mod+Shift+j exec --no-startup-id pavucontrol
 bindsym $mod+k exec --no-startup-id zeditor
+bindsym $mod+Shift+k exec --no-startup-id zeditor -n
 
 # Sticky window toggle
 bindsym $mod+x sticky toggle
@@ -233,7 +238,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace
-# bindsym $mod+Shift+r exec --no-startup-id ~/.fehbg && i3-msg restart && ~/.config/polybar/launch.sh
 bindsym $mod+Shift+r exec --no-startup-id i3-msg restart && ~/.config/polybar/launch.sh
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"

@@ -50,10 +50,15 @@ parse_git_branch_and_offsets() {
             ahead_of_itself=$ahead_of_itself${GIT_PROMPT_BEHIND}${num_behind}
         fi
 
-        local main_branch_name="$(git show-ref --verify --quiet refs/heads/main && echo "main" || echo "master")"
+        local main_branch_name=""
+        if git show-ref --verify --quiet refs/remotes/origin/main || git show-ref --verify --quiet refs/heads/main; then
+            main_branch_name="main"
+        elif git show-ref --verify --quiet refs/remotes/origin/master || git show-ref --verify --quiet refs/heads/master; then
+            main_branch_name="master"
+        fi
 
-        # return early if we are in the main branch
-        if [ "$final_result" = "refs/heads/$main_branch_name" ]; then
+        # return early if we are in the main branch, or if the repo has no main/master yet
+        if [ -z "$main_branch_name" ] || [ "$final_result" = "refs/heads/$main_branch_name" ]; then
             if [ $ahead_of_itself ]; then
                 final_result="$final_result%{$fg_bold[grey]%}|%{$reset%}$ahead_of_itself"
             fi
@@ -61,17 +66,19 @@ parse_git_branch_and_offsets() {
             return
         fi
 
-        # ahead/behind, current branch compared to origin's main
+        # ahead/behind, current branch compared to origin's main/master (only if it exists)
         local ahead_of_main=""
 
-        local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name | tr '\t' '\n')"
-        local num_ahead=$(sed -n 1p <<< "$origin_main_distance")
-        if [ "$num_ahead" -gt 0 ]; then
-            ahead_of_main=$ahead_of_main${GIT_PROMPT_AHEAD}${num_ahead}
-        fi
-        local num_behind=$(sed -n 2p <<< "$origin_main_distance")
-        if [ "$num_behind" -gt 0 ]; then
-            ahead_of_main=$ahead_of_main${GIT_PROMPT_BEHIND}${num_behind}
+        if git rev-parse --verify --quiet "origin/$main_branch_name" > /dev/null; then
+            local origin_main_distance="$(git rev-list --left-right --count HEAD...origin/$main_branch_name 2> /dev/null | tr '\t' '\n')"
+            local num_ahead=$(sed -n 1p <<< "$origin_main_distance")
+            if [ "$num_ahead" -gt 0 ]; then
+                ahead_of_main=$ahead_of_main${GIT_PROMPT_AHEAD}${num_ahead}
+            fi
+            local num_behind=$(sed -n 2p <<< "$origin_main_distance")
+            if [ "$num_behind" -gt 0 ]; then
+                ahead_of_main=$ahead_of_main${GIT_PROMPT_BEHIND}${num_behind}
+            fi
         fi
 
         if [ $ahead_of_itself ]; then
