@@ -102,7 +102,7 @@ parse_git_state() {
     if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
         GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
     fi
-    if ! git diff --quiet 2> /dev/null; then
+    if ! git diff-files --quiet 2> /dev/null; then
         GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
     fi
     if ! git diff --cached --quiet 2> /dev/null; then
