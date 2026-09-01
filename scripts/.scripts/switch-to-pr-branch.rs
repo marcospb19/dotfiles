@@ -1,3 +1,5 @@
+#!/usr/bin/env -S cargo +nightly -Zscript -q
+
 use std::{env::args, process::Command};
 
 fn main() {
@@ -17,8 +19,11 @@ fn main() {
     println!("New `pr` remote URL: {new_url}");
     println!();
 
-    run_git(&["remote", "set-url", "pr", &new_url]);
-    run_git(&["fetch", "pr"]);
+    run_git(&["remote", "add", "pr", &new_url])
+        .or_else(|_| run_git(&["remote", "set-url", "pr", &new_url]))
+        .unwrap_or_else(|error| bail(&error));
+
+    run_git(&["fetch", "pr"]).unwrap_or_else(|error| bail(&error));
 
     if branch == "main" || branch == "master" {
         println!(
@@ -27,7 +32,9 @@ fn main() {
         return;
     }
 
-    run_git(&["switch", branch]);
+    let remote_branch = format!("pr/{branch}");
+    run_git(&["switch", "--track", &remote_branch])
+        .unwrap_or_else(|error| bail(&error));
 }
 
 fn get_repo_name() -> String {
@@ -74,15 +81,19 @@ fn bail(message: &str) -> ! {
     std::process::exit(1)
 }
 
-fn run_git(args: &[&str]) {
-    println!("- SHELL: git {}", args.join(" "));
+fn run_git(args: &[&str]) -> Result<(), String> {
+    let command = format!("git {}", args.join(" "));
+    println!("- SHELL: {command}");
 
-    let Ok(status) = Command::new("git").args(args).status() else {
-        bail("failed to run command.");
-    };
-
-    if !status.success() {
-        eprintln!("❌ Command failed: git {}", args.join(" "));
-    }
+    let status = Command::new("git")
+        .args(args)
+        .status()
+        .map_err(|error| format!("failed to run `{command}`: {error}"))?;
     println!();
+
+    if status.success() {
+        Ok(())
+    } else {
+        Err(format!("❌ Command failed: {command}"))
+    }
 }

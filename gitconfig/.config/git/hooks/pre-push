@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+# (sleep 15 && pkill menta ; rm ~/.contributions.json ; menta > /dev/null) &!

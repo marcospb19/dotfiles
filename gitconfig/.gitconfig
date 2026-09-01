@@ -4,7 +4,6 @@
 [core]
     editor = nvim
     pager = "delta --dark --syntax-theme=base16"
-	hooksPath = /home/marcospb19/.config/git/hooks
 [delta]
     line-numbers = true
 [url "ssh://git@github.com/"]
@@ -27,3 +26,8 @@
     difftool = true
 [alias]
     dif = difftool
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -95,6 +95,7 @@ parse_git_state() {
     # Show different symbols as appropriate for various Git repository states
     # Compose this value via multiple conditional appends.
     local GIT_STATE=""
+    git update-index -q --refresh > /dev/null 2>&1
     local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
     if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
         GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING

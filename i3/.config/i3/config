@@ -1,4 +1,4 @@
-#
+
 # https://github.com/marcospb19/dotfiles
 #
 
@@ -13,6 +13,8 @@ set $enter Return
 new_window pixel 2
 
 exec --no-startup-id ~/.scripts/kb-layout-setter moao
+exec --no-startup-id snixembed
+exec --no-startup-id flameshot
 # bindsym $mod+u exec --no-startup-id ~/.scripts/kb-layout-setter moao-colemak
 bindsym $mod+i exec --no-startup-id ~/.scripts/kb-layout-setter br abnt2
 # bindsym $mod+o exec --no-startup-id ~/.scripts/kb-layout-setter moao
@@ -26,6 +28,7 @@ exec_always --no-startup-id xsetwacom --set 9 rotate half
 # exec_always --no-startup-id pkill glava && glava -d
 exec --no-startup-id sudo solaar
 exec_always --no-startup-id picom
+exec --no-startup-id sh ~/.scripts/run-nest3.sh
 # exec --no-startup-id obsidian
 exec --no-startup-id qbittorrent
 exec --no-startup-id blueberry
@@ -88,9 +91,9 @@ bindsym $mod+l exec --no-startup-id betterlockscreen -l dimblur
 
 # # Screenshot shit
 exec --no-startup-id xfce4-clipman
-exec --no-startup-id flameshot
 # bindsym Print exec --no-startup-id flameshot gui
-bindsym Print exec --no-startup-id scrot -s /tmp/screenshot.png && dragon /tmp/screenshot.png
+
+bindsym Print exec --no-startup-id flameshot gui
 # bindsym Print exec --no-startup-id ~/.scripts/screenshot.sh
 # bindsym Shift+Print exec --no-startup-id sleep 3 && ~/.scripts/screenshot.sh && notify-send "Screenshot copied to clipboard" "After waiting 3 seconds"
 
@@ -155,7 +158,7 @@ bindsym $mod+q kill
 
 # # Start dmenu program launcher
 # bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Victor Mono Medium'
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # Alternatively, you can use the cursor keys:
 # bindsym $mod+h focus left
@@ -256,9 +259,9 @@ mode " resize " {
 
 # Theme colors
 # Class                 border  backgr. text    indic.  child_border
-client.focused          #bbc9c8 #bbc9c8 #bbc9c8 #bbc9c8
-client.focused_inactive #587b7b #587b7b #587b7b #587b7b
-client.unfocused        #254147 #254147 #254147 #254147
+client.focused          #666666 #bbc9c8 #bbc9c8 #bbc9c8
+client.focused_inactive #bbbbbb #587b7b #587b7b #587b7b
+client.unfocused        #eeeeee #254147 #254147 #254147
 client.urgent           #e85c51 #e85c51 #e85c51 #e85c51
 
 # # Key bindings for managing multiple monitors:

@@ -124,6 +124,20 @@ function fetch-pr-remote() {
     rs -q ~/.scripts/fetch-pr-remote.rs $1
 }
 
+function n() {
+    pick=$(fd --type directory | fzf)
+	if [[ "$#" == 0 && ! -z $pick ]]; then
+		nvim $pick
+	fi
+}
+
+function na() {
+    pick=$(fd --hidden --type directory | fzf)
+	if [[ "$#" == 0 && ! -z $pick ]]; then
+		nvim $pick
+	fi
+}
+
 function c() {
     pick=$(fd --type directory | fzf)
 	if [[ "$#" == 0 && ! -z $pick ]]; then

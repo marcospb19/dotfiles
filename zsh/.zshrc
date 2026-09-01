@@ -81,14 +81,14 @@ export LESS=-r
 #
 #
 # EOF
-cat << EOF
-
-        _~^~^~_
-    \) /  o o  \ (/
-      (_   ¬   _)
-      / '-----' \\
-
-EOF
+# cat << EOF
+# 
+#         _~^~^~_
+#     \) /  o o  \ (/
+#       (_   ¬   _)
+#       / '-----' \\
+# 
+# EOF
 
 export PATH="$HOME/.npm-global/bin:$PATH"
 # pnpm
@@ -101,3 +101,8 @@ esac
 
 # opencode
 export PATH=/home/marcospb19/.opencode/bin:$PATH
+export OPENCODE_ENABLE_EXA=1
+# zig
+export PATH=/home/marcospb19/.zvm/bin:$PATH
+# some personal scripts
+export PATH=/home/marcospb19/.scripts:$PATH
