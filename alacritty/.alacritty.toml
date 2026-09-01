@@ -17,10 +17,10 @@ thickness = 0.25
 style = { blinking = "On", shape = "Beam" }
 
 [font.normal]
-family = "Iosevka"
+family = "Iosevka Term"
 
 [font]
-size = 12
+size = 13
 
 [scrolling]
 history = 50000
