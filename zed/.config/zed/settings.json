@@ -46,6 +46,9 @@
   },
   "selection_highlight": true,
   "diagnostics": {
+    "lsp_pull_diagnostics": {
+      "debounce_ms": 100
+    },
     "inline": {
       "enabled": true,
       "padding": 3,
@@ -57,7 +60,7 @@
   "theme": {
     "mode": "dark",
     "light": "Dawnfox - blurred",
-    "dark": "Terafox - opaque",
+    "dark": "Rosé Pine Moon",
   },
   "buffer_font_family": "Iosevka",
   "ui_font_family": "Iosevka",
@@ -65,10 +68,10 @@
   "soft_wrap": "editor_width",
   "base_keymap": "SublimeText",
   "ui_font_size": 14.0,
-  "buffer_font_size": 18.0,
+  "buffer_font_size": 19.0,
   "buffer_font_weight": 600,
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Zed (Default)",
   },
@@ -77,9 +80,6 @@
     "mode": "subtle",
   },
   "languages": {
-    "Rust": {
-      "show_edit_predictions": true,
-    },
     "TypeScript": {
       "tab_size": 4,
     },
@@ -92,15 +92,6 @@
     },
     "Markdown": {
       "show_edit_predictions": false,
-    },
-    "CSS": {
-      "format_on_save": "off",
-    },
-    "TSX": {
-      "format_on_save": "off",
-    },
-    "JavaScript": {
-      "format_on_save": "off",
     },
   },
   "toolbar": {

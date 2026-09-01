@@ -46,7 +46,7 @@
       "alt-=": "pane::GoForward",
       "ctrl-shift-b": "workspace::ToggleRightDock",
       "ctrl-k ctrl-t": "editor::ConvertToTitleCase",
-      "ctrl-~": "terminal_panel::ToggleFocus",
+      "ctrl-`": "terminal_panel::ToggleFocus",
       "ctrl-shift-space": "vim::SelectLargerSyntaxNode", // doesn't work https://github.com/zed-industries/zed/issues/26261
       "ctrl-f12": "editor::GoToTypeDefinition",
 
@@ -131,6 +131,13 @@
   {
     "context": "Editor",
     "bindings": {
+      "f2": "editor::GoToNextBookmark",
+      "shift-f2": "editor::GoToPreviousBookmark",
+      "alt-f2": "editor::ToggleBookmark",
+      "ctrl-f2": "editor::ViewBookmarks",
+      "ctrl-k f2": "editor::ViewBookmarks",
+      "ctrl-k ctrl-f2": "editor::ViewBookmarks",
+
       "ctrl-d": ["editor::SelectNext", { "replace_newest": false }],
       "alt-d": ["editor::SelectNext", { "replace_newest": true }],
       "ctrl-shift-d": ["editor::SelectPrevious", { "replace_newest": false }],
@@ -249,4 +256,16 @@
       "alt-z alt-z": "git::Restore",
     },
   },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-~": "terminal_panel::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-`": "terminal_panel::Toggle"
+    }
+  }
 ]
