@@ -19,9 +19,12 @@ fn main() {
     println!("New `pr` remote URL: {new_url}");
     println!();
 
-    run_git(&["remote", "add", "pr", &new_url])
-        .or_else(|_| run_git(&["remote", "set-url", "pr", &new_url]))
-        .unwrap_or_else(|error| bail(&error));
+    if let Err(error) = run_git(&["remote", "add", "pr", &new_url]) {
+        eprintln!("{error}");
+        println!("The `pr` remote is already set up; trying `set-url` instead.");
+        println!();
+        run_git(&["remote", "set-url", "pr", &new_url]).unwrap_or_else(|error| bail(&error));
+    }
 
     run_git(&["fetch", "pr"]).unwrap_or_else(|error| bail(&error));
 
@@ -29,12 +32,12 @@ fn main() {
         println!(
             "branch name is {branch}, there are multiple branches with this name, not switching"
         );
-        return;
+    } else {
+        let remote_branch = format!("pr/{branch}");
+        run_git(&["switch", "--track", &remote_branch]).unwrap_or_else(|error| bail(&error));
     }
 
-    let remote_branch = format!("pr/{branch}");
-    run_git(&["switch", "--track", &remote_branch])
-        .unwrap_or_else(|error| bail(&error));
+    println!("Done.");
 }
 
 fn get_repo_name() -> String {
@@ -88,12 +91,12 @@ fn run_git(args: &[&str]) -> Result<(), String> {
     let status = Command::new("git")
         .args(args)
         .status()
-        .map_err(|error| format!("failed to run `{command}`: {error}"))?;
-    println!();
-
+        .map_err(|error| format!("ERROR: failed to run `{command}`: {error}"))?;
     if status.success() {
+        println!("SUCCESS: {command}");
+        println!();
         Ok(())
     } else {
-        Err(format!("❌ Command failed: {command}"))
+        Err(format!("ERROR: {command}"))
     }
 }
