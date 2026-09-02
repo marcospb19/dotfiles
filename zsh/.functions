@@ -117,7 +117,12 @@ function git() {
 }
 
 function mkv2mp4() {
-	ffmpeg -y -i $1 -codec copy /tmp/a.mp4 && dragon /tmp/a.mp4
+	[[ -n "$1" ]] || { echo "Usage: mkv2mp4 FILE" >&2; return 1; }
+
+	local input="$1"
+	local output="/tmp/${input:t:r}.mp4"
+
+	ffmpeg -y -i "$input" -codec copy "$output" && dragon "$output"
 }
 
 function fetch-pr-remote() {
