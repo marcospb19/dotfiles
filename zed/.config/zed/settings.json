@@ -1,6 +1,6 @@
 {
   "sticky_scroll": {
-    "enabled": false
+    "enabled": false,
   },
   "prettier": {
     "parser": "",
@@ -22,7 +22,7 @@
     "show": "never",
   },
   "colorize_brackets": true,
-  "disable_ai": true,
+  "disable_ai": false,
   "auto_update": false,
   "centered_layout": {
     "left_padding": 0.125,
@@ -47,7 +47,7 @@
   "selection_highlight": true,
   "diagnostics": {
     "lsp_pull_diagnostics": {
-      "debounce_ms": 100
+      "debounce_ms": 100,
     },
     "inline": {
       "enabled": true,
@@ -80,6 +80,9 @@
     "mode": "subtle",
   },
   "languages": {
+    "Rust": {
+      "language_servers": ["rust-glancer", "!rust-analyzer"],
+    },
     "TypeScript": {
       "tab_size": 4,
     },
@@ -106,7 +109,9 @@
     "dock": "right",
     "default_profile": "write",
     "default_model": {
-      "model": "claude-3-7-sonnet",
+      "effort": "medium",
+      "enable_thinking": true,
+      "model": "gpt-5.6-luna",
       "provider": "zed.dev",
     },
   },
