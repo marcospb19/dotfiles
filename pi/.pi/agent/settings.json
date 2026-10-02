@@ -1,0 +1,40 @@
+{
+  "packages": [
+    "npm:pi-opencode-theme",
+    "npm:@victor-software-house/pi-curated-themes",
+    "npm:awesome-pi-themes",
+    "npm:pi-simplify",
+    "npm:pi-invisible-continue",
+    "npm:pi-scroll-speed",
+    "npm:pi-context-view",
+    "npm:pi-workspace-history",
+    "/home/marcospb19/.pi/agent/local/pi-subagents",
+    "local/pi-web-access",
+    "npm:pi-shift-thinking"
+  ],
+  "lastChangelogVersion": "1.0.0",
+  "theme": "opal-matrix",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "openai-codex/gpt-5.6-terra",
+  "modelThinkingLevels": {
+      "openai-codex/gpt-6-luna": "high"
+  },
+  "enabledModels": [
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6.1-sol"
+  ],
+  "fullscreenScrollbar": "hidden",
+  "tuiMode": "fullscreen",
+  "treeFilterMode": "no-tools",
+  "quietStartup": true,
+  "collapseChangelog": true,
+  "showCacheMissNotices": true,
+  "hideThinkingBlock": true,
+  "externalEditor": "zed --foreground",
+  "steeringMode": "all",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "fullscreenExitOutput": "transcript",
+  "defaultThinkingLevel": "medium"
+}
